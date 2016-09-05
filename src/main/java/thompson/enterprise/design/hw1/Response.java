@@ -3,7 +3,13 @@ package thompson.enterprise.design.hw1;
 public class Response {
 
     public String respondToGreeting(Greeting greeting){
-        return "";
+        if(greeting.equals(Greeting.HELLO)){
+            return "Hi";
+        } else if(greeting.equals(Greeting.GREETING)){
+            return "Salutations";
+        } else{
+            return "Sorry, I didn't hear you";
+        }
     }
 
     public String respondToHowAreYou(Feeling feeling){
