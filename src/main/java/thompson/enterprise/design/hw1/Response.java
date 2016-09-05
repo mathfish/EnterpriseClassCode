@@ -13,7 +13,11 @@ public class Response {
     }
 
     public String respondToHowAreYou(Feeling feeling){
-        return "";
+        switch (feeling){
+            case FINE: return "I'm glad to hear that";
+            case TIRED: return "Maybe you should take a vacation";
+            default: return "I'm not familiar with that condition. Is it serious?";
+        }
     }
 
     public String respondToHowIsTheWeather(int temp, SkyCondition skyCondition){
