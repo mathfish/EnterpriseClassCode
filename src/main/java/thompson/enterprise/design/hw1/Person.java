@@ -3,7 +3,7 @@ package thompson.enterprise.design.hw1;
 import java.time.LocalDate;
 
 /**
- * Created by jonathanthompson on 9/4/16.
+ * Class used in Response methods. Used as a data structure for first name, sex, birth date, and anniversary.
  */
 public class Person {
     private String firstName;

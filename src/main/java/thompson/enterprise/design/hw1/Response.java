@@ -4,6 +4,10 @@ import java.time.LocalDate;
 
 public class Response {
 
+    /**
+     * Receives Greeting class and will return appropriate response String.
+     * If Greeting enum is not HELLO or GREETING will respond with defualt message
+     */
     public String respondToGreeting(Greeting greeting){
         if(greeting.equals(Greeting.HELLO)){
             return "Hi";
@@ -14,6 +18,10 @@ public class Response {
         }
     }
 
+    /**
+     * Receives Feeling enum and will return response based upon Feeling enum. If enum is not reconized, will
+     * return default message
+     */
     public String respondToHowAreYou(Feeling feeling){
         switch (feeling){
             case FINE: return "I'm glad to hear that";
@@ -22,6 +30,10 @@ public class Response {
         }
     }
 
+    /**
+     * Receives temperature int and a SkyCondition enum. Based upon both, will return response.
+     * Will return a default message case is not met.
+     */
     public String respondToHowIsTheWeather(int temp, SkyCondition skyCondition){
         switch(skyCondition){
             case SUNNY:
@@ -35,14 +47,23 @@ public class Response {
         }
     }
 
+    /**
+     * Receives a person class. Will return responses that are gender appropriate and uses name attribute from Person.
+     * Will add to response birthday or anniversary message if either occurred 14 days before or will occur with 14 days
+     * of the current date. If both, response will combine messages. If neither occur, will return a default message.
+     */
     public String respondHowIsYourSpouse(Person person){
         String response="";
         int dayOfYear = LocalDate.now().getDayOfYear();
         int birthDayOfYear = person.getBirthdate().getDayOfYear();
         int anninversaryDayOfYear = person.getAnniversary().getDayOfYear();
+        //Check if birthday within next 14 days, including today
         boolean bDayComing = birthDayOfYear - dayOfYear >=0 && birthDayOfYear - dayOfYear <= 14;
+        //Check if birthday happened in past 14 days, not including today
         boolean bDayPast = dayOfYear - birthDayOfYear > 0 && dayOfYear -birthDayOfYear <= 14;
+        //Check if anniversary within next 14 days, including today
         boolean annDayComing = anninversaryDayOfYear - dayOfYear >=0 && anninversaryDayOfYear - dayOfYear <= 14;
+        //Check if anniversary happened in past 14 days, not including today
         boolean annDayPast = dayOfYear - anninversaryDayOfYear > 0 && dayOfYear - anninversaryDayOfYear <= 14;
 
         if(bDayComing){
