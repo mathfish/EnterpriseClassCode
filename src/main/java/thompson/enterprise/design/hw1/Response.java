@@ -21,7 +21,16 @@ public class Response {
     }
 
     public String respondToHowIsTheWeather(int temp, SkyCondition skyCondition){
-        return "";
+        switch(skyCondition){
+            case SUNNY:
+                return temp > 70 ? "It's beautiful out today - warm and sunny" :
+                        "It's sunny out, but a little cooler than I'd like";
+            case RAINY:
+                return temp > 70 ? "It's rainy, but at least it's warm out!" :
+                        "It's rainy and chilly, a good day to stay inside";
+            default:
+                return "Not sure about this weather";
+        }
     }
 
     public String respondHowIsYourSpouse(Person person){
