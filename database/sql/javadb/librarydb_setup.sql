@@ -173,6 +173,7 @@ CREATE TABLE reservation(
                         branchbookid INT,
                         branchcdid INT,
                         branchdvdid INT,
+                        forbranchid INT NOT NULL,
                         date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                         fulfilled BOOLEAN DEFAULT false,
                         CONSTRAINT fk_reservation_patron FOREIGN KEY(patronid) REFERENCES patron(patronid),
@@ -180,7 +181,8 @@ CREATE TABLE reservation(
                         CONSTRAINT fk_reservation_branchcd FOREIGN KEY(branchcdid) REFERENCES branchcd(branchcdid),
                         CONSTRAINT fk_reservation_branchdvd FOREIGN KEY(branchdvdid) REFERENCES branchdvd(branchdvdid),
                         CONSTRAINT branchcd_branchbook_or_branchdvd_notnull CHECK(branchbookid IS NOT NULL OR branchcdid IS NOT NULL 
-                            OR branchdvdid IS NOT NULL)
+                            OR branchdvdid IS NOT NULL),
+                        CONSTRAINT fk_reservation_forbranch FOREIGN KEY(forbranchid) REFERENCES branch(branchid)
                         );
 
 CREATE TABLE checkout(
