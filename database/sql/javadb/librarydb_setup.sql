@@ -102,19 +102,29 @@ CREATE TABLE dvdbythespian(
                           CONSTRAINT fk_thespianid FOREIGN KEY(thespianid) REFERENCES thespian(thespianid)
                           );
 
-CREATE TABLE branchbook(
-                        branchbookid INT NOT NULL 
+CREATE TABLE branchitem(
+                        branchitemid INT NOT NULL 
                         PRIMARY KEY
                         GENERATED ALWAYS AS IDENTITY(START WITH 1, INCREMENT BY 1),
-                        bookid INT NOT NULL,
                         branchid INT NOT NULL,
                         checkedout BOOLEAN DEFAULT false,
                         reserved BOOLEAN DEFAULT false,
                         intransit BOOLEAN DEFAULT false,
                         currentlocation INT NOT NULL,
-                        CONSTRAINT fk_branchbook_book FOREIGN KEY(bookid) REFERENCES book(bookid),
-                        CONSTRAINT fk_branchbook_branch FOREIGN KEY(branchid) REFERENCES branch(branchid),
-                        CONSTRAINT fk_branchbook_currentlocation FOREIGN KEY(currentlocation) REFERENCES branch(branchid)
+                        CONSTRAINT fk_branchitem_branch FOREIGN KEY(branchid) REFERENCES branch(branchid),
+                        CONSTRAINT fk_branchitem_currentlocation FOREIGN KEY(currentlocation) REFERENCES branch(branchid)
+                        );
+
+
+
+CREATE TABLE branchbook(
+                        branchbookid INT NOT NULL 
+                        PRIMARY KEY
+                        GENERATED ALWAYS AS IDENTITY(START WITH 1, INCREMENT BY 1),
+                        branchitemid INT NOT NULL,
+                        bookid INT NOT NULL,
+                        CONSTRAINT fk_branchbook_branchitem FOREIGN KEY(branchitemid) REFERENCES branchitem(branchitemid),
+                        CONSTRAINT fk_branchbook_book FOREIGN KEY(bookid) REFERENCES book(bookid)
                         );
 
 
@@ -122,15 +132,10 @@ CREATE TABLE branchcd(
                         branchcdid INT NOT NULL 
                         PRIMARY KEY
                         GENERATED ALWAYS AS IDENTITY(START WITH 1, INCREMENT BY 1),
+                        branchitemid INT NOT NULL,
                         cdid INT NOT NULL,
-                        branchid INT NOT NULL,
-                        checkedout BOOLEAN DEFAULT false,
-                        reserved BOOLEAN DEFAULT false,
-                        intransit BOOLEAN DEFAULT false,
-                        currentlocation INT NOT NULL,
                         CONSTRAINT fk_branchcd_cd FOREIGN KEY(cdid) REFERENCES cd(cdid),
-                        CONSTRAINT fk_branchcd_branch FOREIGN KEY(branchid) REFERENCES branch(branchid),
-                        CONSTRAINT fk_branchcd_currentlocation FOREIGN KEY(currentlocation) REFERENCES branch(branchid)
+                        CONSTRAINT fk_branchcd_branchitem FOREIGN KEY(branchitemid) REFERENCES branchitem(branchitemid)
                         );
 
 
@@ -139,14 +144,9 @@ CREATE TABLE branchdvd(
                         PRIMARY KEY
                         GENERATED ALWAYS AS IDENTITY(START WITH 1, INCREMENT BY 1),
                         dvdid INT NOT NULL,
-                        branchid INT NOT NULL,
-                        checkedout BOOLEAN DEFAULT false,
-                        reserved BOOLEAN DEFAULT false,
-                        intransit BOOLEAN DEFAULT false,
-                        currentlocation INT NOT NULL,
+                        branchitemid INT NOT NULL,  
                         CONSTRAINT fk_branchdvd_dvd FOREIGN KEY(dvdid) REFERENCES dvd(dvdid),
-                        CONSTRAINT fk_branchdvd_branch FOREIGN KEY(branchid) REFERENCES branch(branchid),
-                        CONSTRAINT fk_branchdvd_currentlocation FOREIGN KEY(currentlocation) REFERENCES branch(branchid)
+                        CONSTRAINT fk_branchdvd_branchitem FOREIGN KEY(branchitemid) REFERENCES branchitem(branchitemid)
                         );
 
 CREATE TABLE patron(
@@ -170,19 +170,13 @@ CREATE TABLE reservation(
                         PRIMARY KEY
                         GENERATED ALWAYS AS IDENTITY(START WITH 1, INCREMENT BY 1),
                         patronid INT NOT NULL,
-                        branchbookid INT,
-                        branchcdid INT,
-                        branchdvdid INT,
                         forbranchid INT NOT NULL,
+                        branchitemid INT NOT NULL,
                         date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                         fulfilled BOOLEAN DEFAULT false,
                         CONSTRAINT fk_reservation_patron FOREIGN KEY(patronid) REFERENCES patron(patronid),
-                        CONSTRAINT fk_reservation_branchbook FOREIGN KEY(branchbookid) REFERENCES branchbook(branchbookid),
-                        CONSTRAINT fk_reservation_branchcd FOREIGN KEY(branchcdid) REFERENCES branchcd(branchcdid),
-                        CONSTRAINT fk_reservation_branchdvd FOREIGN KEY(branchdvdid) REFERENCES branchdvd(branchdvdid),
-                        CONSTRAINT branchcd_branchbook_or_branchdvd_notnull CHECK(branchbookid IS NOT NULL OR branchcdid IS NOT NULL 
-                            OR branchdvdid IS NOT NULL),
-                        CONSTRAINT fk_reservation_forbranch FOREIGN KEY(forbranchid) REFERENCES branch(branchid)
+                        CONSTRAINT fk_reservation_forbranch FOREIGN KEY(forbranchid) REFERENCES branch(branchid),
+                        CONSTRAINT fk_reservation_branchitem FOREIGN KEY(branchitemid) REFERENCES branchitem(branchitemid)
                         );
 
 CREATE TABLE checkout(
@@ -197,8 +191,8 @@ CREATE TABLE checkout(
                      CONSTRAINT fk_checkout_patron FOREIGN KEY(patronid) REFERENCES patron(patronid)
                      );
 
-CREATE TABLE bookcheckout(
-                         branchbookid INT NOT NULL,
+CREATE TABLE branchitemcheckout(
+                         branchitemid INT NOT NULL,
                          checkoutid INT NOT NULL,
                          overdue BOOLEAN DEFAULT false,
                          duedate DATE NOT NULL,
@@ -206,38 +200,11 @@ CREATE TABLE bookcheckout(
                          renewdate DATE,
                          returned BOOLEAN DEFAULT false,
                          returndate DATE,
-                         PRIMARY KEY(branchbookid, checkoutid),
-                         CONSTRAINT fk_bookcheckout_branchbook FOREIGN KEY(branchbookid) REFERENCES branchbook(branchbookid),
-                         CONSTRAINT fk_bookcheckout_checkout FOREIGN KEY(checkoutid) REFERENCES checkout(checkoutid)
+                         PRIMARY KEY(branchitemid, checkoutid),
+                         CONSTRAINT fk_branchitemcheckout_branchitem FOREIGN KEY(branchitemid) REFERENCES branchitem(branchitemid),
+                         CONSTRAINT fk_branchitemcheckout_checkout FOREIGN KEY(checkoutid) REFERENCES checkout(checkoutid)
                          );
 
-CREATE TABLE cdcheckout(
-                         branchcdid INT NOT NULL,
-                         checkoutid INT NOT NULL,
-                         overdue BOOLEAN DEFAULT false,
-                         duedate DATE NOT NULL,
-                         renew BOOLEAN DEFAULT false,
-                         renewdate DATE,
-                         returned BOOLEAN DEFAULT false,
-                         returndate DATE,
-                         PRIMARY KEY(branchcdid, checkoutid),
-                         CONSTRAINT fk_cdcheckout_branchcd FOREIGN KEY(branchcdid) REFERENCES branchcd(branchcdid),
-                         CONSTRAINT fk_cdcheckout_checkout FOREIGN KEY(checkoutid) REFERENCES checkout(checkoutid)
-                         );
-
-CREATE TABLE dvdcheckout(
-                         branchdvdid INT NOT NULL,
-                         checkoutid INT NOT NULL,
-                         overdue BOOLEAN DEFAULT false,
-                         duedate DATE NOT NULL,
-                         renew BOOLEAN DEFAULT false,
-                         renewdate DATE,
-                         returned BOOLEAN DEFAULT false,
-                         returndate DATE,
-                         PRIMARY KEY(branchdvdid, checkoutid),
-                         CONSTRAINT fk_dvdcheckout_branchdvd FOREIGN KEY(branchdvdid) REFERENCES branchdvd(branchdvdid),
-                         CONSTRAINT fk_dvdcheckout_checkout FOREIGN KEY(checkoutid) REFERENCES checkout(checkoutid)
-                         );
 
 CREATE TABLE transfer(
                      transferid INT NOT NULL
@@ -246,20 +213,14 @@ CREATE TABLE transfer(
                      tobranchid INT NOT NULL,
                      frombranchid INT NOT NULL,
                      reservationid INT NOT NULL,
+                     branchitemid INT NOT NULL,
                      patronid INT NOT NULL,
-                     branchbookid INT,
-                     branchcdid INT,
-                     branchdvdid INT,
                      transferdate timestamp NOT NULL,
                      CONSTRAINT transfer_tobranch FOREIGN KEY(tobranchid) REFERENCES branch(branchid),
                      CONSTRAINT transfer_frombranch FOREIGN KEY(frombranchid) REFERENCES branch(branchid),
                      CONSTRAINT transfer_reservation FOREIGN KEY(reservationid) REFERENCES reservation(reservationid),
                      CONSTRAINT transfer_patron FOREIGN KEY(patronid) REFERENCES patron(patronid),
-                     CONSTRAINT transfer_branchbook FOREIGN KEY(branchbookid) REFERENCES branchbook(branchbookid),
-                     CONSTRAINT transfer_branchcd FOREIGN KEY(branchcdid) REFERENCES branchcd(branchcdid),
-                     CONSTRAINT transfer_branchdvd FOREIGN KEY(branchdvdid) REFERENCES branchdvd(branchdvdid),
-                     CONSTRAINT transfer_branchcd_branchbook_or_branchdvd_notnull 
-                          CHECK(branchbookid IS NOT NULL OR branchcdid IS NOT NULL OR branchdvdid IS NOT NULL)
+                     CONSTRAINT transfer__branchitem FOREIGN KEY(branchitemid) REFERENCES branchitem(branchitemid)
                      );
 
 CREATE TABLE fine(
