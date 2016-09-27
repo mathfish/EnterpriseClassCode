@@ -1,4 +1,4 @@
-connect 'jdbc:derby:memory:librarydb;create=true';
+connect 'jdbc:derby:librarydb;create=true';
 
 CREATE TABLE branch(
 		    branchid INT NOT NULL 
