@@ -1,0 +1,15 @@
+
+apply plugin: 'java'
+apply plugin: 'idea'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.slf4j:slf4j-api:1.7.18'
+    compile 'org.apache.derby:derby:10.11.1.1'
+
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.apache.derby:derby:10.11.1.1'
+}
