@@ -84,9 +84,9 @@ INSERT INTO branchdvd (branchitemid, dvdid)
               (14,2),
               (15,2);
 
-INSERT INTO patron (firstname, lastname, city, state, zipcode, streetaddress, phone, password) 
-       VALUES ('john','doe','baltimore','MD',20000,'123 5th street',1112223333,'1234qwer'),
-              ('mary','jane','laurel','MD',30000,'33 downtown dr',2222222222,'121212');
+INSERT INTO patron (firstname, lastname, city, state, zipcode, streetaddress, phone, password,email) 
+       VALUES ('john','doe','baltimore','MD',20000,'123 5th street',1112223333,'1234qwer','jd@email.com'),
+              ('mary','jane','laurel','MD',30000,'33 downtown dr',2222222222,'121212','mj@email.com');
 
 INSERT INTO reservation (patronid, branchitemid, forbranchid, date, fulfilled)
        VALUES (1, 1, 2, '2016-06-01 08:00:00',true),

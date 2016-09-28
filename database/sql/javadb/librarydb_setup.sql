@@ -162,7 +162,9 @@ CREATE TABLE patron(
                      joindate timestamp DEFAULT CURRENT_TIMESTAMP,
                      phone BIGINT NOT NULL CONSTRAINT phone_not_10_digits CHECK(phone > 999999999 AND phone < 10000000000),
                      password VARCHAR(10) NOT NULL,
-                     remoteLibrary BOOLEAN DEFAULT false
+                     remoteLibrary BOOLEAN DEFAULT false,
+                     email VARCHAR(50) NOT NULL,
+                     CONSTRAINT patron_email_unique UNIQUE(email)
                     );
 
 CREATE TABLE reservation(
