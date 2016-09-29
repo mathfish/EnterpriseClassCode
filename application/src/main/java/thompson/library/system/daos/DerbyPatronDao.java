@@ -1,37 +1,38 @@
 package thompson.library.system.daos;
 
-import thompson.library.system.dtos.PatronDTO;
+import thompson.library.system.dtos.PatronDto;
+import thompson.library.system.utilities.ConnectionFactory;
 import thompson.library.system.utilities.ConnectionUtil;
-import thompson.library.system.utilities.DerbyConnectionFactory;
 import thompson.library.system.utilities.NonUniqueResultException;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
 
-public class PatronDaoDerby implements PatronDao {
-    private Connection connection;
-    PatronDaoDerby(){}
 
-    @Override
-    public PatronDTO getPatron(int id) {
-        return null;
+public class DerbyPatronDao implements PatronDao {
+
+    private ConnectionFactory connectionFactory;
+    private ConnectionUtil connectionUtil;
+
+    DerbyPatronDao(ConnectionFactory connectionFactory, ConnectionUtil connectionUtil){
+        this.connectionFactory = connectionFactory;
+        this.connectionUtil = connectionUtil;
     }
 
     @Override
-    public PatronDTO getPatron(String email) throws NonUniqueResultException{
-        connection = DerbyConnectionFactory.getConnection();
+    public PatronDto getPatron(String email) throws NonUniqueResultException{
+        Connection connection = connectionFactory.getConnection();
         ResultSet resultSet = null;
-        PatronDTO patronDTO = null;
+        PatronDto patronDTO = null;
         PreparedStatement preparedStatement = null;
         try {
-            preparedStatement = connection.prepareStatement("SELECT patronid FROM patron WHERE email = ?");
+            preparedStatement = connection.prepareStatement("SELECT * FROM patron WHERE email = ?");
             preparedStatement.setString(1,email);
             resultSet =  preparedStatement.executeQuery();
             if(resultSet.next()){
-                patronDTO = new PatronDTO(resultSet.getInt("patronid"),
+                patronDTO = new PatronDto(resultSet.getInt("patronid"),
                                           resultSet.getString("firstname"),
                                           resultSet.getString("lastname"),
                                           resultSet.getString("city"),
@@ -51,25 +52,20 @@ public class PatronDaoDerby implements PatronDao {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            ConnectionUtil.close(connection);
-            ConnectionUtil.close(resultSet);
-            ConnectionUtil.close(preparedStatement);
+            connectionUtil.close(connection);
+            connectionUtil.close(resultSet);
+            connectionUtil.close(preparedStatement);
         }
 
         return patronDTO;
     }
 
     @Override
-    public List<PatronDTO> getAllPatrons() {
-        return null;
-    }
-
-    @Override
-    public boolean insertPatron(PatronDTO patron) {
-        connection = DerbyConnectionFactory.getConnection();
+    public boolean insertPatron(PatronDto patron) {
+        Connection connection = connectionFactory.getConnection();
         PreparedStatement preparedStatement = null;
         String insertStmt = "INSERT INTO patron(firstname, lastname, city, state, zipcode, streetaddress, joindate, " +
-                "phone, password, remotelibrary, email) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                "phone, password, remotelibrary, email) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
         try {
             preparedStatement = connection.prepareStatement(insertStmt);
             preparedStatement.setString(1,patron.getFirstname());
@@ -88,8 +84,8 @@ public class PatronDaoDerby implements PatronDao {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            ConnectionUtil.close(connection);
-            ConnectionUtil.close(preparedStatement);
+            connectionUtil.close(connection);
+            connectionUtil.close(preparedStatement);
         }
         return true;
     }

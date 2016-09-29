@@ -4,7 +4,7 @@ import java.sql.ResultSet;
 import java.sql.Timestamp;
 import java.util.Optional;
 
-public class PatronDTO {
+public class PatronDto {
     private final Optional<Integer> patronid;
     private final String firstname;
     private final String lastname;
@@ -18,7 +18,7 @@ public class PatronDTO {
     private final boolean remotelibrary;
     private final String password;
 
-    public PatronDTO(String firstname,
+    public PatronDto(String firstname,
                      String lastname,
                      String city,
                      String state,
@@ -43,7 +43,7 @@ public class PatronDTO {
         this.password = password;
     }
 
-    public PatronDTO(Integer patronid,
+    public PatronDto(Integer patronid,
                      String firstname,
                      String lastname,
                      String city,

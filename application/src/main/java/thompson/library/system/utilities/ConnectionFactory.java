@@ -1,8 +1,9 @@
 package thompson.library.system.utilities;
 
-/**
- * Created by jonathanthompson on 9/27/16.
- */
+import java.sql.Connection;
+
+
 public interface ConnectionFactory {
 
+    Connection getConnection();
 }

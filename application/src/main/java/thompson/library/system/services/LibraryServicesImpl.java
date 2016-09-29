@@ -1,17 +1,25 @@
 package thompson.library.system.services;
 
-import thompson.library.system.daos.DerbyDaoManager;
+import thompson.library.system.daos.DaoManager;
+import thompson.library.system.daos.DaoManagerFactory;
 import thompson.library.system.daos.PatronDao;
-import thompson.library.system.dtos.PatronDTO;
+import thompson.library.system.dtos.PatronDto;
 import thompson.library.system.utilities.NonUniqueResultException;
 import thompson.library.system.utilities.EntryExistsException;
 
 import java.sql.Timestamp;
 
-/**
- * Created by jonathanthompson on 9/27/16.
- */
 public class LibraryServicesImpl implements LibraryServices{
+
+    DaoManager daoManager;
+
+    public LibraryServicesImpl(){
+        this.daoManager = DaoManagerFactory.getDaoManager();
+    }
+
+    LibraryServicesImpl(DaoManager daoManager){
+        this.daoManager = daoManager;
+    }
 
     @Override
     public boolean createPatron(String firstname,
@@ -26,7 +34,7 @@ public class LibraryServicesImpl implements LibraryServices{
                                 boolean remotelibrary,
                                 String password) throws EntryExistsException {
 
-        PatronDao patronDao = DerbyDaoManager.getPatronDao();
+        PatronDao patronDao = daoManager.getPatronDao();
         try {
             if(patronDao.getPatron(email) != null){
                 throw new EntryExistsException("Patron already exists with email " + email);
@@ -35,7 +43,7 @@ public class LibraryServicesImpl implements LibraryServices{
             e.printStackTrace();
         }
 
-        patronDao.insertPatron(new PatronDTO(firstname, lastname, city, state, zipcode, streetAddress, joinDate, email,
+        patronDao.insertPatron(new PatronDto(firstname, lastname, city, state, zipcode, streetAddress, joinDate, email,
                                              phone, remotelibrary, password));
 
         return true;

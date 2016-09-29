@@ -1,22 +1,19 @@
 package thompson.library.system.daos;
 
+import thompson.library.system.utilities.ConnectionUtil;
 import thompson.library.system.utilities.DerbyConnectionFactory;
 
-/**
- * Created by jonathanthompson on 9/27/16.
- */
-public class DerbyDaoManager{
+public class DerbyDaoManager implements DaoManager{
 
-    private static PatronDao patronDao = null;
+    private DerbyPatronDao patronDao;
 
+    DerbyDaoManager(){}
 
-
-    public static PatronDao getPatronDao(){
+    public PatronDao getPatronDao(){
         if(patronDao == null){
-            patronDao = new PatronDaoDerby();
+            patronDao = new DerbyPatronDao(new DerbyConnectionFactory(), new ConnectionUtil());
         }
         return patronDao;
     }
-
 
 }

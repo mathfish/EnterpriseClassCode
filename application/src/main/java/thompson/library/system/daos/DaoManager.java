@@ -1,8 +1,7 @@
 package thompson.library.system.daos;
 
-/**
- * Created by jonathanthompson on 9/27/16.
- */
-public interface DaoManager {
+import thompson.library.system.dtos.PatronDto;
 
+public interface DaoManager {
+    PatronDao getPatronDao();
 }

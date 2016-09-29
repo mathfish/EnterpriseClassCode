@@ -1,27 +1,33 @@
 package thompson.library.system.utilities;
 
+
+
 import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Properties;
 
-/**
- * Created by jonathanthompson on 9/27/16.
- */
-public class DerbyConnectionFactory{
-    private static DerbyConnectionFactory connection = new DerbyConnectionFactory();
-    private static final String url;
-    static {
-        File file = new File("../database/javadb/librarydb");
+public class DerbyConnectionFactory implements ConnectionFactory{
+    private  final String url;
+
+    public  DerbyConnectionFactory(){
+        File propfile = new File("database.properties");
+        Properties properties = new Properties();
+        try {
+            properties.load(new FileReader(propfile));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        File file = new File(properties.getProperty("javaDbUrl"));
         String dbPath = file.getAbsoluteFile().getAbsolutePath();
         url = "jdbc:derby:" + dbPath;
     }
 
-
-    private DerbyConnectionFactory(){
-    }
-
-    private Connection createConnection(){
+    @Override
+    public Connection getConnection(){
         Connection connection = null;
         try {
             connection = DriverManager.getConnection(url);
@@ -29,10 +35,6 @@ public class DerbyConnectionFactory{
             e.printStackTrace();
         }
         return connection;
-    }
-
-    public static Connection getConnection(){
-        return connection.createConnection();
     }
 
 }
