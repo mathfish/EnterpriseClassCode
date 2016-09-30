@@ -13,21 +13,43 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.18/b631d286463ced7cc42ee2171fe3beaed2836823/slf4j-api-1.7.18.jar!/"/>
+          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.apache.derby/derby/10.11.1.1/df4b50061e8e4c348ce243b921f53ee63ba9bbe1/derby-10.11.1.1.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES/>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-classic/1.1.7/9865cf6994f9ff13fce0bf93f2054ef6c65bb462/logback-classic-1.1.7.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.18/a84644a9e9c6ed158b0754aa4af53dc3b7844524/slf4j-api-1.7.18-sources.jar!/"/>
+          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-classic/1.1.7/6cfaf5c02fb50bfdf7ea5e563955d3c229d7e154/logback-classic-1.1.7-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.apache.derby/derby/10.11.1.1/df4b50061e8e4c348ce243b921f53ee63ba9bbe1/derby-10.11.1.1.jar!/"/>
+          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-core/1.1.7/7873092d39ef741575ca91378a6a21c388363ac8/logback-core-1.1.7.jar!/"/>
         </CLASSES>
         <JAVADOC/>
-        <SOURCES/>
+        <SOURCES>
+          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-core/1.1.7/15a62dbee75aadf62b7d35640533262d764b29d3/logback-core-1.1.7-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.21/139535a69a4239db087de9bab0bee568bf8e0b70/slf4j-api-1.7.21.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.21/f285ac123f201fb4b028bac556928d7cf527ef48/slf4j-api-1.7.21-sources.jar!/"/>
+        </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="TEST">

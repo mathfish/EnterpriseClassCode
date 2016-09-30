@@ -11,5 +11,4 @@ public interface PatronDao {
     PatronDto getPatron(String email) throws NonUniqueResultException;
 
     boolean insertPatron(PatronDto patron);
-
 }
