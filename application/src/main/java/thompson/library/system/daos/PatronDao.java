@@ -8,7 +8,9 @@ import thompson.library.system.utilities.NonUniqueResultException;
  */
 public interface PatronDao {
 
-    PatronDto getPatron(String email) throws NonUniqueResultException;
+    PatronDto getPatron(String email);
+
+    PatronDto getPatrion(BranchItemCheckoutDao.ItemReturnOutput itemReturnOutput);
 
     boolean insertPatron(PatronDto patron);
 }

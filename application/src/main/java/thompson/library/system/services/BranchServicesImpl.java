@@ -3,9 +3,9 @@ package thompson.library.system.services;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import thompson.library.system.daos.*;
-import thompson.library.system.dtos.BranchItemDto;
-import thompson.library.system.dtos.PatronDto;
-import thompson.library.system.utilities.NonUniqueResultException;
+
+import thompson.library.system.dtos.*;
+
 
 public class BranchServicesImpl implements BranchServices {
     private static final Logger logger = LoggerFactory.getLogger(BranchServicesImpl.class);
@@ -20,27 +20,67 @@ public class BranchServicesImpl implements BranchServices {
     }
 
     @Override
-    public void returnItem(BranchItemDto branchItemDto, PatronDto patronDto) {
-        BranchItemDao branchItemDao = daoManager.getBranchItemDao();
+    public void returnItem(BranchItemDto branchItemDto) {
 
-        if(!patronDto.getPatronid().isPresent()){
-            try {
-                patronDto = daoManager.getPatronDao().getPatron(patronDto.getEmail());
-            } catch (NonUniqueResultException e) {
-                logger.error("Non-unique result for patron with email {}", patronDto.getEmail());
-                throw new IllegalStateException("SQL returned unexpected non-unique result for patron with email: " + patronDto);
+
+        BranchItemCheckoutDao branchItemCheckoutDao = daoManager.getBranchItemCheckoutDao();
+        BranchItemCheckoutDto brItemCheckoutDto = branchItemCheckoutDao.getBranchItemCheckout(branchItemDto);
+        if(brItemCheckoutDto.getDueDate().after(brItemCheckoutDto.getDueDate())){
+            if(!brItemCheckoutDto.isRenew()) {
+                brItemCheckoutDto.setOverdue(true);
+            } else if(brItemCheckoutDto.getDueDate().after(brItemCheckoutDto.getRenewDate())){
+                brItemCheckoutDto.setOverdue(true);
             }
         }
 
-        BranchItemDao.ReturnItemOutput returnItemOutput = branchItemDao.returnItem(branchItemDto,patronDto);
-        if(returnItemOutput.isFulfillReturn()) {
-            ReservationDao reservationDao = daoManager.getReservationDao();
-            int resvID = reservationDao.fulfillReservation(returnItemOutput);
-            String msg = " Dear " + patronDto.getFirstname() + " " + patronDto.getLastname() + ", your reservation with id "
-                    + resvID + " has been fulfilled. You can pickup your item";
-            emailPatron(patronDto, msg);
+        // Transaction block for database changes and functional processing
+        BranchItemCheckoutDao.ItemReturnOutput itemReturnOutput = branchItemCheckoutDao.updateBranchItemCheckout(brItemCheckoutDto);
+        int numItems = branchItemCheckoutDao.getNumberOfItemsReturnedFromCheckout(itemReturnOutput);
+        CheckoutDto checkoutDto = daoManager.getCheckoutDao().getCheckout(itemReturnOutput);
+        if(numItems == checkoutDto.getNumberofitems()){
+            itemReturnOutput.setReturned(true);
+            daoManager.getCheckoutDao().updateCheckout(itemReturnOutput);
         }
-        returnItemOutput.completeReturn();
+
+        ReservationDto reservationDto = daoManager.getReservationDao().fulfillReservation(itemReturnOutput);
+        BranchItemDao branchItemDao = daoManager.getBranchItemDao();
+        if(reservationDto != null){
+            itemReturnOutput.setReserved(true);
+            branchItemDao.updateBranchItem(itemReturnOutput);
+            itemReturnOutput.setPatronid(reservationDto.getPatronid());
+            PatronDto patronDto = daoManager.getPatronDao().getPatrion(itemReturnOutput);
+            String msg = " Dear " + patronDto.getFirstname() + " " + patronDto.getLastname() + ", your reservation with id "
+                  + reservationDto.getReservationid() + " has been fulfilled. You can pickup your item";
+            emailPatron(patronDto,msg);
+        } else{
+            branchItemDao.updateBranchItem(itemReturnOutput);
+        }
+
+        itemReturnOutput.completeReturn();
+
+        // transaction end.
+
+
+//        BranchItemDao branchItemDao = daoManager.getBranchItemDao();
+//
+//        if(!patronDto.getPatronid().isPresent()){
+//            try {
+//                patronDto = daoManager.getPatronDao().getPatron(patronDto.getEmail());
+//            } catch (NonUniqueResultException e) {
+//                logger.error("Non-unique result for patron with email {}", patronDto.getEmail());
+//                throw new IllegalStateException("SQL returned unexpected non-unique result for patron with email: " + patronDto);
+//            }
+//        }
+//
+//        BranchItemDao.ReturnItemOutput returnItemOutput = branchItemDao.returnItem(branchItemDto,patronDto);
+//        if(returnItemOutput.isFulfillReturn()) {
+//            ReservationDao reservationDao = daoManager.getReservationDao();
+//            int resvID = reservationDao.fulfillReservation(returnItemOutput);
+//            String msg = " Dear " + patronDto.getFirstname() + " " + patronDto.getLastname() + ", your reservation with id "
+//                    + resvID + " has been fulfilled. You can pickup your item";
+//            emailPatron(patronDto, msg);
+//        }
+//        returnItemOutput.completeReturn();
     }
 
     @Override

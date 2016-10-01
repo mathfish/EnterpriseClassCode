@@ -1,5 +1,7 @@
 package thompson.library.system.daos;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import thompson.library.system.dtos.PatronDto;
 import thompson.library.system.utilities.ConnectionFactory;
 import thompson.library.system.utilities.ConnectionUtil;
@@ -12,7 +14,7 @@ import java.sql.SQLException;
 
 
 public class DerbyPatronDao implements PatronDao {
-
+    private static final Logger logger = LoggerFactory.getLogger(DerbyPatronDao.class);
     private ConnectionFactory connectionFactory;
     private ConnectionUtil connectionUtil;
 
@@ -22,7 +24,7 @@ public class DerbyPatronDao implements PatronDao {
     }
 
     @Override
-    public PatronDto getPatron(String email) throws NonUniqueResultException{
+    public PatronDto getPatron(String email){
         Connection connection = connectionFactory.getConnection();
         ResultSet resultSet = null;
         PatronDto patronDTO = null;
@@ -45,12 +47,9 @@ public class DerbyPatronDao implements PatronDao {
                                           resultSet.getShort("remotelibrary") == 1,
                                           resultSet.getString("password"));
             }
-
-            if(resultSet.next()){
-                throw new NonUniqueResultException("Patron with email " + email + "returns multiple rows in database");
-            }
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("SQL exception for getting patron with email {}", email, e);
+            throw new IllegalStateException("SQL error when getting patron. See log for details");
         } finally {
             connectionUtil.close(connection);
             connectionUtil.close(resultSet);
@@ -58,6 +57,41 @@ public class DerbyPatronDao implements PatronDao {
         }
 
         return patronDTO;
+    }
+
+    @Override
+    public PatronDto getPatrion(BranchItemCheckoutDao.ItemReturnOutput itemReturnOutput) {
+        String query = "SELECT * FROM patron WHERE patronid = ?";
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        PatronDto patronDto = null;
+        try{
+            Connection connection = itemReturnOutput.getConnection();
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1,itemReturnOutput.getPatronid());
+            resultSet = preparedStatement.executeQuery();
+            if(resultSet.next()){
+                patronDto = new PatronDto(resultSet.getInt("patronid"),
+                        resultSet.getString("firstname"),
+                        resultSet.getString("lastname"),
+                        resultSet.getString("city"),
+                        resultSet.getString("state"),
+                        resultSet.getInt("zipcode"),
+                        resultSet.getString("streetaddress"),
+                        resultSet.getTimestamp("joindate"),
+                        resultSet.getString("email"),
+                        resultSet.getLong("phone"),
+                        resultSet.getBoolean("remotelibrary"),
+                        resultSet.getString("password"));
+            }
+        } catch (SQLException e) {
+            logger.error("SQL exception for getting patron with id {}", itemReturnOutput.getPatronid(), e);
+            throw new IllegalStateException("SQL error when getting patron. See log for details");
+        } finally {
+            connectionUtil.close(preparedStatement);
+            connectionUtil.close(resultSet);
+        }
+        return patronDto;
     }
 
     @Override
@@ -82,7 +116,8 @@ public class DerbyPatronDao implements PatronDao {
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("SQL error when inserting patron with email {}", patron.getEmail(), e);
+            throw new IllegalStateException("SQL error inserting patron. See log for details");
         } finally {
             connectionUtil.close(connection);
             connectionUtil.close(preparedStatement);

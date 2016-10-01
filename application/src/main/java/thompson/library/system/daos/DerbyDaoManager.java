@@ -8,6 +8,8 @@ public class DerbyDaoManager implements DaoManager{
     private DerbyPatronDao patronDao;
     private DerbyReservationDao reservationDao;
     private DerbyBranchItemDao branchItemDao;
+    private DerbyBranchItemCheckoutDao branchItemCheckoutDao;
+    private DerbyCheckoutDao checkoutDao;
 
     DerbyDaoManager(){}
 
@@ -32,6 +34,22 @@ public class DerbyDaoManager implements DaoManager{
             branchItemDao = new DerbyBranchItemDao(new DerbyConnectionFactory(), new ConnectionUtil());
         }
         return branchItemDao;
+    }
+
+    @Override
+    public BranchItemCheckoutDao getBranchItemCheckoutDao() {
+        if(branchItemCheckoutDao == null){
+            branchItemCheckoutDao = new DerbyBranchItemCheckoutDao(new DerbyConnectionFactory(), new ConnectionUtil());
+        }
+        return branchItemCheckoutDao;
+    }
+
+    @Override
+    public CheckoutDao getCheckoutDao() {
+        if(checkoutDao == null){
+            checkoutDao = new DerbyCheckoutDao(new DerbyConnectionFactory(), new ConnectionUtil());
+        }
+        return null;
     }
 
 }

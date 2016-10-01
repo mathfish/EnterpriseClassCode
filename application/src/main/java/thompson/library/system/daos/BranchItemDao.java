@@ -11,6 +11,8 @@ import java.util.Optional;
 
 public interface BranchItemDao {
 
+    void updateBranchItem(BranchItemCheckoutDao.ItemReturnOutput itemReturnOutput);
+
     ReturnItemOutput returnItem(BranchItemDto branchItemDto, PatronDto patronDto);
 
     boolean setIfReserved(BranchItemDto branchItemDto, PatronDto patronDto);

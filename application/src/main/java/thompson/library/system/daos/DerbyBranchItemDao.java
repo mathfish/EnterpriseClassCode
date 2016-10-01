@@ -22,6 +22,25 @@ public class DerbyBranchItemDao implements BranchItemDao {
     }
 
     @Override
+    public void updateBranchItem(BranchItemCheckoutDao.ItemReturnOutput itemReturnOutput) {
+        String update = "UPDATE branchitem SET reserved = ?, checkedout = false WHERE branchitemid = ?";
+        PreparedStatement preparedStatement = null;
+        try{
+            //Optionals exist from prior query
+            Connection connection = itemReturnOutput.getConnection();
+            preparedStatement = connection.prepareStatement(update);
+            preparedStatement.setBoolean(1,itemReturnOutput.isReserved());
+            preparedStatement.setInt(2,itemReturnOutput.getBranchitemid());
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            logger.error("SQL error in updating branch item {}", itemReturnOutput.getBranchitemid(), e);
+            throw new IllegalStateException("SQL error in updating branch item. See log for details");
+        } finally {
+            connectionUtil.close(preparedStatement);
+        }
+    }
+
+    @Override
     public ReturnItemOutput returnItem(BranchItemDto branchItemDto, PatronDto patronDto) {
         connection = connectionFactory.getConnection();
         String updateBranchItemCheckout = "UPDATE branchitemcheckout SET returned = ?, returnDate = ? WHERE branchitemid = ? AND returned = false";
