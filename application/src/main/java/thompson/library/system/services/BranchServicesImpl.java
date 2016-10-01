@@ -3,7 +3,7 @@ package thompson.library.system.services;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import thompson.library.system.daos.*;
-import thompson.library.system.dtos.ItemDto;
+import thompson.library.system.dtos.BranchItemDto;
 import thompson.library.system.dtos.PatronDto;
 import thompson.library.system.utilities.NonUniqueResultException;
 
@@ -20,7 +20,7 @@ public class BranchServicesImpl implements BranchServices {
     }
 
     @Override
-    public void returnItem(ItemDto itemDto, PatronDto patronDto) {
+    public void returnItem(BranchItemDto branchItemDto, PatronDto patronDto) {
         BranchItemDao branchItemDao = daoManager.getBranchItemDao();
 
         if(!patronDto.getPatronid().isPresent()){
@@ -28,11 +28,11 @@ public class BranchServicesImpl implements BranchServices {
                 patronDto = daoManager.getPatronDao().getPatron(patronDto.getEmail());
             } catch (NonUniqueResultException e) {
                 logger.error("Non-unique result for patron with email {}", patronDto.getEmail());
-                throw new IllegalStateException("SQL returned unexpected non-unique result for patron with email: " + patronDto.getEmail());
+                throw new IllegalStateException("SQL returned unexpected non-unique result for patron with email: " + patronDto);
             }
         }
 
-        BranchItemDao.ReturnItemOutput returnItemOutput = branchItemDao.returnItem(itemDto,patronDto);
+        BranchItemDao.ReturnItemOutput returnItemOutput = branchItemDao.returnItem(branchItemDto,patronDto);
         if(returnItemOutput.isFulfillReturn()) {
             ReservationDao reservationDao = daoManager.getReservationDao();
             int resvID = reservationDao.fulfillReservation(returnItemOutput);
@@ -40,6 +40,7 @@ public class BranchServicesImpl implements BranchServices {
                     + resvID + " has been fulfilled. You can pickup your item";
             emailPatron(patronDto, msg);
         }
+        returnItemOutput.completeReturn();
     }
 
     @Override

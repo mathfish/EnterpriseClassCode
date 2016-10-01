@@ -5,7 +5,7 @@ import java.util.Optional;
 /**
  * Created by jonathanthompson on 9/29/16.
  */
-public class ItemDto {
+public class BranchItemDto {
     private final int branchitemid;
     private final boolean checkedout;
     private final boolean reserved;
@@ -13,7 +13,7 @@ public class ItemDto {
     private final Optional<Integer> currentLocation;
     private final int branchid;
 
-    public ItemDto(int branchitemid, boolean checkedout, boolean reserved, boolean inTransit, int currentLocation, int branchid) {
+    public BranchItemDto(int branchitemid, boolean checkedout, boolean reserved, boolean inTransit, int currentLocation, int branchid) {
         this.branchitemid = branchitemid;
         this.checkedout = checkedout;
         this.reserved = reserved;
@@ -22,7 +22,7 @@ public class ItemDto {
         this.branchid = branchid;
     }
 
-    public ItemDto(int branchitemid, boolean checkedout, boolean reserved, boolean inTransit, int branchid) {
+    public BranchItemDto(int branchitemid, boolean checkedout, boolean reserved, boolean inTransit, int branchid) {
         this.branchitemid = branchitemid;
         this.checkedout = checkedout;
         this.reserved = reserved;

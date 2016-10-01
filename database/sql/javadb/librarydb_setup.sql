@@ -174,7 +174,7 @@ CREATE TABLE reservation(
                         patronid INT NOT NULL,
                         forbranchid INT NOT NULL,
                         branchitemid INT NOT NULL,
-                        date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                        reservdate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                         fulfilled BOOLEAN DEFAULT false,
                         CONSTRAINT fk_reservation_patron FOREIGN KEY(patronid) REFERENCES patron(patronid),
                         CONSTRAINT fk_reservation_forbranch FOREIGN KEY(forbranchid) REFERENCES branch(branchid),

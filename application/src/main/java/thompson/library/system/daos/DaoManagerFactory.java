@@ -9,7 +9,6 @@ import java.util.Properties;
 public class DaoManagerFactory {
 
     private static DerbyDaoManager derbyDaoManager;
-    private static HsqldbDaoManager hsqldbDaoManager;
 
     private DaoManagerFactory(){}
 
@@ -29,14 +28,6 @@ public class DaoManagerFactory {
                 derbyDaoManager = new DerbyDaoManager();
             }
             return derbyDaoManager;
-        } else if (properties.getProperty("databaseType").equals("hsqldb")){
-            if(hsqldbDaoManager == null){
-                hsqldbDaoManager = new HsqldbDaoManager();
-            }
-            else{
-                throw new IllegalStateException("database.properties file lists unsupported database type");
-            }
-            return hsqldbDaoManager;
         }
 
         return  null;

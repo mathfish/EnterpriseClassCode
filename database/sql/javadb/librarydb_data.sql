@@ -88,7 +88,7 @@ INSERT INTO patron (firstname, lastname, city, state, zipcode, streetaddress, ph
        VALUES ('john','doe','baltimore','MD',20000,'123 5th street',1112223333,'1234qwer','jd@email.com'),
               ('mary','jane','laurel','MD',30000,'33 downtown dr',2222222222,'121212','mj@email.com');
 
-INSERT INTO reservation (patronid, branchitemid, forbranchid, date, fulfilled)
+INSERT INTO reservation (patronid, branchitemid, forbranchid, reservdate, fulfilled)
        VALUES (1, 1, 2, '2016-06-01 08:00:00',true),
               (2, 2, 1,'2016-09-20 08:30:00',false),
               (1, 7, 1, '2016-09-21 08:45:00', false),

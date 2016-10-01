@@ -2,7 +2,7 @@ package thompson.library.system.daos;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import thompson.library.system.dtos.ItemDto;
+import thompson.library.system.dtos.BranchItemDto;
 import thompson.library.system.dtos.PatronDto;
 import thompson.library.system.utilities.ConnectionFactory;
 import thompson.library.system.utilities.ConnectionUtil;
@@ -22,10 +22,10 @@ public class DerbyBranchItemDao implements BranchItemDao {
     }
 
     @Override
-    public ReturnItemOutput returnItem(ItemDto itemDto, PatronDto patronDto) {
+    public ReturnItemOutput returnItem(BranchItemDto branchItemDto, PatronDto patronDto) {
         connection = connectionFactory.getConnection();
-        String updateBranchItemCheckout = "UPDATE branchitemcheckout SET returned = ?, returnDate = ? WHERE branchitemid = ? AND returned false";
-        String updateBranchItem = "UPDATE branchitem SET checkedout = false WHERE branchitem = ?";
+        String updateBranchItemCheckout = "UPDATE branchitemcheckout SET returned = ?, returnDate = ? WHERE branchitemid = ? AND returned = false";
+        String updateBranchItem = "UPDATE branchitem SET checkedout = false WHERE branchitemid = ?";
         PreparedStatement preparedStatement = null;
         try {
             connection.setAutoCommit(false);
@@ -34,19 +34,18 @@ public class DerbyBranchItemDao implements BranchItemDao {
             preparedStatement = connection.prepareStatement(updateBranchItemCheckout);
             preparedStatement.setBoolean(1,true);
             preparedStatement.setDate(2,date);
-            preparedStatement.setInt(3,itemDto.getBranchitemid());
+            preparedStatement.setInt(3, branchItemDto.getBranchitemid());
             preparedStatement.executeUpdate();
 
             preparedStatement = connection.prepareStatement(updateBranchItem);
-            preparedStatement.setInt(1,itemDto.getBranchitemid());
+            preparedStatement.setInt(1, branchItemDto.getBranchitemid());
             preparedStatement.executeUpdate();
 
-            if(setIfReserved(itemDto,  patronDto)){
-                return new ReturnItemOutput(connection, patronDto.getPatronid(), itemDto.getBranchitemid());
+            if(setIfReserved(branchItemDto,  patronDto)){
+                return new ReturnItemOutput(connection, patronDto.getPatronid(), branchItemDto.getBranchitemid());
             }
-            connection.commit();
         } catch (SQLException e) {
-            logger.error("SQL exception occurred returning item {} for patron {} \n.", itemDto.getBranchitemid(),
+            logger.error("SQL exception occurred returning item {} for patron {} \n.", branchItemDto.getBranchitemid(),
                     patronDto.getPatronid().get(), e);
             try {
                 connection.rollback();
@@ -55,35 +54,36 @@ public class DerbyBranchItemDao implements BranchItemDao {
                 throw new IllegalStateException("SQL exception occured. See log file for details");
             } catch (SQLException e1) {
                 logger.error("SQL exception occurred returning item {} for patron {}. Potential rollback failure \n.",
-                        itemDto.getBranchitemid(), patronDto.getPatronid().get(), e);
+                        branchItemDto.getBranchitemid(), patronDto.getPatronid().get(), e);
                 connectionUtil.close(connection);
                 connectionUtil.close(preparedStatement);
                 throw new IllegalStateException("SQL exception occurred. See log file for details");
             }
+        } finally {
+            connectionUtil.close(preparedStatement);
         }
-
-        connectionUtil.close(connection);
-        connectionUtil.close(preparedStatement);
-        return new ReturnItemOutput();
+        return new ReturnItemOutput(connection);
     }
 
     @Override
-    public boolean setIfReserved(ItemDto itemDto, PatronDto patronDto){
-        String isreservedQuery = "SELECT patronid, reservationid FROM reservation WHERE branchitem = ? AND fulfilled = false ORDER BY date";
+    public boolean setIfReserved(BranchItemDto branchItemDto, PatronDto patronDto){
+        String isreservedQuery = "SELECT patronid, reservationid FROM reservation WHERE branchitemid = ? AND fulfilled = false ORDER BY reservdate";
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
+        boolean externalCall = false;
         //if being called from ReturnItemOutput, already has connection
         try {
             if(connection.isClosed() || connection == null){
                 connection = connectionFactory.getConnection();
+                externalCall = true;
             }
             preparedStatement = connection.prepareStatement(isreservedQuery);
-            preparedStatement.setInt(1,itemDto.getBranchitemid());
+            preparedStatement.setInt(1, branchItemDto.getBranchitemid());
             resultSet = preparedStatement.executeQuery();
             if(resultSet.next()){
                 String setReserve = "UPDATE branchitem SET reserved = true WHERE branchitemid = ? ";
                 preparedStatement = connection.prepareStatement(setReserve);
-                preparedStatement.setInt(1,itemDto.getBranchitemid());
+                preparedStatement.setInt(1, branchItemDto.getBranchitemid());
                 preparedStatement.executeUpdate();
                 connectionUtil.close(resultSet);
                 connectionUtil.close(preparedStatement);
@@ -91,7 +91,7 @@ public class DerbyBranchItemDao implements BranchItemDao {
             }
         } catch (SQLException e) {
             logger.error("SQL exception occurred when checking reservation of item {} for patron {} \n",
-                    itemDto.getBranchitemid(), patronDto.getPatronid().get(), e );
+                    branchItemDto.getBranchitemid(), patronDto.getPatronid().get(), e );
             try {
                 connection.rollback();
                 connectionUtil.close(connection);
@@ -101,14 +101,16 @@ public class DerbyBranchItemDao implements BranchItemDao {
             } catch (SQLException e1) {
                 logger.error("SQL exception occurred when checking reservation of item {} for patron {}." +
                         "Potential rollback failure \n",
-                        itemDto.getBranchitemid(), patronDto.getPatronid().get(), e );
+                        branchItemDto.getBranchitemid(), patronDto.getPatronid().get(), e );
                 connectionUtil.close(connection);
                 connectionUtil.close(preparedStatement);
                 connectionUtil.close(resultSet);
                 throw new IllegalStateException("SQL exception occured. See log file for more information");
             }
         }
-        connectionUtil.close(connection);
+        if(externalCall) {
+            connectionUtil.close(connection);
+        }
         connectionUtil.close(preparedStatement);
         connectionUtil.close(resultSet);
         return false;

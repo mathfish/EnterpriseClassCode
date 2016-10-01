@@ -14,6 +14,7 @@ import java.sql.SQLException;
 import java.util.Calendar;
 
 import static junit.framework.TestCase.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -58,6 +59,7 @@ public class DerbyPatronDaoTest {
 
         } catch (NonUniqueResultException e) {
             e.printStackTrace();
+            assertTrue(false);
         }
     }
 
@@ -93,6 +95,7 @@ public class DerbyPatronDaoTest {
                     connection.close();
                 } catch (SQLException e) {
                     e.printStackTrace();
+                    assertTrue(false);
                 }
             }
         }
@@ -108,6 +111,7 @@ public class DerbyPatronDaoTest {
                     connection.close();
                 } catch (SQLException e) {
                     e.printStackTrace();
+                    assertTrue(false);
                 }
             }
         }
@@ -125,7 +129,6 @@ public class DerbyPatronDaoTest {
             try {
                 connection.setAutoCommit(false);
                 PreparedStatement preparedStatement = connection.prepareStatement(insertStmt);
-                preparedStatement = connection.prepareStatement(insertStmt);
                 preparedStatement.setString(1, "testFirst2");
                 preparedStatement.setString(2, "testLast2");
                 preparedStatement.setString(3, "testCity2");
@@ -138,8 +141,10 @@ public class DerbyPatronDaoTest {
                 preparedStatement.setBoolean(10, true);
                 preparedStatement.setString(11, "test2@email.test");
                 preparedStatement.executeUpdate();
+                preparedStatement.close();
             } catch (SQLException e) {
                 e.printStackTrace();
+                assertTrue(false);
             }
             return connection;
         }

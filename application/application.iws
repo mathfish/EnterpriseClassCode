@@ -61,25 +61,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DerbyPatronDao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/daos/DerbyPatronDao.java">
+      <file leaf-file-name="DerbyDaoManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/daos/DerbyDaoManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="44" selection-start-line="13" selection-start-column="44" selection-end-line="13" selection-end-column="44" />
+            <state relative-caret-position="75">
+              <caret line="5" column="47" selection-start-line="5" selection-start-column="47" selection-end-line="5" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1475209213000" expanded="true" signature="1089:1125" ph="SELECT patro... patron" />
-                <marker date="1475209213000" expanded="true" signature="2842:3018" ph="INSERT INTO patron... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BranchServicesImpl.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BranchServicesImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/services/BranchServicesImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="23" column="68" selection-start-line="23" selection-start-column="68" selection-end-line="23" selection-end-column="68" />
+            <state relative-caret-position="210">
+              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -87,90 +85,32 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ReservationDao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/daos/ReservationDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DerbyReservationDao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/daos/DerbyReservationDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="385">
-              <caret line="45" column="29" selection-start-line="45" selection-start-column="29" selection-end-line="45" selection-end-column="29" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#996#997#0" expanded="true" />
-                <element signature="e#1020#1021#0" expanded="true" />
-                <marker date="1475213152000" expanded="true" signature="1158:1278" ph="SELECT reser... reservation" />
-                <marker date="1475213152000" expanded="true" signature="1317:1380" ph="Update reser... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DerbyBranchItemDao.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DerbyBranchItemDao.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/daos/DerbyBranchItemDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1345">
-              <caret line="110" column="41" selection-start-line="110" selection-start-column="41" selection-end-line="110" selection-end-column="41" />
+            <state relative-caret-position="765">
+              <caret line="63" column="9" selection-start-line="63" selection-start-column="9" selection-end-line="63" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1475213347000" expanded="true" signature="1021:1121" ph="UPDATE branc... " />
-                <marker date="1475213347000" expanded="true" signature="1159:1220" ph="UPDATE branc... " />
-                <marker date="1475213347000" expanded="true" signature="3358:3448" ph="SELECT patro... reservation" />
-                <marker date="1475213347000" expanded="true" signature="3358:3449" ph="SELECT patro... reservation" />
-                <marker date="1475213347000" expanded="true" signature="3358:3462" ph="SELECT patro... reservation" />
-                <marker date="1475213347000" expanded="true" signature="4052:4112" ph="UPDATE branc... " />
+                <marker date="1475290739000" expanded="true" signature="1039:1141" ph="UPDATE branc... " />
+                <marker date="1475290739000" expanded="true" signature="1179:1242" ph="UPDATE branc... " />
+                <marker date="1475290739000" expanded="true" signature="3388:3480" ph="SELECT patro... reservation" />
+                <marker date="1475290739000" expanded="true" signature="3388:3481" ph="SELECT patro... reservation" />
+                <marker date="1475290739000" expanded="true" signature="3388:3500" ph="SELECT patro... reservation" />
+                <marker date="1475290739000" expanded="true" signature="4172:4232" ph="UPDATE branc... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build.gradle">
+      <file leaf-file-name="DerbyBranchItemCheckoutDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/daos/DerbyBranchItemCheckoutDao.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
               <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="logback.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/logback.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="33" column="77" selection-start-line="33" selection-start-column="77" selection-end-line="33" selection-end-column="77" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BranchItemDao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/daos/BranchItemDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PatronDao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/daos/PatronDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -201,7 +141,6 @@
         <option value="$PROJECT_DIR$/src/main/java/thompson/library/system/utilities/UserExistsException.java" />
         <option value="$PROJECT_DIR$/src/main/java/thompson/library/system/services/LibraryServices.java" />
         <option value="$PROJECT_DIR$/src/main/java/thompson/library/system/daos/PatronDaoDerby.java" />
-        <option value="$PROJECT_DIR$/src/main/java/thompson/library/system/daos/HsqldbDaoManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/thompson/library/system/daos/HsqldbPatronDao.java" />
         <option value="$PROJECT_DIR$/src/database.properties" />
         <option value="$PROJECT_DIR$/src/main/java/thompson/library/system/utilities/ConnectionUtil.java" />
@@ -209,30 +148,33 @@
         <option value="$PROJECT_DIR$/src/main/java/Library.java" />
         <option value="$PROJECT_DIR$/src/test/java/thompson/library/system/daos/DerbyDaoManagerTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/thompson/library/system/daos/DaoManagerFactoryTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/thompson/library/system/daos/DaoManagerFactory.java" />
         <option value="$PROJECT_DIR$/src/test/java/thompson/library/system/utilities/ConnectionUtilTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/thompson/library/system/utilities/DerbyConnectionFactoryTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/thompson/library/system/services/LibraryServicesImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/thompson/library/system/utilities/DerbyConnectionFactory.java" />
         <option value="$PROJECT_DIR$/src/test/java/thompson/library/system/services/LibraryServicesImplTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/thompson/library/system/daos/DerbyPatronDaoTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/thompson/library/system/daos/DerbyItemDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/thompson/library/system/daos/DaoManager.java" />
-        <option value="$PROJECT_DIR$/src/main/java/thompson/library/system/daos/DerbyDaoManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/thompson/library/system/daos/DerbyBranchItemCheckoutDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/thompson/library/system/daos/CheckoutDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/thompson/library/system/daos/DerbyCheckoutDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/thompson/library/system/dtos/ItemDto.java" />
         <option value="$PROJECT_DIR$/src/main/java/thompson/library/system/Result.java" />
-        <option value="$PROJECT_DIR$/src/main/java/thompson/library/system/daos/BranchItemDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/thompson/library/system/daos/DerbyPatronDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/thompson/library/system/daos/PatronDao.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/logback.xml" />
         <option value="$PROJECT_DIR$/src/main/java/thompson/library/system/services/BranchServices.java" />
-        <option value="$PROJECT_DIR$/src/main/java/thompson/library/system/services/BranchServicesImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/thompson/library/system/daos/ReservationDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/thompson/library/system/daos/DerbyReservationDao.java" />
+        <option value="$PROJECT_DIR$/src/test/resources/thompson.library.system/daos/logback.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/thompson/library/system/services/BranchServicesImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/thompson/library/system/daos/HsqldbDaoManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/thompson/library/system/daos/BranchItemDao.java" />
+        <option value="$PROJECT_DIR$/src/test/java/thompson/library/system/daos/DerbyPatronDaoTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/thompson/library/system/daos/DerbyBranchItemDaoTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/thompson/library/system/daos/DaoManagerFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/thompson/library/system/daos/DerbyDaoManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/thompson/library/system/daos/DaoManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/thompson/library/system/daos/DerbyBranchItemDao.java" />
       </list>
     </option>
@@ -285,6 +227,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane">
+        <subPane />
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -304,6 +249,62 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thompson.library.system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thompson.library.system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="daos" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -352,10 +353,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="system" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utilities" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -600,9 +597,6 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
-      <pane id="PackagesPane">
-        <subPane />
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -620,15 +614,24 @@
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="resources" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test/resources/thompson.library.system/services" />
+      <recent name="$PROJECT_DIR$/src/test/resources/thompson.library.system/daos" />
+      <recent name="$PROJECT_DIR$/src/test/java/resources/services" />
+      <recent name="$PROJECT_DIR$/src/test/java/resources/daos" />
+    </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="thompson.library.system.daos" />
       <recent name="thompson.library.system.services" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/" />
-    </key>
   </component>
-  <component name="RunManager" selected="JUnit.DerbyDaoManagerTest">
+  <component name="RunManager" selected="JUnit.DerbyBranchItemDaoTest.returnNonReservedItemTest">
     <configuration default="false" name="DerbyDaoManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" runner="idea">
         <pattern>
@@ -681,20 +684,20 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="LibraryServicesImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="DerbyBranchItemDaoTest.returnNonReservedItemTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" runner="idea">
         <pattern>
-          <option name="PATTERN" value="thompson.library.system.services.*" />
+          <option name="PATTERN" value="thompson.library.system.daos.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <module name="application" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="thompson.library.system.services" />
-      <option name="MAIN_CLASS_NAME" value="thompson.library.system.services.LibraryServicesImplTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="thompson.library.system.daos" />
+      <option name="MAIN_CLASS_NAME" value="thompson.library.system.daos.DerbyBranchItemDaoTest" />
+      <option name="METHOD_NAME" value="returnNonReservedItemTest" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -707,20 +710,20 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="ConnectionUtilTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="DerbyBranchItemDaoTest.returnReservedItemTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" runner="idea">
         <pattern>
-          <option name="PATTERN" value="thompson.library.system.utilities.*" />
+          <option name="PATTERN" value="thompson.library.system.daos.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <module name="application" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="thompson.library.system.utilities" />
-      <option name="MAIN_CLASS_NAME" value="thompson.library.system.utilities.ConnectionUtilTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="thompson.library.system.daos" />
+      <option name="MAIN_CLASS_NAME" value="thompson.library.system.daos.DerbyBranchItemDaoTest" />
+      <option name="METHOD_NAME" value="returnReservedItemTest" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -733,20 +736,20 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="DerbyConnectionFactoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="DerbyPatronDaoTest.insertPatronTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" runner="idea">
         <pattern>
-          <option name="PATTERN" value="thompson.library.system.utilities.*" />
+          <option name="PATTERN" value="thompson.library.system.daos.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <module name="application" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="thompson.library.system.utilities" />
-      <option name="MAIN_CLASS_NAME" value="thompson.library.system.utilities.DerbyConnectionFactoryTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="thompson.library.system.daos" />
+      <option name="MAIN_CLASS_NAME" value="thompson.library.system.daos.DerbyPatronDaoTest" />
+      <option name="METHOD_NAME" value="insertPatronTest" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -1174,17 +1177,17 @@
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="JUnit.DerbyDaoManagerTest" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.DerbyPatronDaoTest" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.LibraryServicesImplTest" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.ConnectionUtilTest" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.DerbyConnectionFactoryTest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.DerbyBranchItemDaoTest.returnNonReservedItemTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.DerbyBranchItemDaoTest.returnReservedItemTest" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.DerbyPatronDaoTest.insertPatronTest" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.DerbyDaoManagerTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.DerbyPatronDaoTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.DerbyConnectionFactoryTest" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.ConnectionUtilTest" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.LibraryServicesImplTest" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.DerbyBranchItemDaoTest.returnNonReservedItemTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.DerbyBranchItemDaoTest.returnReservedItemTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.DerbyPatronDaoTest.insertPatronTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.DerbyDaoManagerTest" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.DerbyPatronDaoTest" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -1208,44 +1211,45 @@
       <workItem from="1475013971158" duration="616000" />
       <workItem from="1475014813032" duration="23311000" />
       <workItem from="1475111885321" duration="27230000" />
-      <workItem from="1475209316272" duration="3870000" />
+      <workItem from="1475209316272" duration="15326000" />
+      <workItem from="1475288263097" duration="2726000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ConnectionUtilTest - 2016.09.29 at 01h 23m 38s.xml">
-      <configuration name="ConnectionUtilTest" configurationId="JUnit" />
+    <history-entry file="DerbyBranchItemDaoTest_returnNonReservedItemTest - 2016.09.30 at 22h 27m 07s.xml">
+      <configuration name="DerbyBranchItemDaoTest.returnNonReservedItemTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DaoManagerFactoryTest - 2016.09.29 at 01h 23m 13s.xml">
-      <configuration name="DaoManagerFactoryTest" configurationId="JUnit" />
+    <history-entry file="DerbyBranchItemDaoTest_returnNonReservedItemTest - 2016.09.30 at 22h 28m 04s.xml">
+      <configuration name="DerbyBranchItemDaoTest.returnNonReservedItemTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DerbyConnectionFactoryTest - 2016.09.29 at 01h 23m 43s.xml">
-      <configuration name="DerbyConnectionFactoryTest" configurationId="JUnit" />
+    <history-entry file="DerbyBranchItemDaoTest_returnNonReservedItemTest - 2016.09.30 at 22h 36m 34s.xml">
+      <configuration name="DerbyBranchItemDaoTest.returnNonReservedItemTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DerbyDaoManagerTest - 2016.09.29 at 01h 23m 18s.xml">
-      <configuration name="DerbyDaoManagerTest" configurationId="JUnit" />
+    <history-entry file="DerbyBranchItemDaoTest_returnNonReservedItemTest - 2016.09.30 at 22h 43m 44s.xml">
+      <configuration name="DerbyBranchItemDaoTest.returnNonReservedItemTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DerbyDaoManagerTest - 2016.09.29 at 01h 23m 54s.xml">
-      <configuration name="DerbyDaoManagerTest" configurationId="JUnit" />
+    <history-entry file="DerbyBranchItemDaoTest_returnNonReservedItemTest - 2016.09.30 at 22h 45m 11s.xml">
+      <configuration name="DerbyBranchItemDaoTest.returnNonReservedItemTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DerbyPatronDaoTest - 2016.09.29 at 01h 22m 09s.xml">
-      <configuration name="DerbyPatronDaoTest" configurationId="JUnit" />
+    <history-entry file="DerbyBranchItemDaoTest_returnNonReservedItemTest - 2016.09.30 at 22h 46m 30s.xml">
+      <configuration name="DerbyBranchItemDaoTest.returnNonReservedItemTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DerbyPatronDaoTest - 2016.09.29 at 01h 23m 26s.xml">
-      <configuration name="DerbyPatronDaoTest" configurationId="JUnit" />
+    <history-entry file="DerbyBranchItemDaoTest_returnNonReservedItemTest - 2016.09.30 at 22h 46m 56s.xml">
+      <configuration name="DerbyBranchItemDaoTest.returnNonReservedItemTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DerbyPatronDaoTest - 2016.09.29 at 01h 23m 50s.xml">
-      <configuration name="DerbyPatronDaoTest" configurationId="JUnit" />
+    <history-entry file="DerbyBranchItemDaoTest_returnReservedItemTest - 2016.09.30 at 22h 37m 12s.xml">
+      <configuration name="DerbyBranchItemDaoTest.returnReservedItemTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LibraryServicesImplTest - 2016.09.29 at 01h 22m 01s.xml">
-      <configuration name="LibraryServicesImplTest" configurationId="JUnit" />
+    <history-entry file="DerbyBranchItemDaoTest_returnReservedItemTest - 2016.09.30 at 22h 39m 18s.xml">
+      <configuration name="DerbyBranchItemDaoTest.returnReservedItemTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LibraryServicesImplTest - 2016.09.29 at 01h 23m 32s.xml">
-      <configuration name="LibraryServicesImplTest" configurationId="JUnit" />
+    <history-entry file="DerbyBranchItemDaoTest_returnReservedItemTest - 2016.09.30 at 22h 43m 38s.xml">
+      <configuration name="DerbyBranchItemDaoTest.returnReservedItemTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55027000" />
+    <option name="totallyTimeSpent" value="69209000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1053" extended-state="6" />
@@ -1253,31 +1257,31 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27272728" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24920128" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette " active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973376" sideWeight="0.5" order="7" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31764707" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -1326,7 +1330,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <option name="time" value="6" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1335,78 +1339,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/daos/PatronDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Library.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1475114549000" expanded="true" signature="446:460" ph="SELECT * FRO... BOOK" />
-            <marker date="1475114549000" expanded="true" signature="446:466" ph="SELECT * FRO... PATRON" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/daos/testcalss.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/LibraryTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/src.zip!/java/sql/Statement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="64" column="14" selection-start-line="64" selection-start-column="14" selection-end-line="64" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/utilities/NonUniqueResultException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/daos/HsqldbDaoManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/daos/HsqldbPatronDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#418#419#0" expanded="true" />
-            <element signature="e#446#447#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Library.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -1460,9 +1392,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="42" selection-start-line="0" selection-start-column="42" selection-end-line="0" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1470,7 +1399,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1478,7 +1406,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1502,20 +1429,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/thompson/library/system/daos/DerbyDaoManagerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/thompson/library/system/utilities/ConnectionUtilTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="43" column="9" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
             <marker date="1475121498000" expanded="true" signature="1248:1266" ph="SELECT * FRO... BOOK" />
             <marker date="1475121498000" expanded="true" signature="1854:1872" ph="SELECT * FRO... BOOK" />
           </folding>
@@ -1526,19 +1445,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/thompson/library/system/utilities/DerbyConnectionFactoryTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1546,56 +1452,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/thompson/library/system/services/LibraryServicesImplTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/thompson/library/system/daos/DerbyPatronDaoTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
-          <folding>
-            <marker date="1475126177000" expanded="true" signature="3055:3091" ph="SELECT * FRO... patron" />
-            <marker date="1475126177000" expanded="true" signature="5119:5299" ph="INSERT INTO patron... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/daos/DerbyItemDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/daos/DerbyDaoManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/daos/DaoManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="37" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1603,7 +1459,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="36" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1611,7 +1466,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1620,18 +1474,6 @@
         <state relative-caret-position="165">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/daos/DerbyCheckoutDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#584#585#0" expanded="true" />
-            <element signature="e#611#612#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1651,42 +1493,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/dtos/ItemDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="38" column="26" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="26" />
-          <folding>
-            <element signature="e#1140#1141#0" expanded="true" />
-            <element signature="e#1175#1176#0" expanded="true" />
-            <element signature="e#1212#1213#0" expanded="true" />
-            <element signature="e#1245#1246#0" expanded="true" />
-            <element signature="e#1280#1281#0" expanded="true" />
-            <element signature="e#1311#1312#0" expanded="true" />
-            <element signature="e#1347#1348#0" expanded="true" />
-            <element signature="e#1379#1380#0" expanded="true" />
-            <element signature="e#1432#1433#0" expanded="true" />
-            <element signature="e#1470#1471#0" expanded="true" />
-            <element signature="e#1502#1503#0" expanded="true" />
-            <element signature="e#1533#1534#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/src.zip!/java/sql/PreparedStatement.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="295">
           <caret line="94" column="8" selection-start-line="94" selection-start-column="8" selection-end-line="94" selection-end-column="8" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/daos/DaoManagerFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1698,21 +1509,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/daos/DerbyBranchItemCheckoutDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/Result.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="7" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1720,34 +1520,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/daos/DerbyPatronDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="44" selection-start-line="13" selection-start-column="44" selection-end-line="13" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1475209213000" expanded="true" signature="1089:1125" ph="SELECT patro... patron" />
-            <marker date="1475209213000" expanded="true" signature="2842:3018" ph="INSERT INTO patron... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/logback.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="77" selection-start-line="33" selection-start-column="77" selection-end-line="33" selection-end-column="77" />
           <folding />
         </state>
       </provider>
@@ -1762,6 +1534,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/resources/daos/database.properties" />
+    <entry file="file://$PROJECT_DIR$/src/test/java/resources/services/database.properties" />
+    <entry file="file://$PROJECT_DIR$/src/test/resources/thompson.library.system/services/database.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="40" selection-start-line="1" selection-start-column="40" selection-end-line="1" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/thompson.library.system/daos/database.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/thompson/library/system/utilities/DerbyConnectionFactoryTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/daos/ReservationDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -1772,10 +1574,180 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/thompson.library.system/daos/logback.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/thompson/library/system/services/LibraryServicesImplTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/thompson/library/system/daos/DerbyDaoManagerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/derby.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logback.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="42" selection-start-line="2" selection-start-column="42" selection-end-line="2" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/daos/DerbyReservationDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="45" column="29" selection-start-line="45" selection-start-column="29" selection-end-line="45" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/daos/BranchItemDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+        <state relative-caret-position="452">
+          <caret line="39" column="20" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/thompson/library/system/daos/DerbyPatronDaoTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="610">
+          <caret line="139" column="58" selection-start-line="139" selection-start-column="58" selection-end-line="139" selection-end-column="58" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1475289984000" expanded="true" signature="3129:3165" ph="SELECT * FRO... patron" />
+            <marker date="1475289984000" expanded="true" signature="5271:5451" ph="INSERT INTO patron... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/thompson/library/system/daos/DerbyBranchItemDaoTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2285">
+          <caret line="35" column="5" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/thompson/library/system/daos/DerbyReservationDaoTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/daos/DerbyPatronDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1475209213000" expanded="true" signature="1089:1125" ph="SELECT patro... patron" />
+            <marker date="1475209213000" expanded="true" signature="2842:3018" ph="INSERT INTO patron... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/daos/DerbyCheckoutDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/daos/HsqldbDaoManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/daos/DaoManagerFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/daos/DerbyItemDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/daos/DaoManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/daos/DerbyDaoManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="47" selection-start-line="5" selection-start-column="47" selection-end-line="5" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/dtos/BranchItemDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="38" column="26" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="26" />
+          <folding>
+            <element signature="e#1230#1231#0" expanded="true" />
+            <element signature="e#1263#1264#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/services/BranchServicesImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/daos/DerbyBranchItemCheckoutDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1784,40 +1756,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/daos/DerbyBranchItemDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1345">
-          <caret line="110" column="41" selection-start-line="110" selection-start-column="41" selection-end-line="110" selection-end-column="41" />
+        <state relative-caret-position="765">
+          <caret line="63" column="9" selection-start-line="63" selection-start-column="9" selection-end-line="63" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1475213347000" expanded="true" signature="1021:1121" ph="UPDATE branc... " />
-            <marker date="1475213347000" expanded="true" signature="1159:1220" ph="UPDATE branc... " />
-            <marker date="1475213347000" expanded="true" signature="3358:3448" ph="SELECT patro... reservation" />
-            <marker date="1475213347000" expanded="true" signature="3358:3449" ph="SELECT patro... reservation" />
-            <marker date="1475213347000" expanded="true" signature="3358:3462" ph="SELECT patro... reservation" />
-            <marker date="1475213347000" expanded="true" signature="4052:4112" ph="UPDATE branc... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/daos/DerbyReservationDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="45" column="29" selection-start-line="45" selection-start-column="29" selection-end-line="45" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#996#997#0" expanded="true" />
-            <element signature="e#1020#1021#0" expanded="true" />
-            <marker date="1475213152000" expanded="true" signature="1158:1278" ph="SELECT reser... reservation" />
-            <marker date="1475213152000" expanded="true" signature="1317:1380" ph="Update reser... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/services/BranchServicesImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="23" column="68" selection-start-line="23" selection-start-column="68" selection-end-line="23" selection-end-column="68" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <marker date="1475290739000" expanded="true" signature="1039:1141" ph="UPDATE branc... " />
+            <marker date="1475290739000" expanded="true" signature="1179:1242" ph="UPDATE branc... " />
+            <marker date="1475290739000" expanded="true" signature="3388:3480" ph="SELECT patro... reservation" />
+            <marker date="1475290739000" expanded="true" signature="3388:3481" ph="SELECT patro... reservation" />
+            <marker date="1475290739000" expanded="true" signature="3388:3500" ph="SELECT patro... reservation" />
+            <marker date="1475290739000" expanded="true" signature="4172:4232" ph="UPDATE branc... " />
           </folding>
         </state>
       </provider>

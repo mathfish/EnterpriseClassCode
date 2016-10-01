@@ -2,7 +2,7 @@ package thompson.library.system.daos;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import thompson.library.system.dtos.ItemDto;
+import thompson.library.system.dtos.BranchItemDto;
 import thompson.library.system.utilities.ConnectionFactory;
 import thompson.library.system.utilities.ConnectionUtil;
 
@@ -22,7 +22,7 @@ public class DerbyReservationDao implements ReservationDao {
     }
 
     @Override // example stub to show that there would be potentially multiple implementations of methods for use cases
-    public int fulfillReservation(ItemDto itemDto) {
+    public int fulfillReservation(BranchItemDto branchItemDto) {
         return 0;
     }
 
