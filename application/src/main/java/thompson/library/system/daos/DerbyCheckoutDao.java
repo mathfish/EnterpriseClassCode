@@ -55,7 +55,7 @@ public class DerbyCheckoutDao implements CheckoutDao {
             resultSet = preparedStatement.executeQuery();
             if(resultSet.next()){
                 checkoutDto = new CheckoutDto(resultSet.getInt("checkoutid"),
-                        resultSet.getInt("patronid"), resultSet.getDate("checkoutdate"),
+                        resultSet.getInt("patronid"), resultSet.getTimestamp("checkoutdate"),
                         resultSet.getInt("numberofitems"),resultSet.getBoolean("overdue"),
                         resultSet.getBoolean("itemsreturned"));
             }

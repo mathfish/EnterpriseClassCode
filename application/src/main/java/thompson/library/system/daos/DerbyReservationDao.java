@@ -2,7 +2,6 @@ package thompson.library.system.daos;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import thompson.library.system.dtos.BranchItemDto;
 import thompson.library.system.dtos.ReservationDto;
 import thompson.library.system.utilities.ConnectionFactory;
 import thompson.library.system.utilities.ConnectionUtil;
@@ -25,7 +24,7 @@ public class DerbyReservationDao implements ReservationDao {
 
     @Override
     public ReservationDto fulfillReservation(BranchItemCheckoutDao.ItemReturnOutput itemReturnOutput) {
-        String query = "SELECT reservationid FROM reservation WHERE branchitemid = ? AND fulfilled = false ORDER BY reservdate";
+        String query = "SELECT * FROM reservation WHERE branchitemid = ? AND fulfilled = false ORDER BY reservdate";
         String update = "UPDATE reservation SET fulfilled = ? WHERE reservationid = ?";
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -37,7 +36,8 @@ public class DerbyReservationDao implements ReservationDao {
             resultSet = preparedStatement.executeQuery();
             if(resultSet.next()){
                 preparedStatement = connection.prepareStatement(update);
-                preparedStatement.setInt(1,resultSet.getInt("reservationid"));
+                preparedStatement.setBoolean(1,true);
+                preparedStatement.setInt(2,resultSet.getInt("reservationid"));
                 preparedStatement.executeUpdate();
 
                 reservationDto = new ReservationDto(resultSet.getInt("reservationid"),
@@ -53,56 +53,6 @@ public class DerbyReservationDao implements ReservationDao {
             connectionUtil.close(resultSet);
         }
         return reservationDto;
-    }
-
-    @Override // example stub to show that there would be potentially multiple implementations of methods for use cases
-    public int fulfillReservation(BranchItemDto branchItemDto) {
-        return 0;
-    }
-
-    @Override
-    public int fulfillReservation(BranchItemDao.ReturnItemOutput returnItemOutput){
-        String reservationIDQuery = "SELECT reservationid FROM reservation WHERE patronid = ? " +
-                "AND branchitemid = ? AND fulfilled = false";
-        String reservationUpdate = "Update reservation SET fulfilled = true WHERE reservationid = ?";
-
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
-        Connection connection = null;
-        int patronid=0;
-        try {
-            //Ignore unchecked warning since values already verified existing
-            connection = returnItemOutput.getConnection().get();
-            preparedStatement = connection.prepareStatement(reservationIDQuery);
-            preparedStatement.setInt(1,returnItemOutput.getPatronid().get());
-            preparedStatement.setInt(2,returnItemOutput.getBranchitemid().get());
-            resultSet = preparedStatement.executeQuery();
-            resultSet.next();
-            patronid = resultSet.findColumn("reservationid");
-
-            preparedStatement = connection.prepareStatement(reservationUpdate);
-            preparedStatement.setInt(1,patronid);
-            preparedStatement.executeUpdate();
-            //connection has autocommit to false
-            connection.commit();
-        } catch (SQLException e1) {
-            logger.error("SQL exception occured for patron {}  and branchitem {} \n",returnItemOutput.getPatronid().get(),
-                    returnItemOutput.getBranchitemid().get(), e1);
-            try {
-                connection.rollback();
-                throw new IllegalStateException("SQL exception when fulfilling reservation. See log file.");
-            } catch (SQLException e) {
-                logger.error("SQL exception occured for patron {}  and branchitem {}. Potential rollback failure. \n",returnItemOutput.getPatronid().get(),
-                        returnItemOutput.getBranchitemid().get(), e1);
-                throw new IllegalStateException("SQL exception when fulfilling reservation. See log file.");
-            }
-
-        } finally {
-            connectionUtil.close(returnItemOutput.getConnection().get());
-            connectionUtil.close(preparedStatement);
-            connectionUtil.close(resultSet);
-        }
-        return patronid;
     }
 
 }

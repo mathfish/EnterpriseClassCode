@@ -1,16 +1,17 @@
 package thompson.library.system.dtos;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 public class CheckoutDto {
     private int checkoutID;
     private int patronid;
-    private java.sql.Date checkoutdate;
+    private java.sql.Timestamp checkoutdate;
     private int numberofitems;
     private boolean overdue;
     private boolean itemsreturned;
 
-    public CheckoutDto(int checkoutID, int patronid, Date checkoutdate, int numberofitems, boolean overdue, boolean itemsreturned) {
+    public CheckoutDto(int checkoutID, int patronid, Timestamp checkoutdate, int numberofitems, boolean overdue, boolean itemsreturned) {
         this.checkoutID = checkoutID;
         this.patronid = patronid;
         this.checkoutdate = checkoutdate;
@@ -36,11 +37,11 @@ public class CheckoutDto {
         this.patronid = patronid;
     }
 
-    public Date getCheckoutdate() {
+    public Timestamp getCheckoutdate() {
         return checkoutdate;
     }
 
-    public void setCheckoutdate(Date checkoutdate) {
+    public void setCheckoutdate(Timestamp checkoutdate) {
         this.checkoutdate = checkoutdate;
     }
 

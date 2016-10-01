@@ -5,7 +5,6 @@ import org.slf4j.LoggerFactory;
 import thompson.library.system.dtos.PatronDto;
 import thompson.library.system.utilities.ConnectionFactory;
 import thompson.library.system.utilities.ConnectionUtil;
-import thompson.library.system.utilities.NonUniqueResultException;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -60,7 +59,7 @@ public class DerbyPatronDao implements PatronDao {
     }
 
     @Override
-    public PatronDto getPatrion(BranchItemCheckoutDao.ItemReturnOutput itemReturnOutput) {
+    public PatronDto getPatron(BranchItemCheckoutDao.ItemReturnOutput itemReturnOutput) {
         String query = "SELECT * FROM patron WHERE patronid = ?";
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;

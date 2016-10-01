@@ -6,6 +6,8 @@ import thompson.library.system.daos.*;
 
 import thompson.library.system.dtos.*;
 
+import java.util.Calendar;
+
 
 public class BranchServicesImpl implements BranchServices {
     private static final Logger logger = LoggerFactory.getLogger(BranchServicesImpl.class);
@@ -22,10 +24,12 @@ public class BranchServicesImpl implements BranchServices {
     @Override
     public void returnItem(BranchItemDto branchItemDto) {
 
+        Calendar calendar = Calendar.getInstance();
+        java.sql.Date today = new java.sql.Date(calendar.getTime().getTime());
 
         BranchItemCheckoutDao branchItemCheckoutDao = daoManager.getBranchItemCheckoutDao();
         BranchItemCheckoutDto brItemCheckoutDto = branchItemCheckoutDao.getBranchItemCheckout(branchItemDto);
-        if(brItemCheckoutDto.getDueDate().after(brItemCheckoutDto.getDueDate())){
+        if(today.after(brItemCheckoutDto.getDueDate())){
             if(!brItemCheckoutDto.isRenew()) {
                 brItemCheckoutDto.setOverdue(true);
             } else if(brItemCheckoutDto.getDueDate().after(brItemCheckoutDto.getRenewDate())){
@@ -48,7 +52,7 @@ public class BranchServicesImpl implements BranchServices {
             itemReturnOutput.setReserved(true);
             branchItemDao.updateBranchItem(itemReturnOutput);
             itemReturnOutput.setPatronid(reservationDto.getPatronid());
-            PatronDto patronDto = daoManager.getPatronDao().getPatrion(itemReturnOutput);
+            PatronDto patronDto = daoManager.getPatronDao().getPatron(itemReturnOutput);
             String msg = " Dear " + patronDto.getFirstname() + " " + patronDto.getLastname() + ", your reservation with id "
                   + reservationDto.getReservationid() + " has been fulfilled. You can pickup your item";
             emailPatron(patronDto,msg);

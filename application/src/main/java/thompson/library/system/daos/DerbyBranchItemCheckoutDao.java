@@ -9,11 +9,8 @@ import thompson.library.system.utilities.ConnectionUtil;
 
 import java.sql.*;
 import java.util.Calendar;
-import java.util.Optional;
 
-/**
- * Created by jonathanthompson on 9/29/16.
- */
+
 public class DerbyBranchItemCheckoutDao implements BranchItemCheckoutDao {
 
     private static final Logger logger = LoggerFactory.getLogger(DerbyBranchItemCheckoutDao.class);

@@ -43,13 +43,9 @@ public class LibraryServicesImplTest {
     @Test(expected = EntryExistsException.class) //Test exception is throw if insert patron occurs when already exists
     public void createPatronTest2() throws EntryExistsException {
         PatronDto patronDto = mock(PatronDto.class);
-        try {
             when(patronDao.getPatron(anyString())).thenReturn(patronDto);
             impl.createPatron("testFirst","testLast","testcity","AA",22222,"testAddress",null, "test@email.test",
                     4444444444L, false, "1234PW");
-        } catch (NonUniqueResultException e) {
-            assertFalse(true);
-        }
     }
 
 }

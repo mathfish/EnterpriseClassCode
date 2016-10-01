@@ -11,7 +11,7 @@ import java.sql.Timestamp;
 
 public class LibraryServicesImpl implements LibraryServices{
 
-    DaoManager daoManager;
+    private DaoManager daoManager;
 
     public LibraryServicesImpl(){
         this.daoManager = DaoManagerFactory.getDaoManager();
@@ -35,12 +35,9 @@ public class LibraryServicesImpl implements LibraryServices{
                                 String password) throws EntryExistsException {
 
         PatronDao patronDao = daoManager.getPatronDao();
-        try {
-            if(patronDao.getPatron(email) != null){
-                throw new EntryExistsException("Patron already exists with email " + email);
-            }
-        } catch (NonUniqueResultException e) {
-            e.printStackTrace();
+
+        if(patronDao.getPatron(email) != null){
+            throw new EntryExistsException("Patron already exists with email " + email);
         }
 
         patronDao.insertPatron(new PatronDto(firstname, lastname, city, state, zipcode, streetAddress, joinDate, email,

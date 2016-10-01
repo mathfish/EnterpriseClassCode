@@ -1,8 +1,7 @@
 package thompson.library.system.daos;
 
-
 import org.junit.Test;
-import thompson.library.system.dtos.ReservationDto;
+import thompson.library.system.dtos.CheckoutDto;
 import thompson.library.system.utilities.ConnectionUtil;
 import thompson.library.system.utilities.DerbyConnectionFactory;
 
@@ -14,44 +13,43 @@ import java.util.Calendar;
 
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertFalse;
-import static junit.framework.TestCase.assertNull;
 import static org.junit.Assert.assertTrue;
+import static org.mockito.Matchers.contains;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class DerbyReservationDaoTest {
+public class DerbyCheckoutDaoTest {
 
     private Connection connection;
-    private java.sql.Date date;
-    private int reservationid =0;
+    private java.sql.Timestamp date;
+    private int checkoutid;
 
-    private Connection getLocalConnection(boolean isFulfilled){
+    private Connection getLocalConnection(){
         DerbyConnectionFactory derbyConnectionFactory = new DerbyConnectionFactory();
         connection = derbyConnectionFactory.getConnection();
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         Calendar calendar = Calendar.getInstance();
-        date = new java.sql.Date(calendar.getTime().getTime());
+        date = new java.sql.Timestamp(calendar.getTime().getTime());
+        String insert = "INSERT INTO checkout(patronid, checkoutdate, numberofitems, overdue, itemsreturned)" +
+                " VALUES(1, ?, ?, false, false)";
 
+        String query = "SELECT checkoutid FROM checkout WHERE patronid = 1 AND checkoutdate = ? AND numberofitems = ? " +
+                "AND overdue = false AND itemsreturned = false";
         try {
             connection.setAutoCommit(false);
-            String insert =" INSERT INTO reservation(patronid, forbranchid, branchitemid, reservdate, fulfilled) " +
-                    "VALUES(1,1,15, ? , ?)";
-            String query = "SELECT reservationid FROM reservation WHERE patronid = 1 AND forbranchid = 1 AND branchitemid = 15" +
-                    " AND reservdate = ? AND fulfilled = false";
             preparedStatement = connection.prepareStatement(insert);
-            preparedStatement.setDate(1,date);
-            preparedStatement.setBoolean(2, isFulfilled);
+            preparedStatement.setTimestamp(1,date);
+            preparedStatement.setInt(2,1);
             preparedStatement.executeUpdate();
-            if(!isFulfilled) {
-                preparedStatement = connection.prepareStatement(query);
-                preparedStatement.setDate(1, date);
-                resultSet = preparedStatement.executeQuery();
-                if(resultSet.next()){
-                    reservationid = resultSet.getInt(1);
-                }
-            }
 
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setTimestamp(1,date);
+            preparedStatement.setInt(2,1);
+            resultSet = preparedStatement.executeQuery();
+            if(resultSet.next()){
+                checkoutid =resultSet.getInt(1);
+            }
         } catch (SQLException e) {
             e.printStackTrace();
             assertTrue(false);
@@ -63,36 +61,50 @@ public class DerbyReservationDaoTest {
         return connection;
     }
 
+
     @Test
-    public void fulfillReservationTestAllFulfilled(){
+    public void updateCheckoutTest(){
         TestConnectionUtil util = new TestConnectionUtil();
         BranchItemCheckoutDao.ItemReturnOutput itemReturnOutput = mock(BranchItemCheckoutDao.ItemReturnOutput.class);
-        when(itemReturnOutput.getConnection()).thenReturn(getLocalConnection(true));
-        when(itemReturnOutput.getBranchitemid()).thenReturn(15);
-        DerbyReservationDao impl = new DerbyReservationDao(new DerbyConnectionFactory(), util);
-        assertNull(impl.fulfillReservation(itemReturnOutput));
-        try {
+        when(itemReturnOutput.getConnection()).thenReturn(getLocalConnection());
+        when(itemReturnOutput.isReturned()).thenReturn(true);
+        when(itemReturnOutput.getCheckoutid()).thenReturn(checkoutid);
+        DerbyCheckoutDao impl = new DerbyCheckoutDao(new DerbyConnectionFactory(), util);
+        impl.updateCheckout(itemReturnOutput);
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try{
+            String query = "SELECT itemsreturned FROM checkout WHERE checkoutid = ?";
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1,checkoutid);
+            resultSet = preparedStatement.executeQuery();
+            if(resultSet.next()){
+                assertTrue(resultSet.getBoolean(1));
+            }
             assertFalse(connection.isClosed());
         } catch (SQLException e) {
             e.printStackTrace();
             assertTrue(false);
         } finally {
             util.close(connection);
+            util.close(preparedStatement);
+            util.close(resultSet);
         }
-
     }
 
     @Test
-    public void fullfillReservationTestNotAllFulfilled(){
+    public void getCheckoutTest(){
         TestConnectionUtil util = new TestConnectionUtil();
         BranchItemCheckoutDao.ItemReturnOutput itemReturnOutput = mock(BranchItemCheckoutDao.ItemReturnOutput.class);
-        when(itemReturnOutput.getConnection()).thenReturn(getLocalConnection(false));
-        when(itemReturnOutput.getBranchitemid()).thenReturn(15);
-        DerbyReservationDao impl = new DerbyReservationDao(new DerbyConnectionFactory(), util);
-        ReservationDto dto = impl.fulfillReservation(itemReturnOutput);
-        assertEquals(reservationid, dto.getReservationid());
-        assertEquals(15,dto.getBranchitemid());
-        assertTrue(dto.isFulfilled());
+        when(itemReturnOutput.getConnection()).thenReturn(getLocalConnection());
+        when(itemReturnOutput.getCheckoutid()).thenReturn(checkoutid);
+        DerbyCheckoutDao impl = new DerbyCheckoutDao(new DerbyConnectionFactory(), util);
+        CheckoutDto dto = impl.getCheckout(itemReturnOutput);
+        assertEquals(date.toString(),dto.getCheckoutdate().toString());
+        assertEquals(1,dto.getPatronid());
+        assertEquals(1,dto.getNumberofitems());
+        assertFalse(dto.isOverdue());
+        assertFalse(dto.isItemsreturned());
         try {
             assertFalse(connection.isClosed());
         } catch (SQLException e) {
@@ -101,6 +113,7 @@ public class DerbyReservationDaoTest {
         } finally {
             util.close(connection);
         }
+
     }
 
     private class TestConnectionUtil extends ConnectionUtil {
@@ -117,5 +130,4 @@ public class DerbyReservationDaoTest {
             }
         }
     }
-
 }

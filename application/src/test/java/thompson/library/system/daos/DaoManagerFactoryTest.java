@@ -23,8 +23,6 @@ public class DaoManagerFactoryTest {
         }
         if(properties.getProperty("databaseType").equals("derby")){
             assertTrue("manager not instance of DerbyDaoManager",daoManager instanceof DerbyDaoManager);
-        } else if(properties.getProperty("databaseType").equals("hsqldb")){
-            assertTrue("manager not instance of DerbyDaoManager",daoManager instanceof HsqldbDaoManager);
         } else {
             assertFalse(true);
         }

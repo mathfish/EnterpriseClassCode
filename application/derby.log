@@ -1,6 +1,6 @@
 ----------------------------------------------------------------
-Fri Sep 30 22:46:55 EDT 2016:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-0157-7e23-24b0-0000038a05e0 
+Sat Oct 01 16:50:28 EDT 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-0157-8203-2aa7-00000389bee0 
 on database directory /Users/jonathanthompson/EnterpriseDesign/Code/2016FA-jthomp97/database/javadb/librarydb with class loader sun.misc.Launcher$AppClassLoader@4e25154f 
 Loaded from file:/Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.apache.derby/derby/10.11.1.1/df4b50061e8e4c348ce243b921f53ee63ba9bbe1/derby-10.11.1.1.jar
 java.vendor=Oracle Corporation

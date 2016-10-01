@@ -10,7 +10,7 @@ public interface PatronDao {
 
     PatronDto getPatron(String email);
 
-    PatronDto getPatrion(BranchItemCheckoutDao.ItemReturnOutput itemReturnOutput);
+    PatronDto getPatron(BranchItemCheckoutDao.ItemReturnOutput itemReturnOutput);
 
     boolean insertPatron(PatronDto patron);
 }
