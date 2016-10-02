@@ -1,10 +1,11 @@
 package thompson.library.system.services;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import thompson.library.system.daos.DaoManager;
 import thompson.library.system.daos.DaoManagerFactory;
 import thompson.library.system.daos.PatronDao;
 import thompson.library.system.dtos.PatronDto;
-import thompson.library.system.utilities.NonUniqueResultException;
 import thompson.library.system.utilities.EntryExistsException;
 
 import java.sql.Timestamp;
@@ -12,7 +13,7 @@ import java.sql.Timestamp;
 public class LibraryServicesImpl implements LibraryServices{
 
     private DaoManager daoManager;
-
+    private static final Logger logger = LoggerFactory.getLogger(LibraryServicesImpl.class);
     public LibraryServicesImpl(){
         this.daoManager = DaoManagerFactory.getDaoManager();
     }
@@ -21,6 +22,11 @@ public class LibraryServicesImpl implements LibraryServices{
         this.daoManager = daoManager;
     }
 
+    /**
+     *
+     * Used to create a patron in the library system. First checks if the patron already exists by their email, as
+     * email is unique.
+     */
     @Override
     public boolean createPatron(String firstname,
                                 String lastname,
@@ -37,6 +43,7 @@ public class LibraryServicesImpl implements LibraryServices{
         PatronDao patronDao = daoManager.getPatronDao();
 
         if(patronDao.getPatron(email) != null){
+            logger.info("Patron with email {} already exists", email);
             throw new EntryExistsException("Patron already exists with email " + email);
         }
 

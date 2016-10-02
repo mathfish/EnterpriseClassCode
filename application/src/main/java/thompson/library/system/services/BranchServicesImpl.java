@@ -21,6 +21,13 @@ public class BranchServicesImpl implements BranchServices {
         this.daoManager = daoManager;
     }
 
+    /**
+     *
+     * Used to return an item back to the branch of the library system. Will check to see if it is reserved and
+     * fulfill the most recent reservation, as well as email the patron who requested the object. Will also update the
+     * checkout row if all items are returned. Tallying fines and determining when the total checkout is overdue would
+     * be done in other processing
+     */
     @Override
     public void returnItem(BranchItemDto branchItemDto) {
 
@@ -63,30 +70,12 @@ public class BranchServicesImpl implements BranchServices {
         itemReturnOutput.completeReturn();
 
         // transaction end.
-
-
-//        BranchItemDao branchItemDao = daoManager.getBranchItemDao();
-//
-//        if(!patronDto.getPatronid().isPresent()){
-//            try {
-//                patronDto = daoManager.getPatronDao().getPatron(patronDto.getEmail());
-//            } catch (NonUniqueResultException e) {
-//                logger.error("Non-unique result for patron with email {}", patronDto.getEmail());
-//                throw new IllegalStateException("SQL returned unexpected non-unique result for patron with email: " + patronDto);
-//            }
-//        }
-//
-//        BranchItemDao.ReturnItemOutput returnItemOutput = branchItemDao.returnItem(branchItemDto,patronDto);
-//        if(returnItemOutput.isFulfillReturn()) {
-//            ReservationDao reservationDao = daoManager.getReservationDao();
-//            int resvID = reservationDao.fulfillReservation(returnItemOutput);
-//            String msg = " Dear " + patronDto.getFirstname() + " " + patronDto.getLastname() + ", your reservation with id "
-//                    + resvID + " has been fulfilled. You can pickup your item";
-//            emailPatron(patronDto, msg);
-//        }
-//        returnItemOutput.completeReturn();
     }
 
+    /**
+     *
+     * Method to email patron a message. Using logging as a proxy for that functionality
+     */
     @Override
     public void emailPatron(PatronDto patronDto, String message) {
         //log as proxy to email patron

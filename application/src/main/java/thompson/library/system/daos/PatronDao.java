@@ -1,7 +1,6 @@
 package thompson.library.system.daos;
 
 import thompson.library.system.dtos.PatronDto;
-import thompson.library.system.utilities.NonUniqueResultException;
 
 /**
  * Created by jonathanthompson on 9/27/16.

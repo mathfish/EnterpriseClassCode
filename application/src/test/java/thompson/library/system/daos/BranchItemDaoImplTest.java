@@ -1,8 +1,9 @@
 package thompson.library.system.daos;
 
 import org.junit.Test;
+import thompson.library.system.utilities.ConnectionFactory;
+import thompson.library.system.utilities.ConnectionManager;
 import thompson.library.system.utilities.ConnectionUtil;
-import thompson.library.system.utilities.DerbyConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,15 +14,15 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 
-public class DerbyBranchItemDaoTest {
+public class BranchItemDaoImplTest {
 
     private Connection connection;
 
-    public DerbyBranchItemDaoTest() {}
+    public BranchItemDaoImplTest() {}
 
     private Connection getConnection(){
-        DerbyConnectionFactory derbyConnectionFactory = new DerbyConnectionFactory();
-        this.connection = derbyConnectionFactory.getConnection();
+        ConnectionFactory connectionFactory = ConnectionManager.getConnectionFactory();
+        this.connection = connectionFactory.getConnection();
         try {
             connection.setAutoCommit(false);
         } catch (SQLException e) {
@@ -34,7 +35,7 @@ public class DerbyBranchItemDaoTest {
 
     @Test
     public void testUpdateBranchItem() {
-        DerbyBranchItemDao impl = new DerbyBranchItemDao(new DerbyConnectionFactory(), new ConnectionUtil());
+        BranchItemDaoImpl impl = new BranchItemDaoImpl(null, new ConnectionUtil());
         BranchItemCheckoutDao.ItemReturnOutput itemReturnOutput = mock(BranchItemCheckoutDao.ItemReturnOutput.class);
         when(itemReturnOutput.getConnection()).thenReturn(getConnection());
         when(itemReturnOutput.isReserved()).thenReturn(false);

@@ -1,36 +1,26 @@
 package thompson.library.system.daos;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.Properties;
+
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class DaoManagerFactory {
-
-    private static DerbyDaoManager derbyDaoManager;
+    private static DaoManagerImpl daoManagerimpl;
+    private static final Logger logger = LoggerFactory.getLogger(DaoManagerFactory.class);
 
     private DaoManagerFactory(){}
 
+    /**
+     * Used to return a daoManger singleton. Not intended to be threadsafe or clone safe.
+     */
+
     public static DaoManager getDaoManager(){
-        File file = new File("database.properties");
-        Properties properties = null;
-        try(FileInputStream fios = new FileInputStream(file)){
-            properties = new Properties();
-            properties.load(fios);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        if(properties.getProperty("databaseType").equals("derby")){
-            if(derbyDaoManager == null){
-                derbyDaoManager = new DerbyDaoManager();
-            }
-            return derbyDaoManager;
+        if(daoManagerimpl == null){
+            daoManagerimpl = new DaoManagerImpl();
         }
 
-        return  null;
+        return daoManagerimpl;
     }
 
 }

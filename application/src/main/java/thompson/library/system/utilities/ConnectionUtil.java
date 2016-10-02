@@ -7,6 +7,10 @@ import java.sql.Statement;
 
 public class ConnectionUtil {
 
+    /**
+     *
+     * Utility class to close connections, statements, and resultSets
+     */
     public void close(Connection connection){
         if(connection != null){
             try {

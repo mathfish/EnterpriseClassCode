@@ -11,18 +11,21 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class DerbyCheckoutDao implements CheckoutDao {
-    private static final Logger logger = LoggerFactory.getLogger(DerbyReservationDao.class);
+public class CheckoutDaoImpl implements CheckoutDao {
+    private static final Logger logger = LoggerFactory.getLogger(ReservationDaoImpl.class);
     private ConnectionFactory connectionFactory;
     private ConnectionUtil connectionUtil;
 
-    DerbyCheckoutDao(ConnectionFactory connectionFactory, ConnectionUtil connectionUtil){
+    CheckoutDaoImpl(ConnectionFactory connectionFactory, ConnectionUtil connectionUtil){
         this.connectionFactory = connectionFactory;
         this.connectionUtil = connectionUtil;
     }
 
 
-
+    /**
+     *
+     * Updates a checkout with the itemReturnOutput object. Part of a many step process for returning an item.
+     */
     @Override
     public void updateCheckout(BranchItemCheckoutDao.ItemReturnOutput itemReturnOutput) {
         String update = "UPDATE checkout SET itemsreturned = ? WHERE checkoutid = ?";
@@ -42,6 +45,11 @@ public class DerbyCheckoutDao implements CheckoutDao {
 
     }
 
+    /**
+     *
+     * Returns a checkout row using the information in the itemReturnOutput object.
+     * Part of a many step process for returning an item.
+     */
     @Override
     public CheckoutDto getCheckout(BranchItemCheckoutDao.ItemReturnOutput itemReturnOutput) {
         String query = "SELECT * FROM checkout WHERE checkoutid = ?";

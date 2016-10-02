@@ -11,19 +11,22 @@ import java.sql.*;
 import java.util.Calendar;
 
 
-public class DerbyBranchItemCheckoutDao implements BranchItemCheckoutDao {
+public class BranchItemCheckoutDaoImpl implements BranchItemCheckoutDao {
 
-    private static final Logger logger = LoggerFactory.getLogger(DerbyBranchItemCheckoutDao.class);
+    private static final Logger logger = LoggerFactory.getLogger(BranchItemCheckoutDaoImpl.class);
     private ConnectionFactory connectionFactory;
     private ConnectionUtil connectionUtil;
     private Connection connection;
 
-    DerbyBranchItemCheckoutDao(ConnectionFactory connectionFactory, ConnectionUtil connectionUtil){
+    BranchItemCheckoutDaoImpl(ConnectionFactory connectionFactory, ConnectionUtil connectionUtil){
         this.connectionFactory = connectionFactory;
         this.connectionUtil = connectionUtil;
     }
 
-
+    /**
+     *
+     * Returns information on the branch item for a checkout. Returns branchItemDto
+     */
     @Override
     public BranchItemCheckoutDto getBranchItemCheckout(BranchItemDto branchItemDto) {
         connection = connectionFactory.getConnection();
@@ -55,6 +58,10 @@ public class DerbyBranchItemCheckoutDao implements BranchItemCheckoutDao {
         return brItemCheckout;
     }
 
+    /**
+     *
+     * Updates a branch item checkout using transfer object branchItemCheckoutDto
+     */
     @Override
     public BranchItemCheckoutDao.ItemReturnOutput updateBranchItemCheckout(BranchItemCheckoutDto branchItemCheckoutDto) {
         connection = connectionFactory.getConnection();
@@ -87,6 +94,12 @@ public class DerbyBranchItemCheckoutDao implements BranchItemCheckoutDao {
 
         return itemReturnOutput;
     }
+
+    /**
+     *
+     * Returns the total number of items that have been returned from a checkout. That is a checkout can have multiple
+     * items, each of which of can be returned at different times.
+     */
 
     @Override
     public int getNumberOfItemsReturnedFromCheckout(ItemReturnOutput itemReturnOutput) {

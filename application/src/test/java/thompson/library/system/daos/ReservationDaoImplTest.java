@@ -3,6 +3,8 @@ package thompson.library.system.daos;
 
 import org.junit.Test;
 import thompson.library.system.dtos.ReservationDto;
+import thompson.library.system.utilities.ConnectionFactory;
+import thompson.library.system.utilities.ConnectionManager;
 import thompson.library.system.utilities.ConnectionUtil;
 import thompson.library.system.utilities.DerbyConnectionFactory;
 
@@ -19,15 +21,15 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class DerbyReservationDaoTest {
+public class ReservationDaoImplTest {
 
     private Connection connection;
     private java.sql.Date date;
     private int reservationid =0;
 
     private Connection getLocalConnection(boolean isFulfilled){
-        DerbyConnectionFactory derbyConnectionFactory = new DerbyConnectionFactory();
-        connection = derbyConnectionFactory.getConnection();
+        ConnectionFactory connectionFactory = ConnectionManager.getConnectionFactory();
+        connection = connectionFactory.getConnection();
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         Calendar calendar = Calendar.getInstance();
@@ -69,7 +71,7 @@ public class DerbyReservationDaoTest {
         BranchItemCheckoutDao.ItemReturnOutput itemReturnOutput = mock(BranchItemCheckoutDao.ItemReturnOutput.class);
         when(itemReturnOutput.getConnection()).thenReturn(getLocalConnection(true));
         when(itemReturnOutput.getBranchitemid()).thenReturn(15);
-        DerbyReservationDao impl = new DerbyReservationDao(new DerbyConnectionFactory(), util);
+        ReservationDaoImpl impl = new ReservationDaoImpl(null, util);
         assertNull(impl.fulfillReservation(itemReturnOutput));
         try {
             assertFalse(connection.isClosed());
@@ -88,7 +90,7 @@ public class DerbyReservationDaoTest {
         BranchItemCheckoutDao.ItemReturnOutput itemReturnOutput = mock(BranchItemCheckoutDao.ItemReturnOutput.class);
         when(itemReturnOutput.getConnection()).thenReturn(getLocalConnection(false));
         when(itemReturnOutput.getBranchitemid()).thenReturn(15);
-        DerbyReservationDao impl = new DerbyReservationDao(new DerbyConnectionFactory(), util);
+        ReservationDaoImpl impl = new ReservationDaoImpl(null, util);
         ReservationDto dto = impl.fulfillReservation(itemReturnOutput);
         assertEquals(reservationid, dto.getReservationid());
         assertEquals(15,dto.getBranchitemid());

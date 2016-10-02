@@ -12,16 +12,21 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
-public class DerbyPatronDao implements PatronDao {
-    private static final Logger logger = LoggerFactory.getLogger(DerbyPatronDao.class);
+public class PatronDaoImpl implements PatronDao {
+    private static final Logger logger = LoggerFactory.getLogger(PatronDaoImpl.class);
     private ConnectionFactory connectionFactory;
     private ConnectionUtil connectionUtil;
 
-    DerbyPatronDao(ConnectionFactory connectionFactory, ConnectionUtil connectionUtil){
+    PatronDaoImpl(ConnectionFactory connectionFactory, ConnectionUtil connectionUtil){
         this.connectionFactory = connectionFactory;
         this.connectionUtil = connectionUtil;
     }
 
+    /**
+     *
+     * Returns patron data transfer object using patrons email. Useful to check if patron exists in database prior to
+     * insertion.
+     */
     @Override
     public PatronDto getPatron(String email){
         Connection connection = connectionFactory.getConnection();
@@ -58,6 +63,10 @@ public class DerbyPatronDao implements PatronDao {
         return patronDTO;
     }
 
+    /**
+     *
+     * Returns patron using the itemReturnOutput object. Part of multiple steps in the item return process
+     */
     @Override
     public PatronDto getPatron(BranchItemCheckoutDao.ItemReturnOutput itemReturnOutput) {
         String query = "SELECT * FROM patron WHERE patronid = ?";
@@ -93,6 +102,10 @@ public class DerbyPatronDao implements PatronDao {
         return patronDto;
     }
 
+    /**
+     *
+     * Used to insert patron using the patronDto transfer object
+     */
     @Override
     public boolean insertPatron(PatronDto patron) {
         Connection connection = connectionFactory.getConnection();

@@ -6,14 +6,12 @@ import thompson.library.system.daos.DaoManager;
 import thompson.library.system.daos.PatronDao;
 import thompson.library.system.dtos.PatronDto;
 import thompson.library.system.utilities.EntryExistsException;
-import thompson.library.system.utilities.NonUniqueResultException;
 
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import static junit.framework.TestCase.*;
 
 public class LibraryServicesImplTest {
 

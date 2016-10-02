@@ -2,6 +2,8 @@ package thompson.library.system.daos;
 
 import org.junit.Test;
 import thompson.library.system.dtos.CheckoutDto;
+import thompson.library.system.utilities.ConnectionFactory;
+import thompson.library.system.utilities.ConnectionManager;
 import thompson.library.system.utilities.ConnectionUtil;
 import thompson.library.system.utilities.DerbyConnectionFactory;
 
@@ -14,19 +16,18 @@ import java.util.Calendar;
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static org.mockito.Matchers.contains;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class DerbyCheckoutDaoTest {
+public class CheckoutDaoImplTest {
 
     private Connection connection;
     private java.sql.Timestamp date;
     private int checkoutid;
 
     private Connection getLocalConnection(){
-        DerbyConnectionFactory derbyConnectionFactory = new DerbyConnectionFactory();
-        connection = derbyConnectionFactory.getConnection();
+        ConnectionFactory connectionFactory = ConnectionManager.getConnectionFactory();
+        connection = connectionFactory.getConnection();
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         Calendar calendar = Calendar.getInstance();
@@ -69,7 +70,7 @@ public class DerbyCheckoutDaoTest {
         when(itemReturnOutput.getConnection()).thenReturn(getLocalConnection());
         when(itemReturnOutput.isReturned()).thenReturn(true);
         when(itemReturnOutput.getCheckoutid()).thenReturn(checkoutid);
-        DerbyCheckoutDao impl = new DerbyCheckoutDao(new DerbyConnectionFactory(), util);
+        CheckoutDaoImpl impl = new CheckoutDaoImpl(null, util);
         impl.updateCheckout(itemReturnOutput);
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -98,7 +99,7 @@ public class DerbyCheckoutDaoTest {
         BranchItemCheckoutDao.ItemReturnOutput itemReturnOutput = mock(BranchItemCheckoutDao.ItemReturnOutput.class);
         when(itemReturnOutput.getConnection()).thenReturn(getLocalConnection());
         when(itemReturnOutput.getCheckoutid()).thenReturn(checkoutid);
-        DerbyCheckoutDao impl = new DerbyCheckoutDao(new DerbyConnectionFactory(), util);
+        CheckoutDaoImpl impl = new CheckoutDaoImpl(null, util);
         CheckoutDto dto = impl.getCheckout(itemReturnOutput);
         assertEquals(date.toString(),dto.getCheckoutdate().toString());
         assertEquals(1,dto.getPatronid());

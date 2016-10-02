@@ -1,6 +1,5 @@
 package thompson.library.system.utilities;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.sql.Connection;
@@ -11,15 +10,13 @@ import java.sql.SQLException;
 import static junit.framework.TestCase.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-/**
- * Created by jonathanthompson on 9/28/16.
- */
+
 public class ConnectionUtilTest {
 
     @Test // test close connection
     public void closeConnectionTest(){
         ConnectionUtil impl = new ConnectionUtil();
-        ConnectionFactory connectionFactory = new DerbyConnectionFactory();
+        ConnectionFactory connectionFactory = ConnectionManager.getConnectionFactory();
         Connection connection = connectionFactory.getConnection();
         try {
             assertFalse(connection.isClosed());
@@ -33,7 +30,7 @@ public class ConnectionUtilTest {
     @Test // test statement closed
     public void closeStatementTest(){
         ConnectionUtil impl = new ConnectionUtil();
-        ConnectionFactory connectionFactory = new DerbyConnectionFactory();
+        ConnectionFactory connectionFactory = ConnectionManager.getConnectionFactory();
         try(Connection connection = connectionFactory.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM BOOK");
             assertFalse(preparedStatement.isClosed());
@@ -47,7 +44,7 @@ public class ConnectionUtilTest {
     @Test // test resultSet closed
     public void closeResultSetTest(){
         ConnectionUtil impl = new ConnectionUtil();
-        ConnectionFactory connectionFactory = new DerbyConnectionFactory();
+        ConnectionFactory connectionFactory = ConnectionManager.getConnectionFactory();
         try(Connection connection = connectionFactory.getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM BOOK")){
             ResultSet resultSet = preparedStatement.executeQuery();

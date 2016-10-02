@@ -1,17 +1,15 @@
 package thompson.library.system.daos;
 
-
 import org.junit.Test;
 import thompson.library.system.dtos.BranchItemCheckoutDto;
 import thompson.library.system.dtos.BranchItemDto;
-import thompson.library.system.utilities.ConnectionUtil;
-import thompson.library.system.utilities.DerbyConnectionFactory;
-
+import thompson.library.system.utilities.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Calendar;
+
 
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertFalse;
@@ -19,16 +17,16 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class DerbyBranchItemCheckoutDaoTest {
+public class BranchItemCheckoutDaoImplTest {
     private Connection connection;
     private java.sql.Date date;
     private int returnedTtl = 0;
 
-    public DerbyBranchItemCheckoutDaoTest() {}
+    public BranchItemCheckoutDaoImplTest() {}
 
     private Connection getLocalConnection(){
-        DerbyConnectionFactory derbyConnectionFactory = new DerbyConnectionFactory();
-        this.connection = derbyConnectionFactory.getConnection();
+        ConnectionFactory connectionFactory = ConnectionManager.getConnectionFactory();
+        this.connection = connectionFactory.getConnection();
         try {
             connection.setAutoCommit(false);
         } catch (SQLException e) {
@@ -40,7 +38,7 @@ public class DerbyBranchItemCheckoutDaoTest {
 
     @Test
     public void testGetBranchItemCheckout(){
-        DerbyBranchItemCheckoutDao impl = new DerbyBranchItemCheckoutDao(new TestConnectionFactory(), new TestConnectionUtil2());
+        BranchItemCheckoutDaoImpl impl = new BranchItemCheckoutDaoImpl(new TestConnectionFactory(), new TestConnectionUtil2());
         BranchItemDto branchItemDto = mock(BranchItemDto.class);
         when(branchItemDto.getBranchitemid()).thenReturn(15);
         BranchItemCheckoutDto branchItemCheckoutDto = impl.getBranchItemCheckout(branchItemDto);
@@ -55,7 +53,7 @@ public class DerbyBranchItemCheckoutDaoTest {
 
     @Test
     public void testUpdateBranchItemCheckout(){
-        DerbyBranchItemCheckoutDao impl = new DerbyBranchItemCheckoutDao(new TestConnectionFactory(), new ConnectionUtil());
+        BranchItemCheckoutDaoImpl impl = new BranchItemCheckoutDaoImpl(new TestConnectionFactory(), new ConnectionUtil());
         Calendar calendar = Calendar.getInstance();
         date = new java.sql.Date(calendar.getTime().getTime());
         BranchItemCheckoutDto branchItemCheckoutDto = mock(BranchItemCheckoutDto.class);
@@ -94,7 +92,7 @@ public class DerbyBranchItemCheckoutDaoTest {
     @Test
     public void testGetNumberOfItemsReturnedFromCheckout(){
         TestConnectionUtil2 util = new TestConnectionUtil2();
-        DerbyBranchItemCheckoutDao impl = new DerbyBranchItemCheckoutDao(new DerbyConnectionFactory(), util);
+        BranchItemCheckoutDaoImpl impl = new BranchItemCheckoutDaoImpl(null, util);
         BranchItemCheckoutDao.ItemReturnOutput itemReturnOutput = mock(BranchItemCheckoutDao.ItemReturnOutput.class);
         when(itemReturnOutput.getCheckoutid()).thenReturn(3);
         TestConnectionFactory2 factory = new TestConnectionFactory2();
@@ -106,10 +104,11 @@ public class DerbyBranchItemCheckoutDaoTest {
 
 
 
-    private class TestConnectionFactory extends DerbyConnectionFactory {
+    private class TestConnectionFactory implements ConnectionFactory {
         @Override
         public Connection getConnection() {
-            Connection connection = super.getConnection();
+            ConnectionFactory connectionFactory = ConnectionManager.getConnectionFactory();
+            Connection connection = connectionFactory.getConnection();
             String insert = "INSERT INTO branchitemcheckout(branchitemid, checkoutid, overdue, duedate, renew, " +
                     "returned) VALUES (?,?,?,?,?,?)";
             String query = "SELECT COUNT(*) FROM branchitemcheckout WHERE checkoutid = 3 AND returned = true";
@@ -147,7 +146,7 @@ public class DerbyBranchItemCheckoutDaoTest {
 
     }
 
-    private class TestConnectionFactory2 extends DerbyConnectionFactory {
+    private class TestConnectionFactory2 implements ConnectionFactory {
         @Override
         public Connection getConnection() {
             Connection connection = getLocalConnection();

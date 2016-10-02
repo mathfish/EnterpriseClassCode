@@ -13,10 +13,10 @@ public interface BranchItemDao {
 
     void updateBranchItem(BranchItemCheckoutDao.ItemReturnOutput itemReturnOutput);
 
-    ReturnItemOutput returnItem(BranchItemDto branchItemDto, PatronDto patronDto);
-
-    boolean setIfReserved(BranchItemDto branchItemDto, PatronDto patronDto);
-
+    /**
+     * Object used to connection the multiple parts of return. Allows for hiding of the database particulars but maintains
+     * a single transaction among the steps.
+     */
     class ReturnItemOutput{
         Optional<Connection> connection;
         boolean fulfillReturn;

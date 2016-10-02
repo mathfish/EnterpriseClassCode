@@ -3,6 +3,8 @@ package thompson.library.system.daos;
 import org.junit.Test;
 import thompson.library.system.dtos.PatronDto;
 
+import thompson.library.system.utilities.ConnectionFactory;
+import thompson.library.system.utilities.ConnectionManager;
 import thompson.library.system.utilities.ConnectionUtil;
 import thompson.library.system.utilities.DerbyConnectionFactory;
 
@@ -18,14 +20,14 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class DerbyPatronDaoTest {
+public class PatronDaoImplTest {
     private Connection connection;
 
-    public DerbyPatronDaoTest(){}
+    public PatronDaoImplTest(){}
 
     private Connection getConnection(){
-        DerbyConnectionFactory derbyConnectionFactory = new DerbyConnectionFactory();
-        this.connection = derbyConnectionFactory.getConnection();
+        ConnectionFactory connectionFactory = ConnectionManager.getConnectionFactory();
+        this.connection = connectionFactory.getConnection();
         try {
             connection.setAutoCommit(false);
         } catch (SQLException e) {
@@ -39,14 +41,14 @@ public class DerbyPatronDaoTest {
     public void insertPatronTest(){
         DerbyConnectionFactory derbyConnectionFactory = mock(DerbyConnectionFactory.class);
         when(derbyConnectionFactory.getConnection()).thenReturn(getConnection());
-        DerbyPatronDao impl = new DerbyPatronDao(derbyConnectionFactory, new TestConnectionUtil1());
+        PatronDaoImpl impl = new PatronDaoImpl(derbyConnectionFactory, new TestConnectionUtil1());
         impl.insertPatron(getDto());
     }
 
 
     @Test // Test if reading database row is correct
     public void getPatronTestByEmail(){
-        DerbyPatronDao impl = new DerbyPatronDao(new TestConnectionFactory(), new TestConnectionUtil2());
+        PatronDaoImpl impl = new PatronDaoImpl(new TestConnectionFactory(), new TestConnectionUtil2());
 
             PatronDto dto = impl.getPatron("test2@email.test");
             assertEquals("testFirst2", dto.getFirstname());
@@ -63,7 +65,7 @@ public class DerbyPatronDaoTest {
 
     @Test
     public void getPatronByItemReturnOutput(){
-        DerbyPatronDao  impl = new DerbyPatronDao(new DerbyConnectionFactory(), new ConnectionUtil());
+        PatronDaoImpl impl = new PatronDaoImpl(null, new ConnectionUtil());
         BranchItemCheckoutDao.ItemReturnOutput itemReturnOutput= mock(BranchItemCheckoutDao.ItemReturnOutput.class);
         when(itemReturnOutput.getConnection()).thenReturn(getConnection());
         PreparedStatement preparedStatement = null;
@@ -180,10 +182,10 @@ public class DerbyPatronDaoTest {
     }
 
     //Connection facility that inserts before so that read test has consistent data
-    private class TestConnectionFactory extends DerbyConnectionFactory {
+    private class TestConnectionFactory implements ConnectionFactory {
         @Override
         public Connection getConnection() {
-            Connection connection = super.getConnection();
+            Connection connection = ConnectionManager.getConnectionFactory().getConnection();
             String insertStmt = "INSERT INTO patron(firstname, lastname, city, state, zipcode, streetaddress, joindate, " +
                     "phone, password, remotelibrary, email) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
             Calendar calendar = Calendar.getInstance();

@@ -2,23 +2,25 @@ package thompson.library.system.daos;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import thompson.library.system.dtos.BranchItemDto;
-import thompson.library.system.dtos.PatronDto;
 import thompson.library.system.utilities.ConnectionFactory;
 import thompson.library.system.utilities.ConnectionUtil;
 
 import java.sql.*;
 
-public class DerbyBranchItemDao implements BranchItemDao {
-    private static final Logger logger = LoggerFactory.getLogger(DerbyBranchItemDao.class);
+public class BranchItemDaoImpl implements BranchItemDao {
+    private static final Logger logger = LoggerFactory.getLogger(BranchItemDaoImpl.class);
     private ConnectionFactory connectionFactory;
     private ConnectionUtil connectionUtil;
 
-    DerbyBranchItemDao(ConnectionFactory connectionFactory, ConnectionUtil connectionUtil){
+    BranchItemDaoImpl(ConnectionFactory connectionFactory, ConnectionUtil connectionUtil){
         this.connectionFactory = connectionFactory;
         this.connectionUtil = connectionUtil;
     }
 
+    /**
+     *
+     * Updates the state of the branch item using the itemReturnOutput. Part of multiple steps of the return process
+     */
     @Override
     public void updateBranchItem(BranchItemCheckoutDao.ItemReturnOutput itemReturnOutput) {
         String update = "UPDATE branchitem SET reserved = ?, checkedout = false WHERE branchitemid = ?";
@@ -37,15 +39,4 @@ public class DerbyBranchItemDao implements BranchItemDao {
             connectionUtil.close(preparedStatement);
         }
     }
-
-    @Override
-    public ReturnItemOutput returnItem(BranchItemDto branchItemDto, PatronDto patronDto) {
-        return null;
-    }
-
-    @Override
-    public boolean setIfReserved(BranchItemDto branchItemDto, PatronDto patronDto) {
-        return false;
-    }
-
 }

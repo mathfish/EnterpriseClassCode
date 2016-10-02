@@ -11,17 +11,20 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class DerbyReservationDao implements ReservationDao {
-    private static final Logger logger = LoggerFactory.getLogger(DerbyReservationDao.class);
+public class ReservationDaoImpl implements ReservationDao {
+    private static final Logger logger = LoggerFactory.getLogger(ReservationDaoImpl.class);
     private ConnectionFactory connectionFactory;
     private ConnectionUtil connectionUtil;
 
-    DerbyReservationDao(ConnectionFactory connectionFactory, ConnectionUtil connectionUtil){
+    ReservationDaoImpl(ConnectionFactory connectionFactory, ConnectionUtil connectionUtil){
         this.connectionFactory = connectionFactory;
         this.connectionUtil = connectionUtil;
     }
 
-
+    /**
+     *
+     * Used to mark a reservation as being fulfilled, if necessary, as part of many steps of the return process
+     */
     @Override
     public ReservationDto fulfillReservation(BranchItemCheckoutDao.ItemReturnOutput itemReturnOutput) {
         String query = "SELECT * FROM reservation WHERE branchitemid = ? AND fulfilled = false ORDER BY reservdate";
