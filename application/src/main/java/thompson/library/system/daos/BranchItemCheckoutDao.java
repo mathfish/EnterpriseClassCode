@@ -17,6 +17,10 @@ public interface BranchItemCheckoutDao {
 
     int getNumberOfItemsReturnedFromCheckout(ItemReturnOutput itemReturnOutput);
 
+    /**
+     * Object used to connection the multiple parts of return. Allows for hiding of the database particulars but maintains
+     * a single transaction among the steps.
+     */
     class ItemReturnOutput{
         private Connection connection;
         private boolean reserved;
