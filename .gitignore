@@ -1,2 +1,6 @@
 # Ignore all java class files
 *.class
+*.log
+application/out/production/
+*.iws
+*.iml
