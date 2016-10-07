@@ -9,12 +9,15 @@
     <property name="connection.driver_class">org.apache.derby.jdbc.EmbeddedDriver</property>
     <property name="connection.username"/>
     <property name="connection.password"/>
-    <property name="connection.pool_size">1</property>
+    <property name="connection.pool_size">10</property>
     <property name="current_session_context_class">thread</property>
     <property name="show_sql">false</property>
     <property name="format_sql">false</property>
 
-
     <mapping class="thompson.library.system.entities.Patron"/>
+    <mapping class="thompson.library.system.entities.Checkout"/>
+    <mapping class="thompson.library.system.entities.Reservation"/>
+    <mapping class="thompson.library.system.entities.BranchItem"/>
+    <mapping class="thompson.library.system.entities.Branch"/>
   </session-factory>
 </hibernate-configuration>

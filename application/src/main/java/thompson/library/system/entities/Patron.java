@@ -1,18 +1,21 @@
 package thompson.library.system.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.Set;
 
 @Entity
 public class Patron {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int patronid;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "patronid")
+    private Set<Checkout> checkouts;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "patronid")
+    private Set<Reservation> reservations;
     private String firstname;
     private String lastname;
     private String city;
@@ -31,6 +34,14 @@ public class Patron {
 
     public void setPatronid(int patronid) {
         this.patronid = patronid;
+    }
+
+    public Set<Checkout> getCheckouts() {
+        return checkouts;
+    }
+
+    public void setCheckouts(Set<Checkout> checkouts) {
+        this.checkouts = checkouts;
     }
 
     public String getFirstname() {
@@ -105,19 +116,27 @@ public class Patron {
         this.password = password;
     }
 
-    public boolean isRemotelibary() {
-        return remotelibrary;
-    }
-
-    public void setRemotelibary(boolean remotelibary) {
-        this.remotelibrary = remotelibary;
-    }
-
     public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Set<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(Set<Reservation> reservations) {
+        this.reservations = reservations;
+    }
+
+    public boolean isRemotelibrary() {
+        return remotelibrary;
+    }
+
+    public void setRemotelibrary(boolean remotelibrary) {
+        this.remotelibrary = remotelibrary;
     }
 }

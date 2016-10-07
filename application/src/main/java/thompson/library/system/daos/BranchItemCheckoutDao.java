@@ -34,7 +34,7 @@ public interface BranchItemCheckoutDao {
         public ItemReturnOutput(Connection connection, Integer patronid, Integer branchitemid, boolean reserved) {
             this.connection = connection;
             this.reserved = reserved;
-            this.checkoutid = patronid;
+            this.patronid = patronid;
             this.branchitemid = branchitemid;
         }
 

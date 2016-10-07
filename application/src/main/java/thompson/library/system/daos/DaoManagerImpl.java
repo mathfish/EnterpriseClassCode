@@ -20,7 +20,7 @@ public class DaoManagerImpl implements DaoManager {
      */
     public PatronDao getPatronDao(){
         if(patronDao == null){
-            patronDao = new PatronDaoImpl(ConnectionManager.getConnectionFactory(), new ConnectionUtil());
+            patronDao = new PatronDaoImpl(ConnectionManager.getSessionFactory());
         }
         return patronDao;
     }
