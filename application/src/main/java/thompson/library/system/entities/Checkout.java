@@ -1,10 +1,12 @@
 package thompson.library.system.entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.Set;
 
 @Entity
-public class Checkout {
+public class Checkout implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,11 +15,21 @@ public class Checkout {
     @ManyToOne(cascade=CascadeType.ALL)
     private Patron patronid;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "checkoutid")
+    private Set<BranchItemCheckout> branchItemCheckouts;
+
     private java.sql.Timestamp checkoutdate;
     private int numberofitems;
     private boolean overdue;
     private boolean itemsreturned;
 
+    public Set<BranchItemCheckout> getBranchItemCheckouts() {
+        return branchItemCheckouts;
+    }
+
+    public void setBranchItemCheckouts(Set<BranchItemCheckout> branchItemCheckouts) {
+        this.branchItemCheckouts = branchItemCheckouts;
+    }
 
     public int getCheckoutid() {
         return checkoutid;

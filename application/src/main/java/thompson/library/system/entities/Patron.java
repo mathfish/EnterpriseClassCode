@@ -16,6 +16,7 @@ public class Patron {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "patronid")
     private Set<Reservation> reservations;
+
     private String firstname;
     private String lastname;
     private String city;

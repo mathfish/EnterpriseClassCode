@@ -52,7 +52,7 @@ public class PatronDaoImpl implements PatronDao {
             Patron patron = list.get(0);
             patronDto = new PatronDto(patron.getPatronid(), patron.getFirstname(), patron.getLastname(),
                     patron.getCity(), patron.getState(), patron.getZipcode(), patron.getStreetaddress(),
-                    patron.getJoindate(), patron.getEmail(), patron.getPhone(), patron.isRemotelibary(),
+                    patron.getJoindate(), patron.getEmail(), patron.getPhone(), patron.isRemotelibrary(),
                     patron.getPassword());
         }
         if(commitTrans) {
@@ -78,7 +78,7 @@ public class PatronDaoImpl implements PatronDao {
         if(patron != null){
             patronDto = new PatronDto(patron.getPatronid(), patron.getFirstname(), patron.getLastname(),
                     patron.getCity(), patron.getState(), patron.getZipcode(), patron.getStreetaddress(),
-                    patron.getJoindate(), patron.getEmail(), patron.getPhone(), patron.isRemotelibary(),
+                    patron.getJoindate(), patron.getEmail(), patron.getPhone(), patron.isRemotelibrary(),
                     patron.getPassword());
         }
 
@@ -110,7 +110,7 @@ public class PatronDaoImpl implements PatronDao {
         patron.setJoindate(patronDto.getJoinDate());
         patron.setPhone(patronDto.getPhone());
         patron.setPassword(patronDto.getPassword());
-        patron.setRemotelibary(patronDto.isRemotelibrary());
+        patron.setRemotelibrary(patronDto.isRemotelibrary());
         patron.setEmail(patronDto.getEmail());
         currentSession.saveOrUpdate(patron);
 

@@ -14,7 +14,11 @@
     <property name="show_sql">false</property>
     <property name="format_sql">false</property>
 
-
     <mapping class="thompson.library.system.entities.Patron"/>
+    <mapping class="thompson.library.system.entities.Checkout"/>
+    <mapping class="thompson.library.system.entities.Reservation"/>
+    <mapping class="thompson.library.system.entities.BranchItem"/>
+    <mapping class="thompson.library.system.entities.Branch"/>
+    <mapping class="thompson.library.system.entities.BranchItemCheckout"/>
   </session-factory>
 </hibernate-configuration>

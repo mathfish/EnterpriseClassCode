@@ -1,10 +1,11 @@
 package thompson.library.system.entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Set;
 
 @Entity
-public class Branch {
+public class Branch implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,8 +17,8 @@ public class Branch {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "currentlocation")
     private Set<BranchItem> locations;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    private Reservation reservation;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "forbranchid")
+    private Set<Reservation> reservations;
 
     private String name;
 
@@ -28,6 +29,14 @@ public class Branch {
     private String streetaddress;
 
     private String state;
+
+    public Set<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(Set<Reservation> reservations) {
+        this.reservations = reservations;
+    }
 
     public int getBranchid() {
         return branchid;
@@ -93,11 +102,4 @@ public class Branch {
         this.locations = locations;
     }
 
-    public Reservation getReservation() {
-        return reservation;
-    }
-
-    public void setReservation(Reservation reservation) {
-        this.reservation = reservation;
-    }
 }
