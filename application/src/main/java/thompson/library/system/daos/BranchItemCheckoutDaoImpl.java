@@ -63,7 +63,10 @@ public class BranchItemCheckoutDaoImpl implements BranchItemCheckoutDao {
     @Override
     public BranchItemCheckoutDao.ItemReturnOutput updateBranchItemCheckout(BranchItemCheckoutDto branchItemCheckoutDto) {
         Session currentSession = sessionFactory.getCurrentSession();
-        currentSession.beginTransaction();
+
+        if(!currentSession.getTransaction().isActive()){
+            currentSession.beginTransaction();
+        }
 
         Calendar calendar = Calendar.getInstance();
         Date date = new Date(calendar.getTime().getTime());
