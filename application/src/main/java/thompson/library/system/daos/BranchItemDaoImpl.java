@@ -5,21 +5,10 @@ import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import thompson.library.system.entities.BranchItem;
-import thompson.library.system.utilities.ConnectionFactory;
-import thompson.library.system.utilities.ConnectionUtil;
-
-import java.sql.*;
 
 public class BranchItemDaoImpl implements BranchItemDao {
     private static final Logger logger = LoggerFactory.getLogger(BranchItemDaoImpl.class);
-    private ConnectionFactory connectionFactory;
-    private ConnectionUtil connectionUtil;
     private SessionFactory sessionFactory;
-
-    BranchItemDaoImpl(ConnectionFactory connectionFactory, ConnectionUtil connectionUtil){
-        this.connectionFactory = connectionFactory;
-        this.connectionUtil = connectionUtil;
-    }
 
     BranchItemDaoImpl(SessionFactory sessionFactory){
         this.sessionFactory = sessionFactory;
@@ -46,6 +35,6 @@ public class BranchItemDaoImpl implements BranchItemDao {
         if(commitTrans){
             currentSession.getTransaction().commit();
         }
-        
+
     }
 }

@@ -6,26 +6,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import thompson.library.system.dtos.PatronDto;
 import thompson.library.system.entities.Patron;
-import thompson.library.system.utilities.ConnectionFactory;
-import thompson.library.system.utilities.ConnectionUtil;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 
 
 public class PatronDaoImpl implements PatronDao {
     private static final Logger logger = LoggerFactory.getLogger(PatronDaoImpl.class);
-    private ConnectionFactory connectionFactory;
-    private ConnectionUtil connectionUtil;
     private SessionFactory sessionFactory;
-
-    PatronDaoImpl(ConnectionFactory connectionFactory, ConnectionUtil connectionUtil){
-        this.connectionFactory = connectionFactory;
-        this.connectionUtil = connectionUtil;
-    }
 
     PatronDaoImpl(SessionFactory sessionFactory){
         this.sessionFactory = sessionFactory;

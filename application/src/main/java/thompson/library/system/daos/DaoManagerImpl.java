@@ -1,7 +1,6 @@
 package thompson.library.system.daos;
 
 import thompson.library.system.utilities.ConnectionManager;
-import thompson.library.system.utilities.ConnectionUtil;
 
 public class DaoManagerImpl implements DaoManager {
 
@@ -32,7 +31,7 @@ public class DaoManagerImpl implements DaoManager {
     @Override
     public ReservationDao getReservationDao() {
         if(reservationDao == null){
-            reservationDao = new ReservationDaoImpl(ConnectionManager.getConnectionFactory(), new ConnectionUtil());
+            reservationDao = new ReservationDaoImpl(ConnectionManager.getSessionFactory());
         }
         return reservationDao;
     }
@@ -44,7 +43,7 @@ public class DaoManagerImpl implements DaoManager {
     @Override
     public BranchItemDao getBranchItemDao() {
         if(branchItemDao == null){
-            branchItemDao = new BranchItemDaoImpl(ConnectionManager.getConnectionFactory(), new ConnectionUtil());
+            branchItemDao = new BranchItemDaoImpl(ConnectionManager.getSessionFactory());
         }
         return branchItemDao;
     }
@@ -56,7 +55,7 @@ public class DaoManagerImpl implements DaoManager {
     @Override
     public BranchItemCheckoutDao getBranchItemCheckoutDao() {
         if(branchItemCheckoutDao == null){
-            branchItemCheckoutDao = new BranchItemCheckoutDaoImpl(ConnectionManager.getConnectionFactory(), new ConnectionUtil());
+            branchItemCheckoutDao = new BranchItemCheckoutDaoImpl(ConnectionManager.getSessionFactory());
         }
         return branchItemCheckoutDao;
     }
@@ -68,7 +67,7 @@ public class DaoManagerImpl implements DaoManager {
     @Override
     public CheckoutDao getCheckoutDao() {
         if(checkoutDao == null){
-            checkoutDao = new CheckoutDaoImpl(ConnectionManager.getConnectionFactory(), new ConnectionUtil());
+            checkoutDao = new CheckoutDaoImpl(ConnectionManager.getSessionFactory());
         }
         return checkoutDao;
     }

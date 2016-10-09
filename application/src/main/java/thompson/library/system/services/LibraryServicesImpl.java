@@ -14,9 +14,6 @@ public class LibraryServicesImpl implements LibraryServices{
 
     private DaoManager daoManager;
     private static final Logger logger = LoggerFactory.getLogger(LibraryServicesImpl.class);
-    public LibraryServicesImpl(){
-        this.daoManager = DaoManagerFactory.getDaoManager();
-    }
 
     LibraryServicesImpl(DaoManager daoManager){
         this.daoManager = daoManager;

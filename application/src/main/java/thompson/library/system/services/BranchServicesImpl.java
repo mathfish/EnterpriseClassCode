@@ -13,10 +13,6 @@ public class BranchServicesImpl implements BranchServices {
     private static final Logger logger = LoggerFactory.getLogger(BranchServicesImpl.class);
     private DaoManager daoManager;
 
-    BranchServicesImpl(){
-        this.daoManager = DaoManagerFactory.getDaoManager();
-    }
-
     BranchServicesImpl(DaoManager daoManager){
         this.daoManager = daoManager;
     }

@@ -8,10 +8,8 @@ import thompson.library.system.dtos.BranchItemCheckoutDto;
 import thompson.library.system.dtos.BranchItemDto;
 import thompson.library.system.entities.BranchItemCheckout;
 import thompson.library.system.entities.Checkout;
-import thompson.library.system.utilities.ConnectionFactory;
-import thompson.library.system.utilities.ConnectionUtil;
 
-import java.sql.*;
+import java.sql.Date;
 import java.util.Calendar;
 import java.util.List;
 
@@ -19,15 +17,7 @@ import java.util.List;
 public class BranchItemCheckoutDaoImpl implements BranchItemCheckoutDao {
 
     private static final Logger logger = LoggerFactory.getLogger(BranchItemCheckoutDaoImpl.class);
-    private ConnectionFactory connectionFactory;
-    private ConnectionUtil connectionUtil;
-    private Connection connection;
     private SessionFactory sessionFactory;
-
-    BranchItemCheckoutDaoImpl(ConnectionFactory connectionFactory, ConnectionUtil connectionUtil){
-        this.connectionFactory = connectionFactory;
-        this.connectionUtil = connectionUtil;
-    }
 
 
     BranchItemCheckoutDaoImpl(SessionFactory sessionFactory){

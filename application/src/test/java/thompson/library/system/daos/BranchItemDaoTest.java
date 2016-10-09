@@ -8,21 +8,16 @@ import thompson.library.system.entities.Branch;
 import thompson.library.system.entities.BranchItem;
 import thompson.library.system.utilities.ConnectionManager;
 
-import java.util.Calendar;
-
 import static junit.framework.TestCase.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class BranchItemDaoTest {
 
     private SessionFactory sessionFactory;
-    private java.sql.Timestamp joinDate;
 
     @Before
     public void setSessionFactory(){
         this.sessionFactory = ConnectionManager.getSessionFactory();
-        Calendar calendar = Calendar.getInstance();
-        joinDate = new java.sql.Timestamp(calendar.getTime().getTime());
     }
 
     @Test
