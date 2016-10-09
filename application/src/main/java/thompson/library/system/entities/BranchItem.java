@@ -15,10 +15,12 @@ public class BranchItem implements Serializable{
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "branchItemid")
     private Set<Reservation> reservations;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "branchid")
+    @ManyToOne
     private Branch branchid;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "currentlocation")
+    @ManyToOne
     private Branch currentlocation;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "branchitemid")

@@ -5,15 +5,19 @@ import java.io.Serializable;
 import java.sql.Date;
 
 @Entity
+@Table(uniqueConstraints = {@UniqueConstraint(columnNames = {"branchitemid", "checkoutid"})})
 public class BranchItemCheckout implements Serializable{
 
-    @EmbeddedId
-    private BranchItemCheckoutId id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+   private int branchitemcheckoutid;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(optional = true)
+    @JoinColumn(name = "branchitemid")
     private BranchItem branchitemid;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(optional = true)
+    @JoinColumn(name = "checkoutid")
     private Checkout checkoutid;
 
     private boolean overdue;
@@ -28,12 +32,12 @@ public class BranchItemCheckout implements Serializable{
 
     private java.sql.Date returndate;
 
-    public BranchItemCheckoutId getId() {
-        return id;
+    public int getBranchitemcheckoutid() {
+        return branchitemcheckoutid;
     }
 
-    public void setId(BranchItemCheckoutId id) {
-        this.id = id;
+    public void setBranchitemcheckoutid(int branchitemcheckoutid) {
+        this.branchitemcheckoutid = branchitemcheckoutid;
     }
 
     public BranchItem getBranchitemid() {
@@ -99,4 +103,5 @@ public class BranchItemCheckout implements Serializable{
     public void setReturndate(Date returndate) {
         this.returndate = returndate;
     }
+
 }

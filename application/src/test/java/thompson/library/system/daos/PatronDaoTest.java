@@ -74,7 +74,8 @@ public class PatronDaoTest {
                 .setParameter("email","test@email.test").getSingleResult();
 
         BranchItemCheckoutDao.ItemReturnOutput itemReturnOutput =
-                new BranchItemCheckoutDao.ItemReturnOutput(null, patron.getPatronid(), null, false);
+                new BranchItemCheckoutDao.ItemReturnOutput(null, null, false);
+        itemReturnOutput.setPatronid(patron.getPatronid());
         PatronDto dto = impl.getPatron(itemReturnOutput);
         verifyDto(dto);
         session.getTransaction().rollback();

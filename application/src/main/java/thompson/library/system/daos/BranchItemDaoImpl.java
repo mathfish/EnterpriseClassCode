@@ -1,7 +1,10 @@
 package thompson.library.system.daos;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import thompson.library.system.entities.BranchItem;
 import thompson.library.system.utilities.ConnectionFactory;
 import thompson.library.system.utilities.ConnectionUtil;
 
@@ -11,10 +14,15 @@ public class BranchItemDaoImpl implements BranchItemDao {
     private static final Logger logger = LoggerFactory.getLogger(BranchItemDaoImpl.class);
     private ConnectionFactory connectionFactory;
     private ConnectionUtil connectionUtil;
+    private SessionFactory sessionFactory;
 
     BranchItemDaoImpl(ConnectionFactory connectionFactory, ConnectionUtil connectionUtil){
         this.connectionFactory = connectionFactory;
         this.connectionUtil = connectionUtil;
+    }
+
+    BranchItemDaoImpl(SessionFactory sessionFactory){
+        this.sessionFactory = sessionFactory;
     }
 
     /**
@@ -23,20 +31,21 @@ public class BranchItemDaoImpl implements BranchItemDao {
      */
     @Override
     public void updateBranchItem(BranchItemCheckoutDao.ItemReturnOutput itemReturnOutput) {
-        String update = "UPDATE branchitem SET reserved = ?, checkedout = false WHERE branchitemid = ?";
-        PreparedStatement preparedStatement = null;
-        try{
-            //Optionals exist from prior query
-            Connection connection = itemReturnOutput.getConnection();
-            preparedStatement = connection.prepareStatement(update);
-            preparedStatement.setBoolean(1,itemReturnOutput.isReserved());
-            preparedStatement.setInt(2,itemReturnOutput.getBranchitemid());
-            preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            logger.error("SQL error in updating branch item {}", itemReturnOutput.getBranchitemid(), e);
-            throw new IllegalStateException("SQL error in updating branch item. See log for details");
-        } finally {
-            connectionUtil.close(preparedStatement);
+        Session currentSession = sessionFactory.getCurrentSession();
+        boolean commitTrans = false;
+        if(!currentSession.getTransaction().isActive()){
+            currentSession.beginTransaction();
+            commitTrans = true;
         }
+
+        BranchItem branchItem = currentSession.get(BranchItem.class, itemReturnOutput.getBranchitemid());
+        branchItem.setReserved(itemReturnOutput.isReserved());
+        branchItem.setCheckedout(false);
+        currentSession.saveOrUpdate(branchItem);
+
+        if(commitTrans){
+            currentSession.getTransaction().commit();
+        }
+        
     }
 }

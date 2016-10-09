@@ -1,14 +1,19 @@
 package thompson.library.system.daos;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import thompson.library.system.dtos.BranchItemCheckoutDto;
 import thompson.library.system.dtos.BranchItemDto;
+import thompson.library.system.entities.BranchItemCheckout;
+import thompson.library.system.entities.Checkout;
 import thompson.library.system.utilities.ConnectionFactory;
 import thompson.library.system.utilities.ConnectionUtil;
 
 import java.sql.*;
 import java.util.Calendar;
+import java.util.List;
 
 
 public class BranchItemCheckoutDaoImpl implements BranchItemCheckoutDao {
@@ -17,45 +22,48 @@ public class BranchItemCheckoutDaoImpl implements BranchItemCheckoutDao {
     private ConnectionFactory connectionFactory;
     private ConnectionUtil connectionUtil;
     private Connection connection;
+    private SessionFactory sessionFactory;
 
     BranchItemCheckoutDaoImpl(ConnectionFactory connectionFactory, ConnectionUtil connectionUtil){
         this.connectionFactory = connectionFactory;
         this.connectionUtil = connectionUtil;
     }
 
+
+    BranchItemCheckoutDaoImpl(SessionFactory sessionFactory){
+        this.sessionFactory = sessionFactory;
+    }
     /**
      *
      * Returns information on the branch item for a checkout. Returns branchItemDto
      */
     @Override
     public BranchItemCheckoutDto getBranchItemCheckout(BranchItemDto branchItemDto) {
-        connection = connectionFactory.getConnection();
-        String query = "SELECT * FROM branchitemcheckout WHERE branchitemid = ? " +
-                "AND returned = false";
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
-        BranchItemCheckoutDto brItemCheckout = null;
-        try{
-            preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1,branchItemDto.getBranchitemid());
-            resultSet = preparedStatement.executeQuery();
-            if(resultSet.next()){
-                brItemCheckout = new BranchItemCheckoutDto(resultSet.getInt("checkoutid"),
-                        resultSet.getInt("branchitemid"), resultSet.getBoolean("overdue"),
-                        resultSet.getDate("duedate"), resultSet.getBoolean("renew"), resultSet.getDate("renewDate"),
-                        resultSet.getBoolean("returned"), resultSet.getDate("returndate"));
-            }
-        } catch (SQLException e) {
-            logger.error("SQL exception getting branchItemCheckout object. branchitemid: {} ",
-                    branchItemDto.getBranchitemid(), e);
-            throw new IllegalStateException("SQL exception when getting branchitemcheckout. See log for details");
-        } finally {
-            connectionUtil.close(connection);
-            connectionUtil.close(preparedStatement);
-            connectionUtil.close(resultSet);
+        Session currentSession = sessionFactory.getCurrentSession();
+        boolean commitTrans = false;
+        if(!currentSession.getTransaction().isActive()){
+            currentSession.beginTransaction();
+            commitTrans = true;
+        }
+        List<BranchItemCheckout> branchItemCheckouts =
+        currentSession.createQuery("SELECT bic from BranchItemCheckout bic where bic.branchitemid.branchitemid = :bid and " +
+                                    "bic.returned = :ret")
+                      .setParameter("bid", branchItemDto.getBranchitemid())
+                      .setParameter("ret", false)
+                      .getResultList();
+        BranchItemCheckoutDto dto = null;
+        if(branchItemCheckouts.size() == 1){
+            BranchItemCheckout branchItemCheckout = branchItemCheckouts.get(0);
+            dto = new BranchItemCheckoutDto(branchItemCheckout.getCheckoutid().getCheckoutid(),
+                    branchItemCheckout.getBranchitemid().getBranchitemid(), branchItemCheckout.isOverdue(),
+                    branchItemCheckout.getDuedate(), branchItemCheckout.isRenew(), branchItemCheckout.getRenewdate(),
+                    branchItemCheckout.isReturned(), branchItemCheckout.getRenewdate());
+        }
+        if(commitTrans){
+            currentSession.getTransaction().commit();
         }
 
-        return brItemCheckout;
+        return dto;
     }
 
     /**
@@ -64,35 +72,32 @@ public class BranchItemCheckoutDaoImpl implements BranchItemCheckoutDao {
      */
     @Override
     public BranchItemCheckoutDao.ItemReturnOutput updateBranchItemCheckout(BranchItemCheckoutDto branchItemCheckoutDto) {
-        connection = connectionFactory.getConnection();
-
-        String updateBranchItemCheckout = "UPDATE branchitemcheckout SET returned = ?, returnDate = ?, overdue = ? " +
-                "WHERE branchitemid = ? AND checkoutid = ?";
+        Session currentSession = sessionFactory.getCurrentSession();
+        boolean commitTrans = false;
+        if(!currentSession.getTransaction().isActive()){
+            currentSession.beginTransaction();
+            commitTrans = true;
+        }
         Calendar calendar = Calendar.getInstance();
         Date date = new Date(calendar.getTime().getTime());
-        PreparedStatement preparedStatement = null;
-        BranchItemCheckoutDao.ItemReturnOutput itemReturnOutput;
-        try{
-            connection.setAutoCommit(false);
-            preparedStatement = connection.prepareStatement(updateBranchItemCheckout);
-            preparedStatement.setBoolean(1,true);
-            preparedStatement.setDate(2,date);
-            preparedStatement.setBoolean(3, branchItemCheckoutDto.isOverdue());
-
-            preparedStatement.setInt(4, branchItemCheckoutDto.getBranchItemID());
-            preparedStatement.setInt(5, branchItemCheckoutDto.getCheckoutID());
-            preparedStatement.executeUpdate();
-            itemReturnOutput = new ItemReturnOutput(connection, branchItemCheckoutDto.getCheckoutID(),
-                    branchItemCheckoutDto.getBranchItemID(), false);
-        } catch (SQLException e) {
-            logger.error("SQL error in updating branchItemCheckout. checkoutid {}, branchitemid {}",
-                    branchItemCheckoutDto.getCheckoutID(), branchItemCheckoutDto.getBranchItemID(), e);
-            throw new IllegalStateException("SQL exception updateing branchCheckoutItem. See log for details");
-        } finally {
-            connectionUtil.close(preparedStatement);
+        BranchItemCheckout result =
+        (BranchItemCheckout)currentSession.createQuery("SELECT bic from BranchItemCheckout bic where " +
+                "bic.branchitemid.branchitemid = :bid and " +
+                "bic.checkoutid.checkoutid = :cid")
+                .setParameter("bid", branchItemCheckoutDto.getBranchItemID())
+                .setParameter("cid", branchItemCheckoutDto.getCheckoutID())
+                .getSingleResult();
+        result.setReturned(true);
+        result.setReturndate(date);
+        result.setOverdue(branchItemCheckoutDto.isOverdue());
+        currentSession.saveOrUpdate(result);
+        if(commitTrans){
+            currentSession.getTransaction().commit();
         }
 
-        return itemReturnOutput;
+        return new ItemReturnOutput(branchItemCheckoutDto.getCheckoutID(),
+                    branchItemCheckoutDto.getBranchItemID(), false);
+
     }
 
     /**
@@ -103,26 +108,24 @@ public class BranchItemCheckoutDaoImpl implements BranchItemCheckoutDao {
 
     @Override
     public int getNumberOfItemsReturnedFromCheckout(ItemReturnOutput itemReturnOutput) {
-        String query = "SELECT COUNT(*) FROM branchitemcheckout WHERE checkoutid = ? AND returned = true";
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
-        int total = 0;
-        try{
-            Connection connection = itemReturnOutput.getConnection();
-            preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1,itemReturnOutput.getCheckoutid());
-            resultSet = preparedStatement.executeQuery();
-            if(resultSet.next()){
-                total = resultSet.getInt(1);
-            }
-        } catch (SQLException e) {
-            logger.error("SQL error in calculating total returned items for checkout id {}", itemReturnOutput.getCheckoutid(), e);
-            throw new IllegalStateException("SQL error in calculating number of returned items. See log for details");
-        } finally {
-            connectionUtil.close(preparedStatement);
-            connectionUtil.close(resultSet);
+        Session currentSession = sessionFactory.getCurrentSession();
+        boolean commitTrans = false;
+        if(!currentSession.getTransaction().isActive()){
+            currentSession.beginTransaction();
+            commitTrans = true;
         }
-        return total;
+
+        List<Checkout> checkouts =
+        currentSession.createQuery("SELECT bic from BranchItemCheckout bic WHERE bic.checkoutid.checkoutid = :cid AND bic.returned = :ret")
+                .setParameter("cid",itemReturnOutput.getCheckoutid())
+                .setParameter("ret",true)
+                .getResultList();
+
+        if(commitTrans){
+            currentSession.getTransaction().commit();
+        }
+        return checkouts.size();
+
     }
 
 }

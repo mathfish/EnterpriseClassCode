@@ -12,10 +12,11 @@ public class Checkout implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int checkoutid;
 
-    @ManyToOne(cascade=CascadeType.ALL)
+    @ManyToOne(optional = true)
+    @JoinColumn(name = "patronid")
     private Patron patronid;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "checkoutid")
+    @OneToMany(mappedBy = "checkoutid")
     private Set<BranchItemCheckout> branchItemCheckouts;
 
     private java.sql.Timestamp checkoutdate;

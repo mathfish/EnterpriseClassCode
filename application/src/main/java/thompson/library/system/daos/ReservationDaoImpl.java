@@ -1,8 +1,11 @@
 package thompson.library.system.daos;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import thompson.library.system.dtos.ReservationDto;
+import thompson.library.system.entities.Reservation;
 import thompson.library.system.utilities.ConnectionFactory;
 import thompson.library.system.utilities.ConnectionUtil;
 
@@ -10,15 +13,22 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 public class ReservationDaoImpl implements ReservationDao {
     private static final Logger logger = LoggerFactory.getLogger(ReservationDaoImpl.class);
     private ConnectionFactory connectionFactory;
     private ConnectionUtil connectionUtil;
+    private SessionFactory sessionFactory;
 
     ReservationDaoImpl(ConnectionFactory connectionFactory, ConnectionUtil connectionUtil){
         this.connectionFactory = connectionFactory;
         this.connectionUtil = connectionUtil;
+    }
+
+
+    ReservationDaoImpl(SessionFactory sessionFactory){
+        this.sessionFactory = sessionFactory;
     }
 
     /**
@@ -27,35 +37,32 @@ public class ReservationDaoImpl implements ReservationDao {
      */
     @Override
     public ReservationDto fulfillReservation(BranchItemCheckoutDao.ItemReturnOutput itemReturnOutput) {
-        String query = "SELECT * FROM reservation WHERE branchitemid = ? AND fulfilled = false ORDER BY reservdate";
-        String update = "UPDATE reservation SET fulfilled = ? WHERE reservationid = ?";
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
-        ReservationDto reservationDto = null;
-        try{
-            Connection connection = itemReturnOutput.getConnection();
-            preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1,itemReturnOutput.getBranchitemid());
-            resultSet = preparedStatement.executeQuery();
-            if(resultSet.next()){
-                preparedStatement = connection.prepareStatement(update);
-                preparedStatement.setBoolean(1,true);
-                preparedStatement.setInt(2,resultSet.getInt("reservationid"));
-                preparedStatement.executeUpdate();
-
-                reservationDto = new ReservationDto(resultSet.getInt("reservationid"),
-                        resultSet.getInt("patronid"), resultSet.getInt("branchitemid"),
-                        resultSet.getDate("reservdate"), true,
-                        resultSet.getInt("forbranchid"));
-            }
-        } catch (SQLException e) {
-            logger.error("SQL error checking reservation for branchitemid {}", itemReturnOutput.getBranchitemid(), e);
-            throw new IllegalStateException("SQL error in checking reservation. See log for details");
-        } finally {
-            connectionUtil.close(preparedStatement);
-            connectionUtil.close(resultSet);
+        Session currentSession = sessionFactory.getCurrentSession();
+        boolean commitTrans = false;
+        if(!currentSession.getTransaction().isActive()){
+            currentSession.beginTransaction();
+            commitTrans = true;
         }
-        return reservationDto;
+
+        List<Reservation> reservations =
+        currentSession.createQuery("SELECT res FROM Reservation res WHERE res.branchItemid.branchitemid = :bid and " +
+                "res.fulfilled = :fulfilled ORDER BY res.reservdate")
+                .setParameter("bid", itemReturnOutput.getBranchitemid())
+                .setParameter("fulfilled", false)
+                .getResultList();
+
+        Reservation reservation = reservations.get(0);
+        reservation.setFulfilled(true);
+        currentSession.saveOrUpdate(reservation);
+
+
+        if(commitTrans){
+            currentSession.getTransaction().commit();
+        }
+
+        return new ReservationDto(reservation.getReservationid(), reservation.getPatronid().getPatronid(),
+                reservation.getBranchItemid().getBranchitemid(), reservation.getReservdate(), true,
+                reservation.getForbranchid().getBranchid());
     }
 
 }

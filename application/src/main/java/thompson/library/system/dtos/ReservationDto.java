@@ -1,16 +1,17 @@
 package thompson.library.system.dtos;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 public class ReservationDto {
     private int reservationid;
     private int patronid;
     private int branchitemid;
-    private java.sql.Date reservDate;
+    private java.sql.Timestamp reservDate;
     private boolean fulfilled;
     private int forBranchid;
 
-    public ReservationDto(int reservationid, int patronid, int branchitemid, Date reservDate, boolean fulfilled,
+    public ReservationDto(int reservationid, int patronid, int branchitemid, Timestamp reservDate, boolean fulfilled,
                           int forBranchid) {
         this.reservationid = reservationid;
         this.patronid = patronid;
@@ -44,11 +45,11 @@ public class ReservationDto {
         this.branchitemid = branchitemid;
     }
 
-    public Date getReservDate() {
+    public Timestamp getReservDate() {
         return reservDate;
     }
 
-    public void setReservDate(Date reservDate) {
+    public void setReservDate(Timestamp reservDate) {
         this.reservDate = reservDate;
     }
 

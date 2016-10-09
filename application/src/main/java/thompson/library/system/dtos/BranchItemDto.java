@@ -2,9 +2,6 @@ package thompson.library.system.dtos;
 
 import java.util.Optional;
 
-/**
- * Created by jonathanthompson on 9/29/16.
- */
 public class BranchItemDto {
     private final int branchitemid;
     private final boolean checkedout;

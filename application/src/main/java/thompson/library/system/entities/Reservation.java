@@ -11,13 +11,16 @@ public class Reservation implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int reservationid;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "patronid")
+    @ManyToOne
     private Patron patronid;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "branchitemid")
+    @ManyToOne
     private BranchItem branchItemid;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "forbranchid")
+    @ManyToOne
     private Branch forbranchid;
 
     private java.sql.Timestamp reservdate;

@@ -194,6 +194,7 @@ CREATE TABLE checkout(
                      );
 
 CREATE TABLE branchitemcheckout(
+                         branchitemcheckoutid INT NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY(START WITH 1, INCREMENT BY 1),
                          branchitemid INT NOT NULL,
                          checkoutid INT NOT NULL,
                          overdue BOOLEAN DEFAULT false,
@@ -202,7 +203,6 @@ CREATE TABLE branchitemcheckout(
                          renewdate DATE,
                          returned BOOLEAN DEFAULT false,
                          returndate DATE,
-                         PRIMARY KEY(branchitemid, checkoutid),
                          CONSTRAINT fk_branchitemcheckout_branchitem FOREIGN KEY(branchitemid) REFERENCES branchitem(branchitemid),
                          CONSTRAINT fk_branchitemcheckout_checkout FOREIGN KEY(checkoutid) REFERENCES checkout(checkoutid)
                          );

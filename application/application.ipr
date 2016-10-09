@@ -18,6 +18,14 @@
     <bytecodeTargetLevel target="1.8" />
   </component>
   <component name="CopyrightManager" default="" />
+  <component name="DataSourceManagerImpl" format="xml" hash="976200953">
+    <data-source source="LOCAL" name="librarydb" uuid="d7d4e3ce-398e-4b4c-b78c-a31b6ea7a1c2">
+      <driver-ref>derby.embedded</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.apache.derby.jdbc.EmbeddedDriver</jdbc-driver>
+      <jdbc-url>jdbc:derby:$PROJECT_DIR$/../database/javadb/librarydb</jdbc-url>
+    </data-source>
+  </component>
   <component name="DependencyValidationManager">
     <option name="SKIP_IMPORT_STATEMENTS" value="false" />
   </component>
@@ -180,6 +188,13 @@
   </component>
   <component name="SvnBranchConfigurationManager">
     <option name="mySupportsUserInfoFilter" value="true" />
+  </component>
+  <component name="dataSourceStorageLocal">
+    <data-source name="librarydb" uuid="d7d4e3ce-398e-4b4c-b78c-a31b6ea7a1c2">
+      <secret-storage>master_key</secret-storage>
+      <schema-pattern>*</schema-pattern>
+      <default-schemas>*.APP</default-schemas>
+    </data-source>
   </component>
   <component name="masterDetails">
     <states>
