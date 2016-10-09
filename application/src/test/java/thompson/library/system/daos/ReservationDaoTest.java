@@ -14,6 +14,7 @@ import thompson.library.system.utilities.ConnectionManager;
 import java.util.Calendar;
 
 import static junit.framework.TestCase.assertEquals;
+import static junit.framework.TestCase.assertNull;
 import static org.junit.Assert.assertTrue;
 
 public class ReservationDaoTest {
@@ -48,6 +49,18 @@ public class ReservationDaoTest {
         session.getTransaction().rollback();
         session.close();
 
+    }
+
+    @Test
+    public void testNoReservation(){
+        Session session = sessionFactory.getCurrentSession();
+        session.beginTransaction();
+        ReservationDaoImpl impl = new ReservationDaoImpl(sessionFactory);
+        BranchItemCheckoutDao.ItemReturnOutput itemReturnOutput = new BranchItemCheckoutDao.ItemReturnOutput(1,1,false);
+        ReservationDto dto = impl.fulfillReservation(itemReturnOutput);
+        assertNull(dto);
+        session.getTransaction().rollback();
+        session.close();
     }
 
 

@@ -58,16 +58,13 @@ public class BranchItemCheckoutDaoImpl implements BranchItemCheckoutDao {
 
     /**
      *
-     * Updates a branch item checkout using transfer object branchItemCheckoutDto
+     * Updates a branch item checkout using transfer object branchItemCheckoutDto. Beginning of multi-step transaction
      */
     @Override
     public BranchItemCheckoutDao.ItemReturnOutput updateBranchItemCheckout(BranchItemCheckoutDto branchItemCheckoutDto) {
         Session currentSession = sessionFactory.getCurrentSession();
-        boolean commitTrans = false;
-        if(!currentSession.getTransaction().isActive()){
-            currentSession.beginTransaction();
-            commitTrans = true;
-        }
+        currentSession.beginTransaction();
+
         Calendar calendar = Calendar.getInstance();
         Date date = new Date(calendar.getTime().getTime());
         BranchItemCheckout result =
@@ -81,9 +78,6 @@ public class BranchItemCheckoutDaoImpl implements BranchItemCheckoutDao {
         result.setReturndate(date);
         result.setOverdue(branchItemCheckoutDto.isOverdue());
         currentSession.saveOrUpdate(result);
-        if(commitTrans){
-            currentSession.getTransaction().commit();
-        }
 
         return new ItemReturnOutput(branchItemCheckoutDto.getCheckoutID(),
                     branchItemCheckoutDto.getBranchItemID(), false);

@@ -12,7 +12,7 @@ import java.util.Optional;
 public class driver {
 
     public static void main(String[] args) {
-        SessionFactory factory = new Configuration().configure("derby.cfg.xml").buildSessionFactory();
+        SessionFactory factory = new Configuration().configure("hsql.cfg.xml").buildSessionFactory();
         Session currentSession = factory.getCurrentSession();
 
         if(!currentSession.getTransaction().isActive()){

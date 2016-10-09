@@ -37,18 +37,20 @@ public class ReservationDaoImpl implements ReservationDao {
                 .setParameter("fulfilled", false)
                 .getResultList();
 
-        Reservation reservation = reservations.get(0);
-        reservation.setFulfilled(true);
-        currentSession.saveOrUpdate(reservation);
-
-
+        ReservationDto reservationDto = null;
+        if(reservations.size() > 0) {
+            Reservation reservation = reservations.get(0);
+            reservation.setFulfilled(true);
+            currentSession.saveOrUpdate(reservation);
+            reservationDto = new ReservationDto(reservation.getReservationid(), reservation.getPatronid().getPatronid(),
+                    reservation.getBranchItemid().getBranchitemid(), reservation.getReservdate(), true,
+                    reservation.getForbranchid().getBranchid());
+        }
         if(commitTrans){
             currentSession.getTransaction().commit();
         }
 
-        return new ReservationDto(reservation.getReservationid(), reservation.getPatronid().getPatronid(),
-                reservation.getBranchItemid().getBranchitemid(), reservation.getReservdate(), true,
-                reservation.getForbranchid().getBranchid());
+        return reservationDto;
     }
 
 }

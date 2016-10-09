@@ -33,11 +33,13 @@ public class BranchServicesImpl implements BranchServices {
         BranchItemCheckoutDao branchItemCheckoutDao = daoManager.getBranchItemCheckoutDao();
         BranchItemCheckoutDto brItemCheckoutDto = branchItemCheckoutDao.getBranchItemCheckout(branchItemDto);
         if(today.after(brItemCheckoutDto.getDueDate())){
-            if(!brItemCheckoutDto.isRenew()) {
-                brItemCheckoutDto.setOverdue(true);
-            } else if(brItemCheckoutDto.getDueDate().after(brItemCheckoutDto.getRenewDate())){
-                brItemCheckoutDto.setOverdue(true);
-            }
+            brItemCheckoutDto.setOverdue(true);
+            //TODO: wait hw3 feedback before deleting
+//            if(!brItemCheckoutDto.isRenew()) {
+//                brItemCheckoutDto.setOverdue(true);
+//            } else if(brItemCheckoutDto.getDueDate().after(brItemCheckoutDto.getRenewDate())){
+//                brItemCheckoutDto.setOverdue(true);
+//            }
         }
 
         // Transaction block for database changes and functional processing

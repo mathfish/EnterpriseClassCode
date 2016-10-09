@@ -1,12 +1,11 @@
 package thompson.library.system.daos;
 
+import org.hibernate.Transaction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import thompson.library.system.dtos.BranchItemCheckoutDto;
 import thompson.library.system.dtos.BranchItemDto;
-
-import java.sql.Connection;
-import java.sql.SQLException;
+import thompson.library.system.utilities.ConnectionManager;
 
 
 public interface BranchItemCheckoutDao {
@@ -38,20 +37,12 @@ public interface BranchItemCheckoutDao {
         }
 
         public void completeReturn(){
-
+            Transaction transaction = ConnectionManager.getSessionFactory()
+                             .getCurrentSession().beginTransaction();
+            if(transaction.isActive()){
+                transaction.commit();
+            }
         }
-//            if(connection != null){
-//                try {
-//                    connection.commit();
-//                    connection.close();
-//                } catch (SQLException e) {
-//                    logger.error("SQL exception during commit and rollback for patronid {} and branchitemid {}",
-//                            checkoutid, branchitemid, e);
-//                    throw new IllegalStateException("SQL error during commit and rollback. See log for more details");
-//                }
-//            }
-//        }
-
 
         public void setCheckoutid(Integer checkoutid) {
             this.checkoutid = checkoutid;
@@ -93,9 +84,6 @@ public interface BranchItemCheckoutDao {
             this.returned = returned;
         }
 
-        public Connection getConnection(){
-            return null;
-        }
     }
 
 }

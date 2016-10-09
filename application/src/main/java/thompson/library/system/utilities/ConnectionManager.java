@@ -33,6 +33,11 @@ public class ConnectionManager {
         }
         if(properties.getProperty("databaseType").equals("derby")){
            sessionFactory =  new Configuration().configure("derby.cfg.xml").buildSessionFactory();
+        } else if(properties.getProperty("databaseType").equals("hsql")){
+            sessionFactory = new Configuration().configure("hsql.cfg.xml").buildSessionFactory();
+        } else{
+            logger.error("Unsupported database {} found in properties file", properties.getProperty("datbaseType"));
+            throw new IllegalStateException("Unsupported database found in properties file. See log for details");
         }
 
         return sessionFactory;
