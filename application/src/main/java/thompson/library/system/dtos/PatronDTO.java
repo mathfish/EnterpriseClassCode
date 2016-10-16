@@ -1,6 +1,5 @@
 package thompson.library.system.dtos;
 
-import java.sql.ResultSet;
 import java.sql.Timestamp;
 import java.util.Optional;
 

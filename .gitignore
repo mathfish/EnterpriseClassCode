@@ -4,3 +4,4 @@
 application/out/production/
 *.iws
 *.iml
+application/build/
