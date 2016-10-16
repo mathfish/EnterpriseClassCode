@@ -5,7 +5,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.junit.Before;
 import org.junit.Test;
-import thompson.library.system.dtos.PatronD;
+import thompson.library.system.dtos.PatronDto;
 import thompson.library.system.entities.Patron;
 import thompson.library.system.utilities.ConnectionManager;
 
@@ -34,15 +34,15 @@ public class PatronDaoTest {
 
         Calendar calendar = Calendar.getInstance();
         java.sql.Timestamp joinDate = new java.sql.Timestamp(calendar.getTime().getTime());
-        PatronD patronD = new PatronD("testFirst", "testLast", "testCity", "ST", 99999,
+        PatronDto patronDto = new PatronDto("testFirst", "testLast", "testCity", "ST", 99999,
                 "testStreetAddress",joinDate, "test@email.test", 9999999999L,false, "testPW");
 
-        impl.insertPatron(patronD);
+        impl.insertPatron(patronDto);
 
         Patron patronReturn = (Patron)session.createQuery("select p from Patron p where p.email = :email")
                 .setParameter("email","test@email.test")
                 .getSingleResult();
-        assertEquals(patronReturn.getFirstname(), patronD.getFirstname());
+        assertEquals(patronReturn.getFirstname(), patronDto.getFirstname());
 
         session.getTransaction().rollback();
         session.close();
@@ -55,7 +55,7 @@ public class PatronDaoTest {
         PatronDaoImpl impl = new PatronDaoImpl(sessionFactory);
         insertTestPatron(session);
 
-        PatronD dto = impl.getPatron("test@email.test");
+        PatronDto dto = impl.getPatron("test@email.test");
         verifyDto(dto);
 
         session.getTransaction().rollback();
@@ -76,7 +76,7 @@ public class PatronDaoTest {
         BranchItemCheckoutDao.ItemReturnOutput itemReturnOutput =
                 new BranchItemCheckoutDao.ItemReturnOutput(null, null, false);
         itemReturnOutput.setPatronid(patron.getPatronid());
-        PatronD dto = impl.getPatron(itemReturnOutput);
+        PatronDto dto = impl.getPatron(itemReturnOutput);
         verifyDto(dto);
         session.getTransaction().rollback();
         session.close();
@@ -99,7 +99,7 @@ public class PatronDaoTest {
         session.saveOrUpdate(patron);
     }
 
-    private void verifyDto(PatronD dto){
+    private void verifyDto(PatronDto dto){
         assertEquals("testFirst",  dto.getFirstname());
         assertEquals("testLast", dto.getLastname());
         assertEquals("testCity", dto.getCity());

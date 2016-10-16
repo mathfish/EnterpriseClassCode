@@ -1,15 +1,15 @@
 package thompson.library.system.daos;
 
-import thompson.library.system.dtos.PatronD;
+import thompson.library.system.dtos.PatronDto;
 
 /**
  * Created by jonathanthompson on 9/27/16.
  */
 public interface PatronDao {
 
-    PatronD getPatron(String email);
+    PatronDto getPatron(String email);
 
-    PatronD getPatron(BranchItemCheckoutDao.ItemReturnOutput itemReturnOutput);
+    PatronDto getPatron(BranchItemCheckoutDao.ItemReturnOutput itemReturnOutput);
 
-    boolean insertPatron(PatronD patron);
+    boolean insertPatron(PatronDto patron);
 }

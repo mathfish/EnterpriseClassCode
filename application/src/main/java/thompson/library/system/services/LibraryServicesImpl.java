@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import thompson.library.system.daos.DaoManager;
 import thompson.library.system.daos.PatronDao;
-import thompson.library.system.dtos.PatronD;
+import thompson.library.system.dtos.PatronDto;
 import thompson.library.system.utilities.EntryExistsException;
 
 import java.sql.Timestamp;
@@ -43,7 +43,7 @@ public class LibraryServicesImpl implements LibraryServices{
             throw new EntryExistsException("Patron already exists with email " + email);
         }
 
-        patronDao.insertPatron(new PatronD(firstname, lastname, city, state, zipcode, streetAddress, joinDate, email,
+        patronDao.insertPatron(new PatronDto(firstname, lastname, city, state, zipcode, streetAddress, joinDate, email,
                                              phone, remotelibrary, password));
 
         return true;
