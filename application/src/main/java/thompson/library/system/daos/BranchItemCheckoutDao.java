@@ -1,5 +1,6 @@
 package thompson.library.system.daos;
 
+import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,10 +38,13 @@ public interface BranchItemCheckoutDao {
         }
 
         public void completeReturn(){
-            Transaction transaction = ConnectionManager.getSessionFactory()
-                             .getCurrentSession().beginTransaction();
+            Session session = ConnectionManager.getSessionFactory().getCurrentSession();
+            Transaction transaction = session.getTransaction();
             if(transaction.isActive()){
                 transaction.commit();
+            }
+            if(session.isOpen()) {
+                session.close();
             }
         }
 

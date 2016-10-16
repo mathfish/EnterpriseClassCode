@@ -1,5 +1,6 @@
 package thompson.library.system.daos;
 
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
@@ -44,6 +45,7 @@ public class PatronDaoImpl implements PatronDao {
         }
         if(commitTrans) {
             currentSession.getTransaction().commit();
+            currentSession.close();
         }
         return patronDto;
     }
@@ -82,30 +84,39 @@ public class PatronDaoImpl implements PatronDao {
     @Override
     public boolean insertPatron(PatronDto patronDto) {
         Session currentSession = sessionFactory.getCurrentSession();
-        boolean commitTrans = false;
-        if(!currentSession.getTransaction().isActive()){
-            currentSession.beginTransaction();
-            commitTrans = true;
-        }
-        Patron patron = new Patron();
-        patron.setFirstname(patronDto.getFirstname());
-        patron.setLastname(patronDto.getLastname());
-        patron.setCity(patronDto.getCity());
-        patron.setState(patronDto.getState());
-        patron.setZipcode(patronDto.getZipcode());
-        patron.setStreetaddress(patronDto.getStreetAddress());
-        patron.setJoindate(patronDto.getJoinDate());
-        patron.setPhone(patronDto.getPhone());
-        patron.setPassword(patronDto.getPassword());
-        patron.setRemotelibrary(patronDto.isRemotelibrary());
-        patron.setEmail(patronDto.getEmail());
-        currentSession.saveOrUpdate(patron);
+        try {
+            boolean commitTrans = false;
+            if (!currentSession.getTransaction().isActive()) {
+                currentSession.beginTransaction();
+                commitTrans = true;
+            }
+            Patron patron = new Patron();
+            patron.setFirstname(patronDto.getFirstname());
+            patron.setLastname(patronDto.getLastname());
+            patron.setCity(patronDto.getCity());
+            patron.setState(patronDto.getState());
+            patron.setZipcode(patronDto.getZipcode());
+            patron.setStreetaddress(patronDto.getStreetAddress());
+            patron.setJoindate(patronDto.getJoinDate());
+            patron.setPhone(patronDto.getPhone());
+            patron.setPassword(patronDto.getPassword());
+            patron.setRemotelibrary(patronDto.isRemotelibrary());
+            patron.setEmail(patronDto.getEmail());
+            currentSession.saveOrUpdate(patron);
 
-        if(commitTrans) {
-            currentSession.getTransaction().commit();
+            if (commitTrans) {
+                currentSession.getTransaction().commit();
+                currentSession.close();
+            }
+            return true;
+        } catch (HibernateException ex){
+            logger.error("Error creating patron {}. Rolling back ", patronDto.getPatronid(), ex);
+            currentSession.getTransaction().rollback();
+            currentSession.close();
+            throw new IllegalStateException("Error creating patron. See log for details");
         }
 
-        return true;
+
     }
 
 

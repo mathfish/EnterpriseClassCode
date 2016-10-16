@@ -1,10 +1,13 @@
 package thompson.library.system.services;
 
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import thompson.library.system.daos.*;
 
 import thompson.library.system.dtos.*;
+import thompson.library.system.utilities.ConnectionManager;
 
 import java.util.Calendar;
 
@@ -41,31 +44,37 @@ public class BranchServicesImpl implements BranchServices {
         }
 
         // Transaction block for database changes and functional processing
-        BranchItemCheckoutDao.ItemReturnOutput itemReturnOutput = branchItemCheckoutDao.updateBranchItemCheckout(brItemCheckoutDto);
-        int numItems = branchItemCheckoutDao.getNumberOfItemsReturnedFromCheckout(itemReturnOutput);
-        CheckoutDto checkoutDto = daoManager.getCheckoutDao().getCheckout(itemReturnOutput);
-        if(numItems == checkoutDto.getNumberofitems()){
-            itemReturnOutput.setReturned(true);
-            daoManager.getCheckoutDao().updateCheckout(itemReturnOutput);
+        try {
+            BranchItemCheckoutDao.ItemReturnOutput itemReturnOutput = branchItemCheckoutDao.updateBranchItemCheckout(brItemCheckoutDto);
+            int numItems = branchItemCheckoutDao.getNumberOfItemsReturnedFromCheckout(itemReturnOutput);
+            CheckoutDto checkoutDto = daoManager.getCheckoutDao().getCheckout(itemReturnOutput);
+            if (numItems == checkoutDto.getNumberofitems()) {
+                itemReturnOutput.setReturned(true);
+                daoManager.getCheckoutDao().updateCheckout(itemReturnOutput);
+            }
+
+            ReservationDto reservationDto = daoManager.getReservationDao().fulfillReservation(itemReturnOutput);
+            BranchItemDao branchItemDao = daoManager.getBranchItemDao();
+            if (reservationDto != null) {
+                itemReturnOutput.setReserved(true);
+                branchItemDao.updateBranchItem(itemReturnOutput);
+                itemReturnOutput.setPatronid(reservationDto.getPatronid());
+                PatronDto patronDto = daoManager.getPatronDao().getPatron(itemReturnOutput);
+                String msg = " Dear " + patronDto.getFirstname() + " " + patronDto.getLastname() + ", your reservation with id "
+                        + reservationDto.getReservationid() + " has been fulfilled. You can pickup your item";
+                emailPatron(patronDto, msg);
+            } else {
+                branchItemDao.updateBranchItem(itemReturnOutput);
+            }
+            itemReturnOutput.completeReturn();
+            // transaction end.
+        } catch(HibernateException ex){
+            logger.error("Error returning item {}. Rolling back transaction", branchItemDto.getBranchitemid(), ex);
+            Session session = ConnectionManager.getSessionFactory().getCurrentSession();
+            session.getTransaction().rollback();
+            session.close();
+            throw new IllegalStateException("Error in item return. See log for details");
         }
-
-        ReservationDto reservationDto = daoManager.getReservationDao().fulfillReservation(itemReturnOutput);
-        BranchItemDao branchItemDao = daoManager.getBranchItemDao();
-        if(reservationDto != null){
-            itemReturnOutput.setReserved(true);
-            branchItemDao.updateBranchItem(itemReturnOutput);
-            itemReturnOutput.setPatronid(reservationDto.getPatronid());
-            PatronDto patronDto = daoManager.getPatronDao().getPatron(itemReturnOutput);
-            String msg = " Dear " + patronDto.getFirstname() + " " + patronDto.getLastname() + ", your reservation with id "
-                  + reservationDto.getReservationid() + " has been fulfilled. You can pickup your item";
-            emailPatron(patronDto,msg);
-        } else{
-            branchItemDao.updateBranchItem(itemReturnOutput);
-        }
-
-        itemReturnOutput.completeReturn();
-
-        // transaction end.
     }
 
     /**
