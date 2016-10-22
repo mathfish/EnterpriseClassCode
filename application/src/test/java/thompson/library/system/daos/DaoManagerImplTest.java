@@ -1,13 +1,21 @@
 package thompson.library.system.daos;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import thompson.library.system.utilities.LibraryConfig;
 
 import static junit.framework.TestCase.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(classes = LibraryConfig.class)
 public class DaoManagerImplTest {
 
-    DaoManagerImpl impl = new DaoManagerImpl();
+    @Autowired
+    DaoManager impl;
 
     @Test
     public void testGetPatronDao(){
