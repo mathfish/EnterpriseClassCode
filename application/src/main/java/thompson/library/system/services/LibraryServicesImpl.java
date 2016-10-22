@@ -2,23 +2,23 @@ package thompson.library.system.services;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import thompson.library.system.daos.DaoManager;
-import thompson.library.system.daos.DaoManagerFactory;
 import thompson.library.system.daos.PatronDao;
 import thompson.library.system.dtos.PatronDto;
 import thompson.library.system.utilities.EntryExistsException;
 
 import java.sql.Timestamp;
 
+@Component
 public class LibraryServicesImpl implements LibraryServices{
 
     private DaoManager daoManager;
     private static final Logger logger = LoggerFactory.getLogger(LibraryServicesImpl.class);
-    public LibraryServicesImpl(){
-        this.daoManager = DaoManagerFactory.getDaoManager();
-    }
 
-    LibraryServicesImpl(DaoManager daoManager){
+    @Autowired
+    public LibraryServicesImpl(DaoManager daoManager){
         this.daoManager = daoManager;
     }
 

@@ -2,6 +2,9 @@ package thompson.library.system.daos;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 import thompson.library.system.dtos.BranchItemCheckoutDto;
 import thompson.library.system.dtos.BranchItemDto;
 import thompson.library.system.utilities.ConnectionFactory;
@@ -11,6 +14,7 @@ import java.sql.*;
 import java.util.Calendar;
 
 
+@Component
 public class BranchItemCheckoutDaoImpl implements BranchItemCheckoutDao {
 
     private static final Logger logger = LoggerFactory.getLogger(BranchItemCheckoutDaoImpl.class);
@@ -18,7 +22,11 @@ public class BranchItemCheckoutDaoImpl implements BranchItemCheckoutDao {
     private ConnectionUtil connectionUtil;
     private Connection connection;
 
-    BranchItemCheckoutDaoImpl(ConnectionFactory connectionFactory, ConnectionUtil connectionUtil){
+    @Autowired
+    BranchItemCheckoutDaoImpl(
+            @Value("#{T(thompson.library.system.utilities.ConnectionManager).getConnectionFactory()}")
+                    ConnectionFactory connectionFactory,
+            ConnectionUtil connectionUtil){
         this.connectionFactory = connectionFactory;
         this.connectionUtil = connectionUtil;
     }

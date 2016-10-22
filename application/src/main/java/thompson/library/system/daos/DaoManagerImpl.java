@@ -1,8 +1,9 @@
 package thompson.library.system.daos;
 
-import thompson.library.system.utilities.ConnectionManager;
-import thompson.library.system.utilities.ConnectionUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class DaoManagerImpl implements DaoManager {
 
 
@@ -19,9 +20,6 @@ public class DaoManagerImpl implements DaoManager {
      * Returns the patronDao object, a singleton. Not intended to be threadsafe or clone safe.
      */
     public PatronDao getPatronDao(){
-        if(patronDao == null){
-            patronDao = new PatronDaoImpl(ConnectionManager.getConnectionFactory(), new ConnectionUtil());
-        }
         return patronDao;
     }
 
@@ -31,9 +29,6 @@ public class DaoManagerImpl implements DaoManager {
      */
     @Override
     public ReservationDao getReservationDao() {
-        if(reservationDao == null){
-            reservationDao = new ReservationDaoImpl(ConnectionManager.getConnectionFactory(), new ConnectionUtil());
-        }
         return reservationDao;
     }
 
@@ -43,9 +38,6 @@ public class DaoManagerImpl implements DaoManager {
      */
     @Override
     public BranchItemDao getBranchItemDao() {
-        if(branchItemDao == null){
-            branchItemDao = new BranchItemDaoImpl(ConnectionManager.getConnectionFactory(), new ConnectionUtil());
-        }
         return branchItemDao;
     }
 
@@ -55,9 +47,6 @@ public class DaoManagerImpl implements DaoManager {
      */
     @Override
     public BranchItemCheckoutDao getBranchItemCheckoutDao() {
-        if(branchItemCheckoutDao == null){
-            branchItemCheckoutDao = new BranchItemCheckoutDaoImpl(ConnectionManager.getConnectionFactory(), new ConnectionUtil());
-        }
         return branchItemCheckoutDao;
     }
 
@@ -67,9 +56,31 @@ public class DaoManagerImpl implements DaoManager {
      */
     @Override
     public CheckoutDao getCheckoutDao() {
-        if(checkoutDao == null){
-            checkoutDao = new CheckoutDaoImpl(ConnectionManager.getConnectionFactory(), new ConnectionUtil());
-        }
         return checkoutDao;
+    }
+
+    @Autowired
+    private void setPatronDao(PatronDaoImpl patronDao) {
+        this.patronDao = patronDao;
+    }
+
+    @Autowired
+    private void setReservationDao(ReservationDaoImpl reservationDao) {
+        this.reservationDao = reservationDao;
+    }
+
+    @Autowired
+    private void setBranchItemDao(BranchItemDaoImpl branchItemDao) {
+        this.branchItemDao = branchItemDao;
+    }
+
+    @Autowired
+    private void setBranchItemCheckoutDao(BranchItemCheckoutDaoImpl branchItemCheckoutDao) {
+        this.branchItemCheckoutDao = branchItemCheckoutDao;
+    }
+
+    @Autowired
+    private void setCheckoutDao(CheckoutDaoImpl checkoutDao) {
+        this.checkoutDao = checkoutDao;
     }
 }

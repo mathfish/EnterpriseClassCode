@@ -2,6 +2,9 @@ package thompson.library.system.daos;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 import thompson.library.system.dtos.CheckoutDto;
 import thompson.library.system.utilities.ConnectionFactory;
 import thompson.library.system.utilities.ConnectionUtil;
@@ -11,16 +14,19 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+@Component
 public class CheckoutDaoImpl implements CheckoutDao {
-    private static final Logger logger = LoggerFactory.getLogger(ReservationDaoImpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(CheckoutDaoImpl.class);
     private ConnectionFactory connectionFactory;
     private ConnectionUtil connectionUtil;
 
-    CheckoutDaoImpl(ConnectionFactory connectionFactory, ConnectionUtil connectionUtil){
+    @Autowired
+    CheckoutDaoImpl(@Value("#{T(thompson.library.system.utilities.ConnectionManager).getConnectionFactory()}")
+                            ConnectionFactory connectionFactory,
+                    ConnectionUtil connectionUtil){
         this.connectionFactory = connectionFactory;
         this.connectionUtil = connectionUtil;
     }
-
 
     /**
      *

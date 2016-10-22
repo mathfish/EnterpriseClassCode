@@ -13,8 +13,10 @@ dependencies {
     compile 'ch.qos.logback:logback-classic:1.1.7'
     compile 'ch.qos.logback:logback-core:1.1.7'
     compile 'org.hsqldb:hsqldb:2.3.4'
+    compile 'org.springframework:spring-context:4.3.3.RELEASE'
 
     testCompile 'junit:junit:4.12'
     testCompile 'org.apache.derby:derby:10.11.1.1'
     testCompile 'org.mockito:mockito-all:1.9.5'
+    testCompile 'org.springframework:spring-test:4.3.3.RELEASE'
 }

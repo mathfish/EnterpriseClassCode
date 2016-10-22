@@ -2,21 +2,21 @@ package thompson.library.system.services;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import thompson.library.system.daos.*;
 
 import thompson.library.system.dtos.*;
 
+
 import java.util.Calendar;
 
-
+@Component
 public class BranchServicesImpl implements BranchServices {
     private static final Logger logger = LoggerFactory.getLogger(BranchServicesImpl.class);
     private DaoManager daoManager;
 
-    BranchServicesImpl(){
-        this.daoManager = DaoManagerFactory.getDaoManager();
-    }
-
+    @Autowired
     BranchServicesImpl(DaoManager daoManager){
         this.daoManager = daoManager;
     }
