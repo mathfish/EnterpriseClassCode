@@ -1,0 +1,436 @@
+2016-10-09 00:08:50 - HHH000412: Hibernate Core {5.2.2.Final}
+2016-10-09 00:08:50 - HHH000206: hibernate.properties not found
+2016-10-09 00:08:50 - HHH000021: Bytecode provider name : javassist
+2016-10-09 00:08:50 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-10-09 00:08:50 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-10-09 00:08:51 - HHH10001005: using driver [org.apache.derby.jdbc.EmbeddedDriver] at URL [jdbc:derby:../database/javadb/librarydb]
+2016-10-09 00:08:51 - HHH10001001: Connection properties: {user=, password=****}
+2016-10-09 00:08:51 - HHH10001003: Autocommit mode: false
+2016-10-09 00:08:51 - HHH000115: Hibernate connection pool size: 10 (min=1)
+2016-10-09 00:08:51 - HHH000400: Using dialect: org.hibernate.dialect.DerbyTenSixDialect
+2016-10-09 00:08:53 - HHH000397: Using ASTQueryTranslatorFactory
+2016-10-09 00:41:01 - HHH000412: Hibernate Core {5.2.2.Final}
+2016-10-09 00:41:01 - HHH000206: hibernate.properties not found
+2016-10-09 00:41:01 - HHH000021: Bytecode provider name : javassist
+2016-10-09 00:41:02 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-10-09 00:41:02 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-10-09 00:41:02 - HHH10001005: using driver [org.apache.derby.jdbc.EmbeddedDriver] at URL [jdbc:derby:../database/javadb/librarydb]
+2016-10-09 00:41:02 - HHH10001001: Connection properties: {user=, password=****}
+2016-10-09 00:41:02 - HHH10001003: Autocommit mode: false
+2016-10-09 00:41:02 - HHH000115: Hibernate connection pool size: 10 (min=1)
+2016-10-09 00:41:03 - HHH000400: Using dialect: org.hibernate.dialect.DerbyTenSixDialect
+2016-10-09 00:41:05 - HHH000397: Using ASTQueryTranslatorFactory
+2016-10-09 00:41:26 - HHH000412: Hibernate Core {5.2.2.Final}
+2016-10-09 00:41:26 - HHH000206: hibernate.properties not found
+2016-10-09 00:41:26 - HHH000021: Bytecode provider name : javassist
+2016-10-09 00:41:27 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-10-09 00:41:27 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-10-09 00:41:27 - HHH10001005: using driver [org.apache.derby.jdbc.EmbeddedDriver] at URL [jdbc:derby:../database/javadb/librarydb]
+2016-10-09 00:41:27 - HHH10001001: Connection properties: {user=, password=****}
+2016-10-09 00:41:27 - HHH10001003: Autocommit mode: false
+2016-10-09 00:41:27 - HHH000115: Hibernate connection pool size: 10 (min=1)
+2016-10-09 00:41:28 - HHH000400: Using dialect: org.hibernate.dialect.DerbyTenSixDialect
+2016-10-09 00:41:29 - HHH000397: Using ASTQueryTranslatorFactory
+2016-10-09 00:42:55 - HHH000412: Hibernate Core {5.2.2.Final}
+2016-10-09 00:42:55 - HHH000206: hibernate.properties not found
+2016-10-09 00:42:55 - HHH000021: Bytecode provider name : javassist
+2016-10-09 00:42:55 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-10-09 00:42:55 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-10-09 00:42:56 - HHH10001005: using driver [org.apache.derby.jdbc.EmbeddedDriver] at URL [jdbc:derby:../database/javadb/librarydb]
+2016-10-09 00:42:56 - HHH10001001: Connection properties: {user=, password=****}
+2016-10-09 00:42:56 - HHH10001003: Autocommit mode: false
+2016-10-09 00:42:56 - HHH000115: Hibernate connection pool size: 10 (min=1)
+2016-10-09 00:42:56 - HHH000400: Using dialect: org.hibernate.dialect.DerbyTenSixDialect
+2016-10-09 00:42:58 - HHH000397: Using ASTQueryTranslatorFactory
+2016-10-09 00:44:06 - HHH000412: Hibernate Core {5.2.2.Final}
+2016-10-09 00:44:06 - HHH000206: hibernate.properties not found
+2016-10-09 00:44:06 - HHH000021: Bytecode provider name : javassist
+2016-10-09 00:44:06 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-10-09 00:44:07 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-10-09 00:44:07 - HHH10001005: using driver [org.apache.derby.jdbc.EmbeddedDriver] at URL [jdbc:derby:../database/javadb/librarydb]
+2016-10-09 00:44:07 - HHH10001001: Connection properties: {user=, password=****}
+2016-10-09 00:44:07 - HHH10001003: Autocommit mode: false
+2016-10-09 00:44:07 - HHH000115: Hibernate connection pool size: 10 (min=1)
+2016-10-09 00:44:07 - HHH000400: Using dialect: org.hibernate.dialect.DerbyTenSixDialect
+2016-10-09 00:44:26 - HHH000397: Using ASTQueryTranslatorFactory
+2016-10-09 00:45:46 - HHH000412: Hibernate Core {5.2.2.Final}
+2016-10-09 00:45:46 - HHH000206: hibernate.properties not found
+2016-10-09 00:45:46 - HHH000021: Bytecode provider name : javassist
+2016-10-09 00:45:46 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-10-09 00:45:46 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-10-09 00:45:47 - HHH10001005: using driver [org.apache.derby.jdbc.EmbeddedDriver] at URL [jdbc:derby:../database/javadb/librarydb]
+2016-10-09 00:45:47 - HHH10001001: Connection properties: {user=, password=****}
+2016-10-09 00:45:47 - HHH10001003: Autocommit mode: false
+2016-10-09 00:45:47 - HHH000115: Hibernate connection pool size: 10 (min=1)
+2016-10-09 00:45:47 - HHH000400: Using dialect: org.hibernate.dialect.DerbyTenSixDialect
+2016-10-09 00:45:49 - HHH000397: Using ASTQueryTranslatorFactory
+2016-10-09 02:13:26 - HHH000412: Hibernate Core {5.2.2.Final}
+2016-10-09 02:13:26 - HHH000206: hibernate.properties not found
+2016-10-09 02:13:26 - HHH000021: Bytecode provider name : javassist
+2016-10-09 02:13:26 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-10-09 02:13:26 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-10-09 02:13:27 - HHH10001005: using driver [org.apache.derby.jdbc.EmbeddedDriver] at URL [jdbc:derby:../database/javadb/librarydb]
+2016-10-09 02:13:27 - HHH10001001: Connection properties: {user=, password=****}
+2016-10-09 02:13:27 - HHH10001003: Autocommit mode: false
+2016-10-09 02:13:27 - HHH000115: Hibernate connection pool size: 10 (min=1)
+2016-10-09 02:13:27 - HHH000400: Using dialect: org.hibernate.dialect.DerbyTenSixDialect
+2016-10-09 02:13:29 - HHH000397: Using ASTQueryTranslatorFactory
+2016-10-09 02:13:29 - SQL Error: 20000, SQLState: 42X14
+2016-10-09 02:13:29 - 'BRANCHID_BRANCHID' is not a column in table or VTI 'APP.BRANCHITEM'.
+2016-10-09 02:15:09 - HHH000412: Hibernate Core {5.2.2.Final}
+2016-10-09 02:15:09 - HHH000206: hibernate.properties not found
+2016-10-09 02:15:09 - HHH000021: Bytecode provider name : javassist
+2016-10-09 02:15:09 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-10-09 02:15:10 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-10-09 02:15:10 - HHH10001005: using driver [org.apache.derby.jdbc.EmbeddedDriver] at URL [jdbc:derby:../database/javadb/librarydb]
+2016-10-09 02:15:10 - HHH10001001: Connection properties: {user=, password=****}
+2016-10-09 02:15:10 - HHH10001003: Autocommit mode: false
+2016-10-09 02:15:10 - HHH000115: Hibernate connection pool size: 10 (min=1)
+2016-10-09 02:15:11 - HHH000400: Using dialect: org.hibernate.dialect.DerbyTenSixDialect
+2016-10-09 02:15:13 - HHH000397: Using ASTQueryTranslatorFactory
+2016-10-09 02:15:49 - HHH000412: Hibernate Core {5.2.2.Final}
+2016-10-09 02:15:49 - HHH000206: hibernate.properties not found
+2016-10-09 02:15:49 - HHH000021: Bytecode provider name : javassist
+2016-10-09 02:15:50 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-10-09 02:15:50 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-10-09 02:15:50 - HHH10001005: using driver [org.apache.derby.jdbc.EmbeddedDriver] at URL [jdbc:derby:../database/javadb/librarydb]
+2016-10-09 02:15:50 - HHH10001001: Connection properties: {user=, password=****}
+2016-10-09 02:15:50 - HHH10001003: Autocommit mode: false
+2016-10-09 02:15:51 - HHH000115: Hibernate connection pool size: 10 (min=1)
+2016-10-09 02:15:51 - HHH000400: Using dialect: org.hibernate.dialect.DerbyTenSixDialect
+2016-10-09 02:15:53 - HHH000397: Using ASTQueryTranslatorFactory
+2016-10-09 02:48:34 - HHH000412: Hibernate Core {5.2.2.Final}
+2016-10-09 02:48:34 - HHH000206: hibernate.properties not found
+2016-10-09 02:48:34 - HHH000021: Bytecode provider name : javassist
+2016-10-09 02:48:35 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-10-09 02:48:35 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-10-09 02:48:35 - HHH10001005: using driver [org.apache.derby.jdbc.EmbeddedDriver] at URL [jdbc:derby:../database/javadb/librarydb]
+2016-10-09 02:48:35 - HHH10001001: Connection properties: {user=, password=****}
+2016-10-09 02:48:35 - HHH10001003: Autocommit mode: false
+2016-10-09 02:48:35 - HHH000115: Hibernate connection pool size: 10 (min=1)
+2016-10-09 02:48:36 - HHH000400: Using dialect: org.hibernate.dialect.DerbyTenSixDialect
+2016-10-09 13:12:00 - HHH000412: Hibernate Core {5.2.2.Final}
+2016-10-09 13:12:00 - HHH000206: hibernate.properties not found
+2016-10-09 13:12:00 - HHH000021: Bytecode provider name : javassist
+2016-10-09 13:12:01 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-10-09 13:12:01 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-10-09 13:12:02 - HHH10001005: using driver [org.apache.derby.jdbc.EmbeddedDriver] at URL [jdbc:derby:../database/javadb/librarydb]
+2016-10-09 13:12:02 - HHH10001001: Connection properties: {user=, password=****}
+2016-10-09 13:12:02 - HHH10001003: Autocommit mode: false
+2016-10-09 13:12:02 - HHH000115: Hibernate connection pool size: 10 (min=1)
+2016-10-09 13:12:02 - HHH000400: Using dialect: org.hibernate.dialect.DerbyTenSixDialect
+2016-10-09 13:12:04 - HHH000397: Using ASTQueryTranslatorFactory
+2016-10-09 13:17:17 - HHH000412: Hibernate Core {5.2.2.Final}
+2016-10-09 13:17:17 - HHH000206: hibernate.properties not found
+2016-10-09 13:17:17 - HHH000021: Bytecode provider name : javassist
+2016-10-09 13:17:17 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-10-09 13:17:17 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-10-09 13:17:18 - HHH10001005: using driver [org.apache.derby.jdbc.EmbeddedDriver] at URL [jdbc:derby:../database/javadb/librarydb]
+2016-10-09 13:17:18 - HHH10001001: Connection properties: {user=, password=****}
+2016-10-09 13:17:18 - HHH10001003: Autocommit mode: false
+2016-10-09 13:17:18 - HHH000115: Hibernate connection pool size: 10 (min=1)
+2016-10-09 13:17:18 - HHH000400: Using dialect: org.hibernate.dialect.DerbyTenSixDialect
+2016-10-09 13:17:20 - HHH000397: Using ASTQueryTranslatorFactory
+2016-10-09 13:21:16 - HHH000412: Hibernate Core {5.2.2.Final}
+2016-10-09 13:21:16 - HHH000206: hibernate.properties not found
+2016-10-09 13:21:16 - HHH000021: Bytecode provider name : javassist
+2016-10-09 13:21:16 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-10-09 13:21:16 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-10-09 13:21:17 - HHH10001005: using driver [org.apache.derby.jdbc.EmbeddedDriver] at URL [jdbc:derby:../database/javadb/librarydb]
+2016-10-09 13:21:17 - HHH10001001: Connection properties: {user=, password=****}
+2016-10-09 13:21:17 - HHH10001003: Autocommit mode: false
+2016-10-09 13:21:17 - HHH000115: Hibernate connection pool size: 10 (min=1)
+2016-10-09 13:21:17 - HHH000400: Using dialect: org.hibernate.dialect.DerbyTenSixDialect
+2016-10-09 13:21:19 - HHH000397: Using ASTQueryTranslatorFactory
+2016-10-09 13:23:39 - HHH000412: Hibernate Core {5.2.2.Final}
+2016-10-09 13:23:39 - HHH000206: hibernate.properties not found
+2016-10-09 13:23:39 - HHH000021: Bytecode provider name : javassist
+2016-10-09 13:23:39 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-10-09 13:23:39 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-10-09 13:23:40 - HHH10001005: using driver [org.apache.derby.jdbc.EmbeddedDriver] at URL [jdbc:derby:../database/javadb/librarydb]
+2016-10-09 13:23:40 - HHH10001001: Connection properties: {user=, password=****}
+2016-10-09 13:23:40 - HHH10001003: Autocommit mode: false
+2016-10-09 13:23:40 - HHH000115: Hibernate connection pool size: 10 (min=1)
+2016-10-09 13:23:40 - HHH000400: Using dialect: org.hibernate.dialect.DerbyTenSixDialect
+2016-10-09 13:24:35 - HHH000412: Hibernate Core {5.2.2.Final}
+2016-10-09 13:24:35 - HHH000206: hibernate.properties not found
+2016-10-09 13:24:35 - HHH000021: Bytecode provider name : javassist
+2016-10-09 13:24:36 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-10-09 13:24:36 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-10-09 13:24:36 - HHH10001005: using driver [org.apache.derby.jdbc.EmbeddedDriver] at URL [jdbc:derby:../database/javadb/librarydb]
+2016-10-09 13:24:36 - HHH10001001: Connection properties: {user=, password=****}
+2016-10-09 13:24:36 - HHH10001003: Autocommit mode: false
+2016-10-09 13:24:36 - HHH000115: Hibernate connection pool size: 10 (min=1)
+2016-10-09 13:24:37 - HHH000400: Using dialect: org.hibernate.dialect.DerbyTenSixDialect
+2016-10-09 13:24:38 - HHH000397: Using ASTQueryTranslatorFactory
+2016-10-09 13:25:50 - HHH000412: Hibernate Core {5.2.2.Final}
+2016-10-09 13:25:50 - HHH000206: hibernate.properties not found
+2016-10-09 13:25:50 - HHH000021: Bytecode provider name : javassist
+2016-10-09 13:25:51 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-10-09 13:25:51 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-10-09 13:25:51 - HHH10001005: using driver [org.apache.derby.jdbc.EmbeddedDriver] at URL [jdbc:derby:../database/javadb/librarydb]
+2016-10-09 13:25:51 - HHH10001001: Connection properties: {user=, password=****}
+2016-10-09 13:25:51 - HHH10001003: Autocommit mode: false
+2016-10-09 13:25:51 - HHH000115: Hibernate connection pool size: 10 (min=1)
+2016-10-09 13:25:52 - HHH000400: Using dialect: org.hibernate.dialect.DerbyTenSixDialect
+2016-10-09 13:25:54 - HHH000397: Using ASTQueryTranslatorFactory
+2016-10-09 13:26:46 - HHH000412: Hibernate Core {5.2.2.Final}
+2016-10-09 13:26:46 - HHH000206: hibernate.properties not found
+2016-10-09 13:26:46 - HHH000021: Bytecode provider name : javassist
+2016-10-09 13:26:46 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-10-09 13:26:46 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-10-09 13:26:47 - HHH10001005: using driver [org.apache.derby.jdbc.EmbeddedDriver] at URL [jdbc:derby:../database/javadb/librarydb]
+2016-10-09 13:26:47 - HHH10001001: Connection properties: {user=, password=****}
+2016-10-09 13:26:47 - HHH10001003: Autocommit mode: false
+2016-10-09 13:26:47 - HHH000115: Hibernate connection pool size: 10 (min=1)
+2016-10-09 13:26:47 - HHH000400: Using dialect: org.hibernate.dialect.DerbyTenSixDialect
+2016-10-09 13:26:49 - HHH000397: Using ASTQueryTranslatorFactory
+2016-10-09 13:37:56 - Patron with email test@email.test already exists
+2016-10-09 13:38:40 - Send email to test4 with message:  Dear test1 test2, your reservation with id 3333 has been fulfilled. You can pickup your item
+2016-10-09 13:40:10 - HHH000412: Hibernate Core {5.2.2.Final}
+2016-10-09 13:40:10 - HHH000206: hibernate.properties not found
+2016-10-09 13:40:10 - HHH000021: Bytecode provider name : javassist
+2016-10-09 13:40:10 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-10-09 13:40:11 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-10-09 13:40:11 - HHH10001005: using driver [org.apache.derby.jdbc.EmbeddedDriver] at URL [jdbc:derby:../database/javadb/librarydb]
+2016-10-09 13:40:11 - HHH10001001: Connection properties: {user=, password=****}
+2016-10-09 13:40:11 - HHH10001003: Autocommit mode: false
+2016-10-09 13:40:11 - HHH000115: Hibernate connection pool size: 10 (min=1)
+2016-10-09 13:40:11 - HHH000400: Using dialect: org.hibernate.dialect.DerbyTenSixDialect
+2016-10-09 14:29:03 - HHH000412: Hibernate Core {5.2.2.Final}
+2016-10-09 14:29:03 - HHH000206: hibernate.properties not found
+2016-10-09 14:29:03 - HHH000021: Bytecode provider name : javassist
+2016-10-09 14:29:04 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-10-09 14:29:04 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-10-09 14:29:04 - HHH10001005: using driver [org.hsqldb.jdbcDriver] at URL [jdbc:derby:file:../database/hsqldb/librarydb]
+2016-10-09 14:29:04 - HHH10001001: Connection properties: {user=, password=****}
+2016-10-09 14:29:04 - HHH10001003: Autocommit mode: false
+2016-10-09 14:29:04 - HHH000115: Hibernate connection pool size: 10 (min=1)
+2016-10-09 14:57:26 - HHH000412: Hibernate Core {5.2.2.Final}
+2016-10-09 14:57:26 - HHH000206: hibernate.properties not found
+2016-10-09 14:57:26 - HHH000021: Bytecode provider name : javassist
+2016-10-09 14:57:27 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-10-09 14:57:27 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-10-09 14:57:27 - HHH10001005: using driver [org.hsqldb.jdbcDriver] at URL [jdbc:derby:file:../database/hsqldb/librarydb]
+2016-10-09 14:57:27 - HHH10001001: Connection properties: {user=, password=****}
+2016-10-09 14:57:27 - HHH10001003: Autocommit mode: false
+2016-10-09 14:57:27 - HHH000115: Hibernate connection pool size: 10 (min=1)
+2016-10-09 15:00:04 - HHH000412: Hibernate Core {5.2.2.Final}
+2016-10-09 15:00:04 - HHH000206: hibernate.properties not found
+2016-10-09 15:00:04 - HHH000021: Bytecode provider name : javassist
+2016-10-09 15:00:05 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-10-09 15:00:05 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-10-09 15:00:05 - HHH10001005: using driver [org.hsqldb.jdbcDriver] at URL [jdbc:hsqldb:file:../database/hsqldb/librarydb]
+2016-10-09 15:00:05 - HHH10001001: Connection properties: {user=, password=****}
+2016-10-09 15:00:05 - HHH10001003: Autocommit mode: false
+2016-10-09 15:00:05 - HHH000115: Hibernate connection pool size: 10 (min=1)
+2016-10-09 15:09:03 - HHH000412: Hibernate Core {5.2.2.Final}
+2016-10-09 15:09:03 - HHH000206: hibernate.properties not found
+2016-10-09 15:09:03 - HHH000021: Bytecode provider name : javassist
+2016-10-09 15:09:03 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-10-09 15:09:04 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-10-09 15:09:04 - HHH10001005: using driver [org.hsqldb.jdbcDriver] at URL [jdbc:hsqldb:file:../database/hsqldb/librarydb]
+2016-10-09 15:09:04 - HHH10001001: Connection properties: {user=sa, password=****}
+2016-10-09 15:09:04 - HHH10001003: Autocommit mode: false
+2016-10-09 15:09:04 - HHH000115: Hibernate connection pool size: 10 (min=1)
+2016-10-09 15:09:04 - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2016-10-09 15:09:21 - HHH000412: Hibernate Core {5.2.2.Final}
+2016-10-09 15:09:21 - HHH000206: hibernate.properties not found
+2016-10-09 15:09:21 - HHH000021: Bytecode provider name : javassist
+2016-10-09 15:09:21 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-10-09 15:09:22 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-10-09 15:09:22 - HHH10001005: using driver [org.hsqldb.jdbcDriver] at URL [jdbc:hsqldb:file:../database/hsqldb/librarydb]
+2016-10-09 15:09:22 - HHH10001001: Connection properties: {user=sa, password=****}
+2016-10-09 15:09:22 - HHH10001003: Autocommit mode: false
+2016-10-09 15:09:22 - HHH000115: Hibernate connection pool size: 10 (min=1)
+2016-10-09 15:09:56 - HHH000412: Hibernate Core {5.2.2.Final}
+2016-10-09 15:09:56 - HHH000206: hibernate.properties not found
+2016-10-09 15:09:56 - HHH000021: Bytecode provider name : javassist
+2016-10-09 15:09:56 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-10-09 15:09:56 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-10-09 15:09:56 - HHH10001005: using driver [org.hsqldb.jdbcDriver] at URL [jdbc:hsqldb:file:../database/hsqldb/librarydb]
+2016-10-09 15:09:56 - HHH10001001: Connection properties: {user=sa, password=****}
+2016-10-09 15:09:56 - HHH10001003: Autocommit mode: false
+2016-10-09 15:09:56 - HHH000115: Hibernate connection pool size: 10 (min=1)
+2016-10-09 15:09:57 - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2016-10-09 15:09:58 - HHH000397: Using ASTQueryTranslatorFactory
+2016-10-09 15:50:44 - HHH000412: Hibernate Core {5.2.2.Final}
+2016-10-09 15:50:44 - HHH000206: hibernate.properties not found
+2016-10-09 15:50:44 - HHH000021: Bytecode provider name : javassist
+2016-10-09 15:50:45 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-10-09 15:50:45 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-10-09 15:50:45 - HHH10001005: using driver [org.hsqldb.jdbcDriver] at URL [jdbc:hsqldb:file:../database/hsqldb/librarydb]
+2016-10-09 15:50:45 - HHH10001001: Connection properties: {user=sa, password=****}
+2016-10-09 15:50:45 - HHH10001003: Autocommit mode: false
+2016-10-09 15:50:45 - HHH000115: Hibernate connection pool size: 10 (min=1)
+2016-10-09 15:50:45 - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2016-10-09 15:50:47 - HHH000397: Using ASTQueryTranslatorFactory
+2016-10-09 15:50:53 - HHH000412: Hibernate Core {5.2.2.Final}
+2016-10-09 15:50:53 - HHH000206: hibernate.properties not found
+2016-10-09 15:50:53 - HHH000021: Bytecode provider name : javassist
+2016-10-09 15:50:54 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-10-09 15:50:54 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-10-09 15:50:54 - HHH10001005: using driver [org.hsqldb.jdbcDriver] at URL [jdbc:hsqldb:file:../database/hsqldb/librarydb]
+2016-10-09 15:50:54 - HHH10001001: Connection properties: {user=sa, password=****}
+2016-10-09 15:50:54 - HHH10001003: Autocommit mode: false
+2016-10-09 15:50:54 - HHH000115: Hibernate connection pool size: 10 (min=1)
+2016-10-09 15:50:54 - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2016-10-09 15:51:01 - HHH000412: Hibernate Core {5.2.2.Final}
+2016-10-09 15:51:01 - HHH000206: hibernate.properties not found
+2016-10-09 15:51:01 - HHH000021: Bytecode provider name : javassist
+2016-10-09 15:51:01 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-10-09 15:51:01 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-10-09 15:51:01 - HHH10001005: using driver [org.hsqldb.jdbcDriver] at URL [jdbc:hsqldb:file:../database/hsqldb/librarydb]
+2016-10-09 15:51:01 - HHH10001001: Connection properties: {user=sa, password=****}
+2016-10-09 15:51:01 - HHH10001003: Autocommit mode: false
+2016-10-09 15:51:01 - HHH000115: Hibernate connection pool size: 10 (min=1)
+2016-10-09 15:51:02 - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2016-10-09 15:51:03 - HHH000397: Using ASTQueryTranslatorFactory
+2016-10-09 15:51:13 - HHH000412: Hibernate Core {5.2.2.Final}
+2016-10-09 15:51:13 - HHH000206: hibernate.properties not found
+2016-10-09 15:51:13 - HHH000021: Bytecode provider name : javassist
+2016-10-09 15:51:14 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-10-09 15:51:14 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-10-09 15:51:14 - HHH10001005: using driver [org.hsqldb.jdbcDriver] at URL [jdbc:hsqldb:file:../database/hsqldb/librarydb]
+2016-10-09 15:51:14 - HHH10001001: Connection properties: {user=sa, password=****}
+2016-10-09 15:51:14 - HHH10001003: Autocommit mode: false
+2016-10-09 15:51:14 - HHH000115: Hibernate connection pool size: 10 (min=1)
+2016-10-09 15:51:14 - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2016-10-09 15:51:21 - HHH000412: Hibernate Core {5.2.2.Final}
+2016-10-09 15:51:21 - HHH000206: hibernate.properties not found
+2016-10-09 15:51:21 - HHH000021: Bytecode provider name : javassist
+2016-10-09 15:51:21 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-10-09 15:51:21 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-10-09 15:51:21 - HHH10001005: using driver [org.hsqldb.jdbcDriver] at URL [jdbc:hsqldb:file:../database/hsqldb/librarydb]
+2016-10-09 15:51:21 - HHH10001001: Connection properties: {user=sa, password=****}
+2016-10-09 15:51:21 - HHH10001003: Autocommit mode: false
+2016-10-09 15:51:21 - HHH000115: Hibernate connection pool size: 10 (min=1)
+2016-10-09 15:51:22 - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2016-10-09 15:51:23 - HHH000397: Using ASTQueryTranslatorFactory
+2016-10-09 15:51:28 - HHH000412: Hibernate Core {5.2.2.Final}
+2016-10-09 15:51:28 - HHH000206: hibernate.properties not found
+2016-10-09 15:51:28 - HHH000021: Bytecode provider name : javassist
+2016-10-09 15:51:29 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-10-09 15:51:29 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-10-09 15:51:29 - HHH10001005: using driver [org.hsqldb.jdbcDriver] at URL [jdbc:hsqldb:file:../database/hsqldb/librarydb]
+2016-10-09 15:51:29 - HHH10001001: Connection properties: {user=sa, password=****}
+2016-10-09 15:51:29 - HHH10001003: Autocommit mode: false
+2016-10-09 15:51:29 - HHH000115: Hibernate connection pool size: 10 (min=1)
+2016-10-09 15:51:29 - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2016-10-09 15:51:31 - HHH000397: Using ASTQueryTranslatorFactory
+2016-10-09 15:51:43 - Send email to test4 with message:  Dear test1 test2, your reservation with id 3333 has been fulfilled. You can pickup your item
+2016-10-09 15:51:48 - Patron with email test@email.test already exists
+2016-10-09 16:57:34 - HHH000412: Hibernate Core {5.2.2.Final}
+2016-10-09 16:57:34 - HHH000206: hibernate.properties not found
+2016-10-09 16:57:34 - HHH000021: Bytecode provider name : javassist
+2016-10-09 16:57:35 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-10-09 16:57:35 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-10-09 16:57:35 - HHH10001005: using driver [org.hsqldb.jdbcDriver] at URL [jdbc:hsqldb:file:../database/hsqldb/librarydb]
+2016-10-09 16:57:35 - HHH10001001: Connection properties: {user=sa, password=****}
+2016-10-09 16:57:35 - HHH10001003: Autocommit mode: false
+2016-10-09 16:57:35 - HHH000115: Hibernate connection pool size: 10 (min=1)
+2016-10-09 16:57:36 - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2016-10-09 16:57:37 - HHH000397: Using ASTQueryTranslatorFactory
+2016-10-09 16:59:00 - HHH000412: Hibernate Core {5.2.2.Final}
+2016-10-09 16:59:00 - HHH000206: hibernate.properties not found
+2016-10-09 16:59:00 - HHH000021: Bytecode provider name : javassist
+2016-10-09 16:59:01 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-10-09 16:59:01 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-10-09 16:59:01 - HHH10001005: using driver [org.hsqldb.jdbcDriver] at URL [jdbc:hsqldb:file:../database/hsqldb/librarydb]
+2016-10-09 16:59:01 - HHH10001001: Connection properties: {user=sa, password=****}
+2016-10-09 16:59:01 - HHH10001003: Autocommit mode: false
+2016-10-09 16:59:01 - HHH000115: Hibernate connection pool size: 10 (min=1)
+2016-10-09 16:59:02 - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2016-10-09 16:59:04 - HHH000412: Hibernate Core {5.2.2.Final}
+2016-10-09 16:59:04 - HHH000206: hibernate.properties not found
+2016-10-09 16:59:04 - HHH000021: Bytecode provider name : javassist
+2016-10-09 16:59:04 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-10-09 16:59:04 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-10-09 16:59:04 - HHH10001005: using driver [org.hsqldb.jdbcDriver] at URL [jdbc:hsqldb:file:../database/hsqldb/librarydb]
+2016-10-09 16:59:04 - HHH10001001: Connection properties: {user=sa, password=****}
+2016-10-09 16:59:04 - HHH10001003: Autocommit mode: false
+2016-10-09 16:59:04 - HHH000115: Hibernate connection pool size: 10 (min=1)
+2016-10-09 16:59:05 - HHH000397: Using ASTQueryTranslatorFactory
+2016-10-09 16:59:06 - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2016-10-09 16:59:07 - HHH000397: Using ASTQueryTranslatorFactory
+2016-10-09 17:05:58 - HHH000412: Hibernate Core {5.2.2.Final}
+2016-10-09 17:05:58 - HHH000206: hibernate.properties not found
+2016-10-09 17:05:58 - HHH000021: Bytecode provider name : javassist
+2016-10-09 17:05:58 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-10-09 17:05:58 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-10-09 17:05:58 - HHH10001005: using driver [org.hsqldb.jdbcDriver] at URL [jdbc:hsqldb:file:../database/hsqldb/librarydb]
+2016-10-09 17:05:58 - HHH10001001: Connection properties: {user=sa, password=****}
+2016-10-09 17:05:58 - HHH10001003: Autocommit mode: false
+2016-10-09 17:05:58 - HHH000115: Hibernate connection pool size: 10 (min=1)
+2016-10-09 17:05:59 - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2016-10-09 17:06:00 - HHH000397: Using ASTQueryTranslatorFactory
+2016-10-09 17:06:01 - Send email to test4 with message:  Dear test1 test2, your reservation with id 3333 has been fulfilled. You can pickup your item
+2016-10-09 17:06:01 - Patron with email test@email.test already exists
+2016-10-09 17:09:16 - HHH000412: Hibernate Core {5.2.2.Final}
+2016-10-09 17:09:16 - HHH000206: hibernate.properties not found
+2016-10-09 17:09:16 - HHH000021: Bytecode provider name : javassist
+2016-10-09 17:09:16 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-10-09 17:09:16 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-10-09 17:09:16 - HHH10001005: using driver [org.hsqldb.jdbcDriver] at URL [jdbc:hsqldb:file:../database/hsqldb/librarydb]
+2016-10-09 17:09:16 - HHH10001001: Connection properties: {user=sa, password=****}
+2016-10-09 17:09:16 - HHH10001003: Autocommit mode: false
+2016-10-09 17:09:16 - HHH000115: Hibernate connection pool size: 10 (min=1)
+2016-10-09 17:09:17 - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2016-10-09 17:09:18 - HHH000397: Using ASTQueryTranslatorFactory
+2016-10-09 17:09:50 - HHH000412: Hibernate Core {5.2.2.Final}
+2016-10-09 17:09:50 - HHH000206: hibernate.properties not found
+2016-10-09 17:09:50 - HHH000021: Bytecode provider name : javassist
+2016-10-09 17:09:50 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-10-09 17:09:50 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-10-09 17:09:50 - HHH10001005: using driver [org.hsqldb.jdbcDriver] at URL [jdbc:hsqldb:file:../database/hsqldb/librarydb]
+2016-10-09 17:09:50 - HHH10001001: Connection properties: {user=sa, password=****}
+2016-10-09 17:09:50 - HHH10001003: Autocommit mode: false
+2016-10-09 17:09:50 - HHH000115: Hibernate connection pool size: 10 (min=1)
+2016-10-09 17:09:51 - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2016-10-09 17:09:52 - HHH000397: Using ASTQueryTranslatorFactory
+2016-10-09 17:10:06 - HHH000412: Hibernate Core {5.2.2.Final}
+2016-10-09 17:10:06 - HHH000206: hibernate.properties not found
+2016-10-09 17:10:06 - HHH000021: Bytecode provider name : javassist
+2016-10-09 17:10:07 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-10-09 17:10:07 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-10-09 17:10:07 - HHH10001005: using driver [org.hsqldb.jdbcDriver] at URL [jdbc:hsqldb:file:../database/hsqldb/librarydb]
+2016-10-09 17:10:07 - HHH10001001: Connection properties: {user=sa, password=****}
+2016-10-09 17:10:07 - HHH10001003: Autocommit mode: false
+2016-10-09 17:10:07 - HHH000115: Hibernate connection pool size: 10 (min=1)
+2016-10-09 17:10:07 - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2016-10-09 17:10:08 - HHH000397: Using ASTQueryTranslatorFactory
+2016-10-09 17:10:32 - HHH000412: Hibernate Core {5.2.2.Final}
+2016-10-09 17:10:32 - HHH000206: hibernate.properties not found
+2016-10-09 17:10:32 - HHH000021: Bytecode provider name : javassist
+2016-10-09 17:10:33 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-10-09 17:10:33 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-10-09 17:10:33 - HHH10001005: using driver [org.hsqldb.jdbcDriver] at URL [jdbc:hsqldb:file:../database/hsqldb/librarydb]
+2016-10-09 17:10:33 - HHH10001001: Connection properties: {user=sa, password=****}
+2016-10-09 17:10:33 - HHH10001003: Autocommit mode: false
+2016-10-09 17:10:33 - HHH000115: Hibernate connection pool size: 10 (min=1)
+2016-10-09 17:10:34 - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2016-10-09 17:10:35 - HHH000397: Using ASTQueryTranslatorFactory
+2016-10-09 17:14:10 - HHH000412: Hibernate Core {5.2.2.Final}
+2016-10-09 17:14:10 - HHH000206: hibernate.properties not found
+2016-10-09 17:14:10 - HHH000021: Bytecode provider name : javassist
+2016-10-09 17:14:10 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-10-09 17:14:10 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-10-09 17:14:10 - HHH10001005: using driver [org.hsqldb.jdbcDriver] at URL [jdbc:hsqldb:file:../database/hsqldb/librarydb]
+2016-10-09 17:14:10 - HHH10001001: Connection properties: {user=sa, password=****}
+2016-10-09 17:14:10 - HHH10001003: Autocommit mode: false
+2016-10-09 17:14:10 - HHH000115: Hibernate connection pool size: 10 (min=1)
+2016-10-09 17:14:11 - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2016-10-09 17:14:12 - HHH000397: Using ASTQueryTranslatorFactory
+2016-10-09 17:14:37 - HHH000412: Hibernate Core {5.2.2.Final}
+2016-10-09 17:14:37 - HHH000206: hibernate.properties not found
+2016-10-09 17:14:37 - HHH000021: Bytecode provider name : javassist
+2016-10-09 17:14:38 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-10-09 17:14:38 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-10-09 17:14:38 - HHH10001005: using driver [org.hsqldb.jdbcDriver] at URL [jdbc:hsqldb:file:../database/hsqldb/librarydb]
+2016-10-09 17:14:38 - HHH10001001: Connection properties: {user=sa, password=****}
+2016-10-09 17:14:38 - HHH10001003: Autocommit mode: false
+2016-10-09 17:14:38 - HHH000115: Hibernate connection pool size: 10 (min=1)
+2016-10-09 17:14:38 - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2016-10-09 17:14:39 - HHH000397: Using ASTQueryTranslatorFactory
+2016-10-09 17:14:40 - Send email to test4 with message:  Dear test1 test2, your reservation with id 3333 has been fulfilled. You can pickup your item
+2016-10-09 17:14:40 - Patron with email test@email.test already exists

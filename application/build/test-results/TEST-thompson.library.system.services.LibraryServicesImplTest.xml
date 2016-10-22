@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="thompson.library.system.services.LibraryServicesImplTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2016-10-16T22:17:10" hostname="jonathans-Air.home" time="0.004">
+  <properties/>
+  <testcase name="createPatronTest1" classname="thompson.library.system.services.LibraryServicesImplTest" time="0.002"/>
+  <testcase name="createPatronTest2" classname="thompson.library.system.services.LibraryServicesImplTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
