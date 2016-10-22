@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="thompson.library.system.daos.BranchItemCheckoutDaoTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2016-10-16T22:17:06" hostname="jonathans-Air.home" time="3.035">
-  <properties/>
-  <testcase name="testGetBranchItemCheckout" classname="thompson.library.system.daos.BranchItemCheckoutDaoTest" time="2.953"/>
-  <testcase name="testGetNumberOfItemsReturnedFromCheckout" classname="thompson.library.system.daos.BranchItemCheckoutDaoTest" time="0.024"/>
-  <testcase name="testUpdateBranchItemCheckout" classname="thompson.library.system.daos.BranchItemCheckoutDaoTest" time="0.056"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

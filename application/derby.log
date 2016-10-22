@@ -1,10 +1,10 @@
 ----------------------------------------------------------------
-Sat Oct 01 23:38:54 EDT 2016:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-0157-8379-1b69-000002b6bcf8 
-on database directory /Users/jonathanthompson/EnterpriseDesign/Code/2016FA-jthomp97/database/javadb/librarydb with class loader sun.misc.Launcher$AppClassLoader@4e25154f 
+Sat Oct 22 15:43:22 EDT 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-0157-edeb-4a88-000005cb7958 
+on database directory /Users/jonathanthompson/EnterpriseDesign/Code/2016FA-jthomp97/database/javadb/librarydb with class loader sun.misc.Launcher$AppClassLoader@5c647e05 
 Loaded from file:/Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.apache.derby/derby/10.11.1.1/df4b50061e8e4c348ce243b921f53ee63ba9bbe1/derby-10.11.1.1.jar
 java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_91-b14
+java.runtime.version=1.8.0_101-b13
 user.dir=/Users/jonathanthompson/EnterpriseDesign/Code/2016FA-jthomp97/application
 os.name=Mac OS X
 os.arch=x86_64

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="thompson.library.system.services.LibraryServicesImplTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2016-10-16T22:17:10" hostname="jonathans-Air.home" time="0.004">
+<testsuite name="thompson.library.system.services.LibraryServicesImplTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2016-10-22T19:43:22" hostname="jonathans-Air.home" time="0.003">
   <properties/>
-  <testcase name="createPatronTest1" classname="thompson.library.system.services.LibraryServicesImplTest" time="0.002"/>
+  <testcase name="createPatronTest1" classname="thompson.library.system.services.LibraryServicesImplTest" time="0.001"/>
   <testcase name="createPatronTest2" classname="thompson.library.system.services.LibraryServicesImplTest" time="0.002"/>
-  <system-out><![CDATA[]]></system-out>
+  <system-out><![CDATA[15:43:22.446 [Test worker] INFO thompson.library.system.services.LibraryServicesImpl - Patron with email test@email.test already exists
+]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

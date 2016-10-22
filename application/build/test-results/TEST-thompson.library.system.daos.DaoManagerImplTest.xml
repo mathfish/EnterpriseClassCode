@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="thompson.library.system.daos.DaoManagerImplTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2016-10-16T22:17:09" hostname="jonathans-Air.home" time="0.01">
+<testsuite name="thompson.library.system.daos.DaoManagerImplTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2016-10-22T19:43:22" hostname="jonathans-Air.home" time="0.008">
   <properties/>
-  <testcase name="testGetCheckoutDao" classname="thompson.library.system.daos.DaoManagerImplTest" time="0.0"/>
-  <testcase name="testGetBranchItemDao" classname="thompson.library.system.daos.DaoManagerImplTest" time="0.0"/>
-  <testcase name="testGetPatronDao" classname="thompson.library.system.daos.DaoManagerImplTest" time="0.003"/>
-  <testcase name="testGetBranchItemCheckoutDao" classname="thompson.library.system.daos.DaoManagerImplTest" time="0.0"/>
-  <testcase name="testGetReservationDao" classname="thompson.library.system.daos.DaoManagerImplTest" time="0.002"/>
+  <testcase name="testGetCheckoutDao" classname="thompson.library.system.daos.DaoManagerImplTest" time="0.002"/>
+  <testcase name="testGetBranchItemDao" classname="thompson.library.system.daos.DaoManagerImplTest" time="0.001"/>
+  <testcase name="testGetPatronDao" classname="thompson.library.system.daos.DaoManagerImplTest" time="0.001"/>
+  <testcase name="testGetBranchItemCheckoutDao" classname="thompson.library.system.daos.DaoManagerImplTest" time="0.001"/>
+  <testcase name="testGetReservationDao" classname="thompson.library.system.daos.DaoManagerImplTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
+  <system-err><![CDATA[Oct 22, 2016 3:43:21 PM org.springframework.test.context.support.DefaultTestContextBootstrapper getDefaultTestExecutionListenerClassNames
+INFO: Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+Oct 22, 2016 3:43:21 PM org.springframework.test.context.support.DefaultTestContextBootstrapper instantiateListeners
+INFO: Could not instantiate TestExecutionListener [org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [org/springframework/transaction/interceptor/TransactionAttribute]
+Oct 22, 2016 3:43:21 PM org.springframework.test.context.support.DefaultTestContextBootstrapper instantiateListeners
+INFO: Could not instantiate TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [javax/servlet/ServletContext]
+Oct 22, 2016 3:43:21 PM org.springframework.test.context.support.DefaultTestContextBootstrapper instantiateListeners
+INFO: Could not instantiate TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [org/springframework/transaction/interceptor/TransactionAttributeSource]
+Oct 22, 2016 3:43:21 PM org.springframework.test.context.support.DefaultTestContextBootstrapper getTestExecutionListeners
+INFO: Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@72e98a98, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@45d949c4, org.springframework.test.context.support.DirtiesContextTestExecutionListener@49c7e6b6]
+Oct 22, 2016 3:43:21 PM org.springframework.context.support.GenericApplicationContext prepareRefresh
+INFO: Refreshing org.springframework.context.support.GenericApplicationContext@2b2c0f32: startup date [Sat Oct 22 15:43:21 EDT 2016]; root of context hierarchy
+]]></system-err>
 </testsuite>

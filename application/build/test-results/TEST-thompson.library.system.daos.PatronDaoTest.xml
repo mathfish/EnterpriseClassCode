@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="thompson.library.system.daos.PatronDaoTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2016-10-16T22:17:09" hostname="jonathans-Air.home" time="0.047">
-  <properties/>
-  <testcase name="getPatronByItemReturnOutput" classname="thompson.library.system.daos.PatronDaoTest" time="0.034"/>
-  <testcase name="testPatronDaoInsert" classname="thompson.library.system.daos.PatronDaoTest" time="0.006"/>
-  <testcase name="testGetPatronByEmail" classname="thompson.library.system.daos.PatronDaoTest" time="0.006"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

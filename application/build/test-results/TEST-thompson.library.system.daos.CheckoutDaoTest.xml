@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="thompson.library.system.daos.CheckoutDaoTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2016-10-16T22:17:09" hostname="jonathans-Air.home" time="0.042">
-  <properties/>
-  <testcase name="testGetCheckout" classname="thompson.library.system.daos.CheckoutDaoTest" time="0.027"/>
-  <testcase name="testUpdateCheckout" classname="thompson.library.system.daos.CheckoutDaoTest" time="0.015"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

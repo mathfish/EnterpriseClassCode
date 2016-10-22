@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="thompson.library.system.services.BranchServicesTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2016-10-16T22:17:10" hostname="jonathans-Air.home" time="0.013">
+<testsuite name="thompson.library.system.services.BranchServicesTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2016-10-22T19:43:22" hostname="jonathans-Air.home" time="0.027">
   <properties/>
-  <testcase name="testReturnItemReservationOverdueAllReturned" classname="thompson.library.system.services.BranchServicesTest" time="0.01"/>
-  <testcase name="testReturnItemNoReservationNotOverdueNotAllReturned" classname="thompson.library.system.services.BranchServicesTest" time="0.001"/>
-  <system-out><![CDATA[]]></system-out>
+  <testcase name="testReturnItemReservationOverdueAllReturned" classname="thompson.library.system.services.BranchServicesTest" time="0.022"/>
+  <testcase name="testReturnItemNoReservationNotOverdueNotAllReturned" classname="thompson.library.system.services.BranchServicesTest" time="0.002"/>
+  <system-out><![CDATA[15:43:22.423 [Test worker] INFO thompson.library.system.services.BranchServicesImpl - Send email to test4 with message:  Dear test1 test2, your reservation with id 3333 has been fulfilled. You can pickup your item
+]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

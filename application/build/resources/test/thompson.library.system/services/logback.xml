@@ -49,7 +49,7 @@
 
     </appender>
 
-    <root level="FATAL">
+    <root level="info">
         <appender-ref ref="FILE-AUDIT" />
     </root>
 
