@@ -24,7 +24,7 @@ import static junit.framework.TestCase.assertTrue;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = LibraryConfig.class)
-public class LibraryInjectTest {
+public class LibraryServicesInjectTest {
 
     @Autowired
     LibraryServices libraryServices;
