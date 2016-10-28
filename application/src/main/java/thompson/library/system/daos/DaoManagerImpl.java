@@ -7,11 +7,11 @@ import org.springframework.stereotype.Component;
 public class DaoManagerImpl implements DaoManager {
 
 
-    private PatronDaoImpl patronDao;
-    private ReservationDaoImpl reservationDao;
-    private BranchItemDaoImpl branchItemDao;
-    private BranchItemCheckoutDaoImpl branchItemCheckoutDao;
-    private CheckoutDaoImpl checkoutDao;
+    private PatronDao patronDao;
+    private ReservationDao reservationDao;
+    private BranchItemDao branchItemDao;
+    private BranchItemCheckoutDao branchItemCheckoutDao;
+    private CheckoutDao checkoutDao;
 
     DaoManagerImpl(){}
 
@@ -60,27 +60,27 @@ public class DaoManagerImpl implements DaoManager {
     }
 
     @Autowired
-    private void setPatronDao(PatronDaoImpl patronDao) {
+    private void setPatronDao(PatronDao patronDao) {
         this.patronDao = patronDao;
     }
 
     @Autowired
-    private void setReservationDao(ReservationDaoImpl reservationDao) {
+    private void setReservationDao(ReservationDao reservationDao) {
         this.reservationDao = reservationDao;
     }
 
     @Autowired
-    private void setBranchItemDao(BranchItemDaoImpl branchItemDao) {
+    private void setBranchItemDao(BranchItemDao branchItemDao) {
         this.branchItemDao = branchItemDao;
     }
 
     @Autowired
-    private void setBranchItemCheckoutDao(BranchItemCheckoutDaoImpl branchItemCheckoutDao) {
+    private void setBranchItemCheckoutDao(BranchItemCheckoutDao branchItemCheckoutDao) {
         this.branchItemCheckoutDao = branchItemCheckoutDao;
     }
 
     @Autowired
-    private void setCheckoutDao(CheckoutDaoImpl checkoutDao) {
+    private void setCheckoutDao(CheckoutDao checkoutDao) {
         this.checkoutDao = checkoutDao;
     }
 }

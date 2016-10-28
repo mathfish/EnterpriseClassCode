@@ -61,7 +61,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="LibraryServicesInjectTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LibraryServicesInjectTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/thompson/library/system/services/LibraryServicesInjectTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="689">
@@ -70,6 +70,39 @@
                 <element signature="imports" expanded="true" />
                 <marker date="1477163814000" expanded="true" signature="2735:2755" ph="SELECT * FRO... patron" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BranchServicesInjectTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/thompson/library/system/services/BranchServicesInjectTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="32" column="12" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <marker date="1477164795000" expanded="true" signature="6031:6051" ph="SELECT * FRO... patron" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LibraryServicesImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/services/LibraryServicesImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="32" column="44" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DaoManagerImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/daos/DaoManagerImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="640">
+              <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -129,7 +162,6 @@
         <option value="$PROJECT_DIR$/src/main/java/thompson/library/system/dtos/CheckoutDto.java" />
         <option value="$PROJECT_DIR$/database.properties" />
         <option value="$PROJECT_DIR$/src/main/java/thompson/library/system/utilities/ConnectionUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/java/thompson/library/system/daos/DaoManagerImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/thompson/library/system/utilities/LibraryConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/thompson/library/system/daos/BranchItemDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/thompson/library/system/daos/BranchItemCheckoutDaoImpl.java" />
@@ -143,6 +175,7 @@
         <option value="$PROJECT_DIR$/src/test/java/thompson/library/system/services/BranchServicesInjectTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/thompson/library/system/daos/DaoManagerImplTest.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/src/main/java/thompson/library/system/daos/DaoManagerImpl.java" />
       </list>
     </option>
   </component>
@@ -311,6 +344,44 @@
               <option name="myItemId" value="test" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="services" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -422,59 +493,7 @@
       <recent name="$PROJECT_DIR$/" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.LibraryServicesInjectTest">
-    <configuration default="false" name="BranchItemCheckoutDaoImplTest.testGetBranchItemCheckout" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="thompson.library.system.daos.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="application" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="thompson.library.system.daos" />
-      <option name="MAIN_CLASS_NAME" value="thompson.library.system.daos.BranchItemCheckoutDaoImplTest" />
-      <option name="METHOD_NAME" value="testGetBranchItemCheckout" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="BranchItemCheckoutDaoImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="thompson.library.system.daos.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="application" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="thompson.library.system.daos" />
-      <option name="MAIN_CLASS_NAME" value="thompson.library.system.daos.BranchItemCheckoutDaoImplTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="JUnit.BranchServicesInjectTest">
     <configuration default="false" name="DaoManagerImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" runner="idea">
         <pattern>
@@ -539,6 +558,58 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="thompson.library.system.services" />
       <option name="MAIN_CLASS_NAME" value="thompson.library.system.services.LibraryServicesInjectTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="BranchServicesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="thompson.library.system.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="application" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="thompson.library.system.services" />
+      <option name="MAIN_CLASS_NAME" value="thompson.library.system.services.BranchServicesTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="BranchServicesInjectTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="thompson.library.system.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="application" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="thompson.library.system.services" />
+      <option name="MAIN_CLASS_NAME" value="thompson.library.system.services.BranchServicesInjectTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" />
@@ -966,19 +1037,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.BranchItemCheckoutDaoImplTest.testGetBranchItemCheckout" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.BranchItemCheckoutDaoImplTest" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.DaoManagerImplTest" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.LibraryServicesInjectTest.libraryDITest" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.LibraryServicesInjectTest" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.DaoManagerImplTest" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.LibraryServicesInjectTest.libraryDITest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.LibraryServicesInjectTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.BranchServicesTest" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.BranchServicesInjectTest" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.LibraryServicesInjectTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.LibraryServicesInjectTest.libraryDITest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.DaoManagerImplTest" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.BranchItemCheckoutDaoImplTest" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.BranchItemCheckoutDaoImplTest.testGetBranchItemCheckout" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.BranchServicesInjectTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.BranchServicesTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.LibraryServicesInjectTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.LibraryServicesInjectTest.libraryDITest" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.DaoManagerImplTest" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -1010,25 +1081,22 @@
       <workItem from="1477152921872" duration="8666000" />
       <workItem from="1477165177867" duration="584000" />
       <workItem from="1477617944308" duration="179000" />
-      <workItem from="1477618145843" duration="21000" />
+      <workItem from="1477618145843" duration="238000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="BranchServicesInjectTest_branchDITest - 2016.10.22 at 15h 16m 59s.xml">
-      <configuration name="BranchServicesInjectTest.branchDITest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BranchServicesInjectTest_branchDITest - 2016.10.22 at 15h 22m 55s.xml">
-      <configuration name="BranchServicesInjectTest.branchDITest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BranchServicesInjectTest_branchDITest - 2016.10.22 at 15h 23m 22s.xml">
-      <configuration name="BranchServicesInjectTest.branchDITest" configurationId="JUnit" />
+    <history-entry file="BranchServicesInjectTest - 2016.10.27 at 21h 33m 35s.xml">
+      <configuration name="BranchServicesInjectTest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="BranchServicesInjectTest_branchDITest - 2016.10.22 at 15h 27m 26s.xml">
       <configuration name="BranchServicesInjectTest.branchDITest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="BranchServicesInjectTest_branchDITest - 2016.10.22 at 15h 33m 20s.xml">
       <configuration name="BranchServicesInjectTest.branchDITest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BranchServicesTest - 2016.10.27 at 21h 33m 15s.xml">
+      <configuration name="BranchServicesTest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="DaoManagerImplTest - 2016.10.22 at 15h 42m 58s.xml">
       <configuration name="DaoManagerImplTest" configurationId="JUnit" />
@@ -1039,6 +1107,9 @@
     <history-entry file="LibraryServicesInjectTest - 2016.10.27 at 21h 29m 23s.xml">
       <configuration name="LibraryServicesInjectTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="LibraryServicesInjectTest - 2016.10.27 at 21h 32m 46s.xml">
+      <configuration name="LibraryServicesInjectTest" configurationId="JUnit" />
+    </history-entry>
     <history-entry file="LibraryServicesInjectTest_libraryDITest - 2016.10.27 at 21h 26m 22s.xml">
       <configuration name="LibraryServicesInjectTest.libraryDITest" configurationId="JUnit" />
     </history-entry>
@@ -1047,7 +1118,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="135568000" />
+    <option name="totallyTimeSpent" value="135785000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
@@ -1166,13 +1237,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="37" column="13" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/thompson/library/system/services/BranchServicesTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="795">
-          <caret line="63" column="42" selection-start-line="63" selection-start-column="42" selection-end-line="63" selection-end-column="42" />
         </state>
       </provider>
     </entry>
@@ -1405,13 +1469,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/services/LibraryServicesImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="32" column="44" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/daos/PatronDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -1439,24 +1496,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/services/BranchServicesImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="44" column="9" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/thompson/library/system/services/BranchServicesInjectTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="12" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1477164795000" expanded="true" signature="6031:6051" ph="SELECT * FRO... patron" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/thompson/library/system/daos/BranchItemCheckoutDaoImplTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -1474,14 +1513,6 @@
             <marker date="1477010458000" expanded="true" signature="6408:6444" ph="SELECT * FRO... patron" />
             <marker date="1477010458000" expanded="true" signature="8583:8763" ph="INSERT INTO patron... " />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/daos/DaoManagerImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1509,6 +1540,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/services/LibraryServicesImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="32" column="44" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/daos/DaoManagerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="640">
+          <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/services/BranchServicesImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="44" column="9" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/thompson/library/system/services/BranchServicesTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="795">
+          <caret line="63" column="42" selection-start-line="63" selection-start-column="42" selection-end-line="63" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/thompson/library/system/services/LibraryServicesInjectTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="689">
@@ -1516,6 +1579,17 @@
           <folding>
             <element signature="imports" expanded="true" />
             <marker date="1477163814000" expanded="true" signature="2735:2755" ph="SELECT * FRO... patron" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/thompson/library/system/services/BranchServicesInjectTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" column="12" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1477164795000" expanded="true" signature="6031:6051" ph="SELECT * FRO... patron" />
           </folding>
         </state>
       </provider>
