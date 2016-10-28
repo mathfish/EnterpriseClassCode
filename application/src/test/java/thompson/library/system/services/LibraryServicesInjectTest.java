@@ -2,7 +2,9 @@ package thompson.library.system.services;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.aop.framework.Advised;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import thompson.library.system.daos.DaoManager;
@@ -13,6 +15,8 @@ import thompson.library.system.utilities.ConnectionUtil;
 import thompson.library.system.utilities.LibraryConfig;
 
 import java.lang.reflect.Field;
+
+import java.lang.reflect.Proxy;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -27,17 +31,21 @@ import static junit.framework.TestCase.assertTrue;
 public class LibraryServicesInjectTest {
 
     @Autowired
-    LibraryServices libraryServices;
+    LibraryServices libraryServicesProxy;
 
     @Test
     public void libraryDITest(){
         //verify Library Services is injected
-        assertNotNull(libraryServices);
+        assertNotNull(libraryServicesProxy);
         try {
             //Get Dao Manager by reflection
+            Advised advised = (Advised)libraryServicesProxy;
+            LibraryServices libraryServices = (LibraryServices)advised.getTargetSource().getTarget();
+
             Field daoManagerField = LibraryServicesImpl.class.getDeclaredField("daoManager");
             daoManagerField.setAccessible(true);
             DaoManager daoManager = (DaoManager) daoManagerField.get(libraryServices);
+
             //Verify DaoManager is injected into Library Services
             assertNotNull(daoManager);
 
@@ -84,6 +92,8 @@ public class LibraryServicesInjectTest {
         } catch (NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();
             assertFalse(true);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
     }

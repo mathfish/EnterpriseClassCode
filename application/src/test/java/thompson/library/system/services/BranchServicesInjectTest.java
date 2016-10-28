@@ -2,6 +2,7 @@ package thompson.library.system.services;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.aop.framework.Advised;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -25,13 +26,16 @@ import static junit.framework.TestCase.assertTrue;
 public class BranchServicesInjectTest {
 
     @Autowired
-    BranchServices branchServices;
+    BranchServices branchServicesProxy;
 
     @Test
     public void branchDITest(){
-        assertNotNull(branchServices);
+        assertNotNull(branchServicesProxy);
         try{
             //Test DaoManager is injected into BranchServicesImpl using reflection
+            Advised advised = (Advised)branchServicesProxy;
+            BranchServices branchServices = (BranchServices)advised.getTargetSource().getTarget();
+
             Field daoManagerField = BranchServicesImpl.class.getDeclaredField("daoManager");
             daoManagerField.setAccessible(true);
             DaoManager daoManager = (DaoManager)daoManagerField.get(branchServices);
@@ -107,6 +111,8 @@ public class BranchServicesInjectTest {
         } catch (NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();
             assertFalse(true);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
