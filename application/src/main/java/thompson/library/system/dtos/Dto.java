@@ -6,7 +6,7 @@ import java.sql.Timestamp;
 import java.util.Optional;
 
 @Component
-public class PatronDto {
+public class Dto {
     private Optional<Integer> patronid = Optional.empty();
     private String firstname;
     private String lastname;
@@ -20,19 +20,19 @@ public class PatronDto {
     private boolean remotelibrary ;
     private String password;
 
-    PatronDto(){}
+    Dto(){}
 
-    public PatronDto(String firstname,
-                     String lastname,
-                     String city,
-                     String state,
-                     int zipcode,
-                     String streetAddress,
-                     Timestamp joinDate,
-                     String email,
-                     long phone,
-                     boolean remotelibrary,
-                     String password) {
+    public Dto(String firstname,
+               String lastname,
+               String city,
+               String state,
+               int zipcode,
+               String streetAddress,
+               Timestamp joinDate,
+               String email,
+               long phone,
+               boolean remotelibrary,
+               String password) {
         this.patronid = Optional.empty();
         this.firstname = firstname;
         this.lastname = lastname;
@@ -47,18 +47,18 @@ public class PatronDto {
         this.password = password;
     }
 
-    public PatronDto(Integer patronid,
-                     String firstname,
-                     String lastname,
-                     String city,
-                     String state,
-                     int zipcode,
-                     String streetAddress,
-                     Timestamp joinDate,
-                     String email,
-                     long phone,
-                     boolean remotelibrary,
-                     String password) {
+    public Dto(Integer patronid,
+               String firstname,
+               String lastname,
+               String city,
+               String state,
+               int zipcode,
+               String streetAddress,
+               Timestamp joinDate,
+               String email,
+               long phone,
+               boolean remotelibrary,
+               String password) {
         this.patronid = Optional.of(patronid);
         this.firstname = firstname;
         this.lastname = lastname;

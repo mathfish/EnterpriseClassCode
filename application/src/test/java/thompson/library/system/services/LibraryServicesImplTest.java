@@ -4,7 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import thompson.library.system.daos.DaoManager;
 import thompson.library.system.daos.PatronDao;
-import thompson.library.system.dtos.PatronDto;
+import thompson.library.system.dtos.Dto;
 import thompson.library.system.utilities.EntryExistsException;
 
 import static org.mockito.Matchers.any;
@@ -40,8 +40,8 @@ public class LibraryServicesImplTest {
 
     @Test(expected = EntryExistsException.class) //Test exception is throw if insert patron occurs when already exists
     public void createPatronTest2() throws EntryExistsException {
-        PatronDto patronDto = mock(PatronDto.class);
-            when(patronDao.getPatron(anyString())).thenReturn(patronDto);
+        Dto dto = mock(Dto.class);
+            when(patronDao.getPatron(anyString())).thenReturn(dto);
             impl.createPatron("testFirst","testLast","testcity","AA",22222,"testAddress",null, "test@email.test",
                     4444444444L, false, "1234PW");
     }

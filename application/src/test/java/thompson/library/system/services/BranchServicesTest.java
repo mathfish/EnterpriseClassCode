@@ -25,12 +25,12 @@ public class BranchServicesTest {
     private ReservationDao reservationDao;
     private ReservationDto reservationDto;
     private PatronDao patronDao;
-    private PatronDto patronDto;
+    private Dto dto;
 
     public BranchServicesTest(){
         daoManager = mock(DaoManager.class);
         patronDao = mock(PatronDao.class);
-        patronDto = mock(PatronDto.class);
+        dto = mock(Dto.class);
         branchItemDao = mock(BranchItemDao.class);
         branchItemDto = mock(BranchItemDto.class);
         branchItemCheckoutDto = mock(BranchItemCheckoutDto.class);
@@ -52,7 +52,7 @@ public class BranchServicesTest {
         when(branchItemCheckoutDao.getBranchItemCheckout(any())).thenReturn(branchItemCheckoutDto);
         when(branchItemCheckoutDao.updateBranchItemCheckout(any())).thenReturn(itemReturnOutput);
         when(checkoutDao.getCheckout(any())).thenReturn(checkoutDto);
-        when(patronDao.getPatron(itemReturnOutput)).thenReturn(patronDto);
+        when(patronDao.getPatron(itemReturnOutput)).thenReturn(dto);
 
     }
 
@@ -85,9 +85,9 @@ public class BranchServicesTest {
         when(branchItemCheckoutDao.getNumberOfItemsReturnedFromCheckout(any())).thenReturn(2);
         when(checkoutDto.getNumberofitems()).thenReturn(2);
         when(reservationDao.fulfillReservation(any())).thenReturn(reservationDto);
-        when(patronDto.getFirstname()).thenReturn("test1");
-        when(patronDto.getLastname()).thenReturn("test2");
-        when(patronDto.getEmail()).thenReturn("test4");
+        when(dto.getFirstname()).thenReturn("test1");
+        when(dto.getLastname()).thenReturn("test2");
+        when(dto.getEmail()).thenReturn("test4");
         when(reservationDto.getReservationid()).thenReturn(3333);
 
         BranchServicesImpl impl = new BranchServicesImpl(daoManager);

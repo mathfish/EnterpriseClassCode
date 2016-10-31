@@ -59,10 +59,10 @@ public class BranchServicesImpl implements BranchServices {
             itemReturnOutput.setReserved(true);
             branchItemDao.updateBranchItem(itemReturnOutput);
             itemReturnOutput.setPatronid(reservationDto.getPatronid());
-            PatronDto patronDto = daoManager.getPatronDao().getPatron(itemReturnOutput);
-            String msg = " Dear " + patronDto.getFirstname() + " " + patronDto.getLastname() + ", your reservation with id "
+            Dto dto = daoManager.getPatronDao().getPatron(itemReturnOutput);
+            String msg = " Dear " + dto.getFirstname() + " " + dto.getLastname() + ", your reservation with id "
                   + reservationDto.getReservationid() + " has been fulfilled. You can pickup your item";
-            emailPatron(patronDto,msg);
+            emailPatron(dto,msg);
         } else{
             branchItemDao.updateBranchItem(itemReturnOutput);
         }
@@ -77,8 +77,8 @@ public class BranchServicesImpl implements BranchServices {
      * Method to email patron a message. Using logging as a proxy for that functionality
      */
     @Override
-    public void emailPatron(PatronDto patronDto, String message) {
+    public void emailPatron(Dto dto, String message) {
         //log as proxy to email patron
-        logger.info("Send email to {} with message: {}", patronDto.getEmail(), message);
+        logger.info("Send email to {} with message: {}", dto.getEmail(), message);
     }
 }

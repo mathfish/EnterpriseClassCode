@@ -14,7 +14,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import thompson.library.system.daos.DaoManager;
 import thompson.library.system.daos.PatronDao;
-import thompson.library.system.dtos.PatronDto;
+import thompson.library.system.dtos.Dto;
 import thompson.library.system.utilities.LibraryConfig;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -35,7 +35,7 @@ public class LoggingAOPTest {
     PatronDao patronDao;
 
     @Autowired
-    PatronDto patronDto;
+    Dto dto;
 
     @Autowired
     DaoManager daoManager;
@@ -53,7 +53,7 @@ public class LoggingAOPTest {
         final Logger logger = (Logger) LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
         logger.addAppender(mockAppender);
 
-        PatronDto dto = patronDao.getPatron("jd@email.com");
+        Dto dto = patronDao.getPatron("jd@email.com");
         assertEquals("doe",dto.getLastname());
 
         //4 times since 3 close methods called in connection util
@@ -68,7 +68,7 @@ public class LoggingAOPTest {
     public void testLoggingDto(){
         final Logger logger = (Logger) LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
         logger.addAppender(mockAppender);
-        patronDto.getLastname();
+        dto.getLastname();
 
         verify(mockAppender, times(1)).doAppend(captor.capture());
         LoggingEvent loggingEvent = captor.getValue();
