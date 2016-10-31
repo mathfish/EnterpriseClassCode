@@ -1,11 +1,11 @@
 package thompson.library.system.services;
 
 import thompson.library.system.dtos.BranchItemDto;
-import thompson.library.system.dtos.Dto;
+import thompson.library.system.dtos.PatronDto;
 
 public interface BranchServices {
 
     void returnItem(BranchItemDto branchItemDto);
 
-    void emailPatron(Dto dto, String message);
+    void emailPatron(PatronDto patronDto, String message);
 }

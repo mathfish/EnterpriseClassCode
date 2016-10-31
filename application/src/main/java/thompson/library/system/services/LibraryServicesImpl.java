@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import thompson.library.system.daos.DaoManager;
 import thompson.library.system.daos.PatronDao;
-import thompson.library.system.dtos.Dto;
+import thompson.library.system.dtos.PatronDto;
 import thompson.library.system.utilities.EntryExistsException;
 
 import java.sql.Timestamp;
@@ -47,7 +47,7 @@ public class LibraryServicesImpl implements LibraryServices{
             throw new EntryExistsException("Patron already exists with email " + email);
         }
 
-        patronDao.insertPatron(new Dto(firstname, lastname, city, state, zipcode, streetAddress, joinDate, email,
+        patronDao.insertPatron(new PatronDto(firstname, lastname, city, state, zipcode, streetAddress, joinDate, email,
                                              phone, remotelibrary, password));
 
         return true;

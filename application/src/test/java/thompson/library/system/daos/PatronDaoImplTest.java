@@ -1,7 +1,7 @@
 package thompson.library.system.daos;
 
 import org.junit.Test;
-import thompson.library.system.dtos.Dto;
+import thompson.library.system.dtos.PatronDto;
 
 import thompson.library.system.utilities.ConnectionFactory;
 import thompson.library.system.utilities.ConnectionManager;
@@ -50,17 +50,17 @@ public class PatronDaoImplTest {
     public void getPatronTestByEmail(){
         PatronDaoImpl impl = new PatronDaoImpl(new TestConnectionFactory(), new TestConnectionUtil2());
 
-            Dto dto = impl.getPatron("test2@email.test");
-            assertEquals("testFirst2", dto.getFirstname());
-            assertEquals("testLast2", dto.getLastname());
-            assertEquals("testCity2",dto.getCity());
-            assertEquals("TT",dto.getState());
-            assertEquals(88888,dto.getZipcode());
-            assertEquals("testStreetAddress2",dto.getStreetAddress());
-            assertEquals("test2@email.test",dto.getEmail());
-            assertEquals(1111111111L,dto.getPhone());
-            assertEquals(true, dto.isRemotelibrary());
-            assertEquals("testPW2",dto.getPassword());
+            PatronDto patronDto = impl.getPatron("test2@email.test");
+            assertEquals("testFirst2", patronDto.getFirstname());
+            assertEquals("testLast2", patronDto.getLastname());
+            assertEquals("testCity2", patronDto.getCity());
+            assertEquals("TT", patronDto.getState());
+            assertEquals(88888, patronDto.getZipcode());
+            assertEquals("testStreetAddress2", patronDto.getStreetAddress());
+            assertEquals("test2@email.test", patronDto.getEmail());
+            assertEquals(1111111111L, patronDto.getPhone());
+            assertEquals(true, patronDto.isRemotelibrary());
+            assertEquals("testPW2", patronDto.getPassword());
     }
 
     @Test
@@ -99,21 +99,21 @@ public class PatronDaoImplTest {
                 patronidAns = resultSet.getInt(1);
             }
             when(itemReturnOutput.getPatronid()).thenReturn(patronidAns);
-            Dto dto = impl.getPatron(itemReturnOutput);
+            PatronDto patronDto = impl.getPatron(itemReturnOutput);
             assertFalse(connection.isClosed());
-            int pid = dto.getPatronid().get();
+            int pid = patronDto.getPatronid().get();
             assertEquals(patronidAns, pid);
-            assertEquals("testFirst2", dto.getFirstname());
-            assertEquals("testLast2", dto.getLastname());
-            assertEquals("testCity2", dto.getCity());
-            assertEquals("TT", dto.getState());
-            assertEquals(88888, dto.getZipcode());
-            assertEquals("testStreetAddress2", dto.getStreetAddress());
-            assertEquals(joinDate, dto.getJoinDate());
-            assertEquals(1111111111L, dto.getPhone());
-            assertEquals("testPW2", dto.getPassword());
-            assertEquals("test2@email.test", dto.getEmail());
-            assertEquals(true, dto.isRemotelibrary());
+            assertEquals("testFirst2", patronDto.getFirstname());
+            assertEquals("testLast2", patronDto.getLastname());
+            assertEquals("testCity2", patronDto.getCity());
+            assertEquals("TT", patronDto.getState());
+            assertEquals(88888, patronDto.getZipcode());
+            assertEquals("testStreetAddress2", patronDto.getStreetAddress());
+            assertEquals(joinDate, patronDto.getJoinDate());
+            assertEquals(1111111111L, patronDto.getPhone());
+            assertEquals("testPW2", patronDto.getPassword());
+            assertEquals("test2@email.test", patronDto.getEmail());
+            assertEquals(true, patronDto.isRemotelibrary());
         } catch (SQLException e) {
             e.printStackTrace();
             assertTrue(false);
@@ -127,10 +127,10 @@ public class PatronDaoImplTest {
 
     }
 
-    private Dto getDto(){
+    private PatronDto getDto(){
         Calendar calendar = Calendar.getInstance();
         java.sql.Timestamp joinDate = new java.sql.Timestamp(calendar.getTime().getTime());
-        return new Dto("testFirst", "testLast", "testCity", "ST", 99999,
+        return new PatronDto("testFirst", "testLast", "testCity", "ST", 99999,
                 "testStreetAddress",joinDate, "test@email.test", 9999999999L,false, "testPW");
     }
 

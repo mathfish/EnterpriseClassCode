@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import thompson.library.system.dtos.Dto;
+import thompson.library.system.dtos.PatronDto;
 import thompson.library.system.utilities.ConnectionFactory;
 import thompson.library.system.utilities.ConnectionUtil;
 
@@ -34,17 +34,17 @@ public class PatronDaoImpl implements PatronDao {
      * insertion.
      */
     @Override
-    public Dto getPatron(String email){
+    public PatronDto getPatron(String email){
         Connection connection = connectionFactory.getConnection();
         ResultSet resultSet = null;
-        Dto dto = null;
+        PatronDto patronDto = null;
         PreparedStatement preparedStatement = null;
         try {
             preparedStatement = connection.prepareStatement("SELECT * FROM patron WHERE email = ?");
             preparedStatement.setString(1,email);
             resultSet =  preparedStatement.executeQuery();
             if(resultSet.next()){
-                dto = new Dto(resultSet.getInt("patronid"),
+                patronDto = new PatronDto(resultSet.getInt("patronid"),
                                           resultSet.getString("firstname"),
                                           resultSet.getString("lastname"),
                                           resultSet.getString("city"),
@@ -66,7 +66,7 @@ public class PatronDaoImpl implements PatronDao {
             connectionUtil.close(preparedStatement);
         }
 
-        return dto;
+        return patronDto;
     }
 
     /**
@@ -74,18 +74,18 @@ public class PatronDaoImpl implements PatronDao {
      * Returns patron using the itemReturnOutput object. Part of multiple steps in the item return process
      */
     @Override
-    public Dto getPatron(BranchItemCheckoutDao.ItemReturnOutput itemReturnOutput) {
+    public PatronDto getPatron(BranchItemCheckoutDao.ItemReturnOutput itemReturnOutput) {
         String query = "SELECT * FROM patron WHERE patronid = ?";
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        Dto dto = null;
+        PatronDto patronDto = null;
         try{
             Connection connection = itemReturnOutput.getConnection();
             preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1,itemReturnOutput.getPatronid());
             resultSet = preparedStatement.executeQuery();
             if(resultSet.next()){
-                dto = new Dto(resultSet.getInt("patronid"),
+                patronDto = new PatronDto(resultSet.getInt("patronid"),
                         resultSet.getString("firstname"),
                         resultSet.getString("lastname"),
                         resultSet.getString("city"),
@@ -105,7 +105,7 @@ public class PatronDaoImpl implements PatronDao {
             connectionUtil.close(preparedStatement);
             connectionUtil.close(resultSet);
         }
-        return dto;
+        return patronDto;
     }
 
     /**
@@ -113,7 +113,7 @@ public class PatronDaoImpl implements PatronDao {
      * Used to insert patron using the patronDto transfer object
      */
     @Override
-    public boolean insertPatron(Dto patron) {
+    public boolean insertPatron(PatronDto patron) {
         Connection connection = connectionFactory.getConnection();
         PreparedStatement preparedStatement = null;
         String insertStmt = "INSERT INTO patron(firstname, lastname, city, state, zipcode, streetaddress, joindate, " +
