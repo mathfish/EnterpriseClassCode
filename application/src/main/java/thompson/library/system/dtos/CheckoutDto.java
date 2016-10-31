@@ -1,7 +1,10 @@
 package thompson.library.system.dtos;
 
+import org.springframework.stereotype.Component;
+
 import java.sql.Timestamp;
 
+@Component
 public class CheckoutDto {
     private int checkoutID;
     private int patronid;
@@ -9,6 +12,8 @@ public class CheckoutDto {
     private int numberofitems;
     private boolean overdue;
     private boolean itemsreturned;
+
+    CheckoutDto(){}
 
     public CheckoutDto(int checkoutID, int patronid, Timestamp checkoutdate, int numberofitems, boolean overdue, boolean itemsreturned) {
         this.checkoutID = checkoutID;

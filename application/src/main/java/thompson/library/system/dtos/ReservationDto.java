@@ -1,7 +1,10 @@
 package thompson.library.system.dtos;
 
+import org.springframework.stereotype.Component;
+
 import java.sql.Date;
 
+@Component
 public class ReservationDto {
     private int reservationid;
     private int patronid;
@@ -9,6 +12,8 @@ public class ReservationDto {
     private java.sql.Date reservDate;
     private boolean fulfilled;
     private int forBranchid;
+
+    ReservationDto(){}
 
     public ReservationDto(int reservationid, int patronid, int branchitemid, Date reservDate, boolean fulfilled,
                           int forBranchid) {

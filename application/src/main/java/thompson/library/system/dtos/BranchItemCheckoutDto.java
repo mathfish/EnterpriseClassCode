@@ -1,7 +1,10 @@
 package thompson.library.system.dtos;
 
+import org.springframework.stereotype.Component;
+
 import java.sql.Date;
 
+@Component
 public class BranchItemCheckoutDto {
     private Integer checkoutID;
     private Integer branchItemID;
@@ -11,6 +14,8 @@ public class BranchItemCheckoutDto {
     private java.sql.Date renewDate;
     private boolean returned;
     private java.sql.Date returnDate;
+
+    BranchItemCheckoutDto(){}
 
     public BranchItemCheckoutDto(Integer checkoutID, Integer branchItemID, boolean overdue,
                                  Date dueDate, boolean renew, Date renewDate, boolean returned, Date returnDate) {

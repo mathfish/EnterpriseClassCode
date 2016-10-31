@@ -1,22 +1,26 @@
 package thompson.library.system.dtos;
 
-import java.sql.ResultSet;
+import org.springframework.stereotype.Component;
+
 import java.sql.Timestamp;
 import java.util.Optional;
 
+@Component
 public class PatronDto {
-    private final Optional<Integer> patronid;
-    private final String firstname;
-    private final String lastname;
-    private final String city;
-    private final String state;
-    private final int zipcode;
-    private final String streetAddress;
-    private final Timestamp joinDate;
-    private final String email;
-    private final long phone;
-    private final boolean remotelibrary;
-    private final String password;
+    private Optional<Integer> patronid = Optional.empty();
+    private String firstname;
+    private String lastname;
+    private String city;
+    private String state;
+    private int zipcode;
+    private String streetAddress;
+    private Timestamp joinDate;
+    private String email;
+    private long phone;
+    private boolean remotelibrary ;
+    private String password;
+
+    PatronDto(){}
 
     public PatronDto(String firstname,
                      String lastname,

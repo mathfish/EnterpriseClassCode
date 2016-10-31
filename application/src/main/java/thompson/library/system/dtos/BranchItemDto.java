@@ -1,17 +1,19 @@
 package thompson.library.system.dtos;
 
+import org.springframework.stereotype.Component;
+
 import java.util.Optional;
 
-/**
- * Created by jonathanthompson on 9/29/16.
- */
+@Component
 public class BranchItemDto {
-    private final int branchitemid;
-    private final boolean checkedout;
-    private final boolean reserved;
-    private final boolean inTransit;
-    private final Optional<Integer> currentLocation;
-    private final int branchid;
+    private int branchitemid;
+    private boolean checkedout;
+    private boolean reserved;
+    private boolean inTransit;
+    private Optional<Integer> currentLocation;
+    private int branchid;
+
+    BranchItemDto(){}
 
     public BranchItemDto(int branchitemid, boolean checkedout, boolean reserved, boolean inTransit, int currentLocation, int branchid) {
         this.branchitemid = branchitemid;

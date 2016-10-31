@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import thompson.library.system.daos.DaoManager;
 import thompson.library.system.daos.PatronDao;
 import thompson.library.system.dtos.PatronDto;
 import thompson.library.system.utilities.LibraryConfig;
@@ -33,6 +34,12 @@ public class LoggingAOPTest {
     @Autowired
     PatronDao patronDao;
 
+    @Autowired
+    PatronDto patronDto;
+
+    @Autowired
+    DaoManager daoManager;
+
     @Before
     public void setup() {
         mockAppender = mock(Appender.class);
@@ -42,17 +49,46 @@ public class LoggingAOPTest {
     }
 
     @Test
-    public void testLoggingAop(){
+    public void testLoggingDao(){
         final Logger logger = (Logger) LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
         logger.addAppender(mockAppender);
 
         PatronDto dto = patronDao.getPatron("jd@email.com");
         assertEquals("doe",dto.getLastname());
 
+        //4 times since 3 close methods called in connection util
         verify(mockAppender, times(4)).doAppend(captor.capture());
-        final LoggingEvent loggingEvent = captor.getValue();
+        LoggingEvent loggingEvent = captor.getValue();
         assertThat(loggingEvent.getLevel(), is(Level.DEBUG));
         String[] msg = loggingEvent.getFormattedMessage().split(":");
         assertEquals("Time spent in PatronDao.getPatron(..)",msg[0].trim());
     }
+
+    @Test
+    public void testLoggingDto(){
+        final Logger logger = (Logger) LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
+        logger.addAppender(mockAppender);
+        patronDto.getLastname();
+
+        verify(mockAppender, times(1)).doAppend(captor.capture());
+        LoggingEvent loggingEvent = captor.getValue();
+        assertThat(loggingEvent.getLevel(), is(Level.DEBUG));
+        String[] msg = loggingEvent.getFormattedMessage().split(":");
+        assertEquals("Time spent in PatronDto.getLastname()",msg[0].trim());
+    }
+
+    @Test
+    public void testLoggingDaoManager(){
+        final Logger logger = (Logger) LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
+        logger.addAppender(mockAppender);
+        daoManager.getPatronDao();
+
+        verify(mockAppender, times(1)).doAppend(captor.capture());
+        LoggingEvent loggingEvent = captor.getValue();
+        assertThat(loggingEvent.getLevel(), is(Level.DEBUG));
+        String[] msg = loggingEvent.getFormattedMessage().split(":");
+        assertEquals("Time spent in DaoManager.getPatronDao()",msg[0].trim());
+    }
+
+
 }
