@@ -7,7 +7,7 @@ import java.sql.Timestamp;
 
 public interface LibraryServices {
 
-    boolean createPatron(String firstname,
+    Boolean createPatron(String firstname,
                          String lastname,
                          String city,
                          String state,

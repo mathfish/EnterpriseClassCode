@@ -1,49 +1,65 @@
 package thompson.library.system.services;
 
-import org.junit.Before;
 import org.junit.Test;
-import thompson.library.system.daos.DaoManager;
-import thompson.library.system.daos.PatronDao;
-import thompson.library.system.dtos.PatronDto;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcOperations;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.transaction.annotation.Transactional;
 import thompson.library.system.utilities.EntryExistsException;
+import thompson.library.system.utilities.LibraryConfig;
 
-import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.anyString;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import java.util.Calendar;
 
+import static junit.framework.TestCase.assertTrue;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(classes = LibraryConfig.class)
+@Transactional
 public class LibraryServicesImplTest {
 
-    private PatronDao patronDao;
-    private LibraryServicesImpl impl;
-    public LibraryServicesImplTest(){}
+    @Autowired
+    LibraryServices service;
 
-    @Before
-    public void setUpMocks(){
-        DaoManager daoManager = mock(DaoManager.class);
-        patronDao = mock(PatronDao.class);
-        when(daoManager.getPatronDao()).thenReturn(patronDao);
-        impl = new LibraryServicesImpl(daoManager);
+    @Autowired
+    JdbcOperations jdbcOperations;
+
+    @Test(expected = EntryExistsException.class)
+    public void testEmailExists() throws EntryExistsException {
+        Calendar calendar = Calendar.getInstance();
+        java.sql.Timestamp joinDate = new java.sql.Timestamp(calendar.getTime().getTime());
+        String insert = "INSERT INTO patron(firstname, lastname, city, state, zipcode, streetaddress, joindate, " +
+                "phone, password, remotelibrary, email) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+        jdbcOperations.update(insert,
+                "ftest",
+                "ltest",
+                "ctest",
+                "st",
+                11111,
+                "atest",
+                joinDate,
+                1111111111L,
+                "ptest",
+                false,
+                "etest");
+
+        service.createPatron("testFirst","testLast","testcity","AA",22222,"testAddress",null, "etest",
+                        4444444444L, false, "1234PW");
+
     }
 
-    @Test // Test if creat patron method is reached. Functionality already tested in lower level class tests
-    public void createPatronTest1(){
+    @Test
+    public void testCreatePatron(){
+        Calendar calendar = Calendar.getInstance();
+        java.sql.Timestamp joinDate = new java.sql.Timestamp(calendar.getTime().getTime());
         try {
-            impl.createPatron("testFirst","testLast","testcity","AA",22222,"testAddress",null, "test@email.test",
-                    4444444444L, false, "1234PW");
+            assertTrue(service.createPatron("testFirst","testLast","testcity","AA",22222,"testAddress",null, "etest",
+                    4444444444L, false, "1234PW"));
         } catch (EntryExistsException e) {
             e.printStackTrace();
+            assertTrue(false);
         }
-        verify(patronDao).insertPatron(any());
-    }
 
-    @Test(expected = EntryExistsException.class) //Test exception is throw if insert patron occurs when already exists
-    public void createPatronTest2() throws EntryExistsException {
-        PatronDto patronDto = mock(PatronDto.class);
-            when(patronDao.getPatron(anyString())).thenReturn(patronDto);
-            impl.createPatron("testFirst","testLast","testcity","AA",22222,"testAddress",null, "test@email.test",
-                    4444444444L, false, "1234PW");
     }
-
 }

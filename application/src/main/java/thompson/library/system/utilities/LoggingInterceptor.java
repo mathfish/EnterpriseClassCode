@@ -21,13 +21,14 @@ public class LoggingInterceptor {
     private void driverTestConfigMethods(){}
 
     @Around("anyMethodInMyPackage() && !driverTestConfigMethods()")
-    public Object logMethodTime(ProceedingJoinPoint joinPoint){
+    public Object logMethodTime(ProceedingJoinPoint joinPoint) throws Throwable{
         long timeBegin = System.currentTimeMillis();
         Object returnVal = null;
         try {
             returnVal = joinPoint.proceed();
         } catch (Throwable throwable) {
             throwable.printStackTrace();
+            throw throwable;
         } finally {
             double timeInMethod = System.currentTimeMillis() - timeBegin;
             logger.debug("Time spent in {} : {} ms",joinPoint.getSignature().toShortString(), timeInMethod);

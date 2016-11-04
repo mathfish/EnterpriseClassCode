@@ -28,7 +28,7 @@ public class LibraryServicesImpl implements LibraryServices{
      * email is unique.
      */
     @Override
-    public boolean createPatron(String firstname,
+    public Boolean createPatron(String firstname,
                                 String lastname,
                                 String city,
                                 String state,
