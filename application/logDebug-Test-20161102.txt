@@ -1,0 +1,24 @@
+18:47:26.104 [Test worker] DEBUG t.l.s.utilities.LoggingInterceptor - Time spent in DaoManager.getCheckoutDao() : 0.0 ms
+18:47:26.110 [Test worker] DEBUG t.l.s.utilities.LoggingInterceptor - Time spent in DaoManager.getCheckoutDao() : 0.0 ms
+18:47:26.113 [Test worker] DEBUG t.l.s.utilities.LoggingInterceptor - Time spent in DaoManager.getBranchItemDao() : 0.0 ms
+18:47:26.113 [Test worker] DEBUG t.l.s.utilities.LoggingInterceptor - Time spent in DaoManager.getBranchItemDao() : 0.0 ms
+18:47:26.114 [Test worker] DEBUG t.l.s.utilities.LoggingInterceptor - Time spent in DaoManager.getPatronDao() : 0.0 ms
+18:47:26.115 [Test worker] DEBUG t.l.s.utilities.LoggingInterceptor - Time spent in DaoManager.getPatronDao() : 0.0 ms
+18:47:26.116 [Test worker] DEBUG t.l.s.utilities.LoggingInterceptor - Time spent in DaoManager.getBranchItemCheckoutDao() : 0.0 ms
+18:47:26.117 [Test worker] DEBUG t.l.s.utilities.LoggingInterceptor - Time spent in DaoManager.getBranchItemCheckoutDao() : 0.0 ms
+18:47:26.118 [Test worker] DEBUG t.l.s.utilities.LoggingInterceptor - Time spent in DaoManager.getReservationDao() : 0.0 ms
+18:47:26.118 [Test worker] DEBUG t.l.s.utilities.LoggingInterceptor - Time spent in DaoManager.getReservationDao() : 0.0 ms
+18:47:26.182 [Test worker] DEBUG t.l.s.utilities.LoggingInterceptor - Time spent in DaoManager.getBranchItemCheckoutDao() : 0.0 ms
+18:47:26.183 [Test worker] DEBUG t.l.s.utilities.LoggingInterceptor - Time spent in DaoManager.getCheckoutDao() : 0.0 ms
+18:47:26.183 [Test worker] DEBUG t.l.s.utilities.LoggingInterceptor - Time spent in DaoManager.getReservationDao() : 0.0 ms
+18:47:26.183 [Test worker] DEBUG t.l.s.utilities.LoggingInterceptor - Time spent in DaoManager.getBranchItemDao() : 0.0 ms
+18:47:26.183 [Test worker] DEBUG t.l.s.utilities.LoggingInterceptor - Time spent in DaoManager.getPatronDao() : 0.0 ms
+18:47:26.295 [Test worker] INFO  t.l.s.services.BranchServicesImpl - Send email to test4 with message:  Dear test1 test2, your reservation with id 3333 has been fulfilled. You can pickup your item
+18:47:26.322 [Test worker] INFO  t.l.s.services.LibraryServicesImpl - Patron with email test@email.test already exists
+18:47:26.342 [Test worker] DEBUG t.l.s.utilities.LoggingInterceptor - Time spent in DaoManager.getPatronDao() : 0.0 ms
+18:47:26.413 [Test worker] DEBUG t.l.s.utilities.LoggingInterceptor - Time spent in ConnectionUtil.close(..) : 25.0 ms
+18:47:26.413 [Test worker] DEBUG t.l.s.utilities.LoggingInterceptor - Time spent in ConnectionUtil.close(..) : 0.0 ms
+18:47:26.414 [Test worker] DEBUG t.l.s.utilities.LoggingInterceptor - Time spent in ConnectionUtil.close(..) : 1.0 ms
+18:47:26.414 [Test worker] DEBUG t.l.s.utilities.LoggingInterceptor - Time spent in PatronDao.getPatron(..) : 30.0 ms
+18:47:26.442 [Test worker] DEBUG t.l.s.utilities.LoggingInterceptor - Time spent in PatronDto.getLastname() : 19.0 ms
+18:47:26.445 [Test worker] DEBUG t.l.s.utilities.LoggingInterceptor - Time spent in DaoManager.getPatronDao() : 0.0 ms

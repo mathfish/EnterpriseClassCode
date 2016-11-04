@@ -31,10 +31,10 @@ public interface BranchItemCheckoutDao {
 
         private static final Logger logger = LoggerFactory.getLogger(BranchItemCheckoutDao.ItemReturnOutput.class);
 
-        public ItemReturnOutput(Connection connection, Integer patronid, Integer branchitemid, boolean reserved) {
+        public ItemReturnOutput(Connection connection, Integer checkoutid, Integer branchitemid, boolean reserved) {
             this.connection = connection;
             this.reserved = reserved;
-            this.checkoutid = patronid;
+            this.checkoutid = checkoutid;
             this.branchitemid = branchitemid;
         }
 

@@ -1,0 +1,9 @@
+20:54:20.365 [main] DEBUG t.l.s.utilities.LoggingInterceptor - Time spent in LibraryConfig.dataSource() : 50.0 ms
+20:54:20.464 [main] DEBUG t.l.s.utilities.LoggingInterceptor - Time spent in LibraryConfig.jdbcTemplate(..) : 10.0 ms
+20:54:21.775 [main] DEBUG t.l.s.utilities.LoggingInterceptor - Time spent in DaoDummy.getAllPatrons() : 963.0 ms
+20:56:30.633 [main] DEBUG t.l.s.utilities.LoggingInterceptor - Time spent in LibraryConfig.dataSource() : 54.0 ms
+20:56:30.704 [main] DEBUG t.l.s.utilities.LoggingInterceptor - Time spent in LibraryConfig.jdbcTemplate(..) : 7.0 ms
+20:56:31.885 [main] DEBUG t.l.s.utilities.LoggingInterceptor - Time spent in DaoDummy.getAllPatrons() : 796.0 ms
+22:33:48.732 [main] DEBUG t.l.s.utilities.LoggingInterceptor - Time spent in LibraryConfig.dataSource() : 57.0 ms
+22:33:48.812 [main] DEBUG t.l.s.utilities.LoggingInterceptor - Time spent in LibraryConfig.jdbcTemplate(..) : 9.0 ms
+22:33:49.106 [main] DEBUG t.l.s.utilities.LoggingInterceptor - Time spent in LibraryConfig.transactionManager() : 15.0 ms

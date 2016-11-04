@@ -1,12 +1,15 @@
 package thompson.library.system.daos;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcOperations;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.transaction.annotation.Transactional;
 import thompson.library.system.dtos.PatronDto;
 
-import thompson.library.system.utilities.ConnectionFactory;
-import thompson.library.system.utilities.ConnectionManager;
-import thompson.library.system.utilities.ConnectionUtil;
-import thompson.library.system.utilities.DerbyConnectionFactory;
+import thompson.library.system.utilities.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,115 +19,123 @@ import java.util.Calendar;
 
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertFalse;
+import static junit.framework.TestCase.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(classes = LibraryConfig.class)
+@Transactional
 public class PatronDaoImplTest {
-    private Connection connection;
 
-    public PatronDaoImplTest(){}
+    @Autowired
+    PatronDao patronDao;
 
-    private Connection getConnection(){
-        ConnectionFactory connectionFactory = ConnectionManager.getConnectionFactory();
-        this.connection = connectionFactory.getConnection();
-        try {
-            connection.setAutoCommit(false);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return connection;
-    }
+    @Autowired
+    JdbcOperations jdbcOperations;
 
-
-    @Test // Test if insertion into javadb database is working
-    public void insertPatronTest(){
-        DerbyConnectionFactory derbyConnectionFactory = mock(DerbyConnectionFactory.class);
-        when(derbyConnectionFactory.getConnection()).thenReturn(getConnection());
-        PatronDaoImpl impl = new PatronDaoImpl(derbyConnectionFactory, new TestConnectionUtil1());
-        impl.insertPatron(getDto());
-    }
-
-
-    @Test // Test if reading database row is correct
+    @Test
     public void getPatronTestByEmail(){
-        PatronDaoImpl impl = new PatronDaoImpl(new TestConnectionFactory(), new TestConnectionUtil2());
+        Calendar calendar = Calendar.getInstance();
+        java.sql.Timestamp joinDate = new java.sql.Timestamp(calendar.getTime().getTime());
+        String insert = "INSERT INTO patron(firstname, lastname, city, state, zipcode, streetaddress, joindate, " +
+                "phone, password, remotelibrary, email) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+        jdbcOperations.update(insert,
+                "ftest",
+                "ltest",
+                "ctest",
+                "st",
+                11111,
+                "atest",
+                joinDate,
+                1111111111L,
+                "ptest",
+                false,
+                "etest");
 
-            PatronDto patronDto = impl.getPatron("test2@email.test");
-            assertEquals("testFirst2", patronDto.getFirstname());
-            assertEquals("testLast2", patronDto.getLastname());
-            assertEquals("testCity2", patronDto.getCity());
-            assertEquals("TT", patronDto.getState());
-            assertEquals(88888, patronDto.getZipcode());
-            assertEquals("testStreetAddress2", patronDto.getStreetAddress());
-            assertEquals("test2@email.test", patronDto.getEmail());
-            assertEquals(1111111111L, patronDto.getPhone());
-            assertEquals(true, patronDto.isRemotelibrary());
-            assertEquals("testPW2", patronDto.getPassword());
+        PatronDto dto  = patronDao.getPatron("etest");
+        assertNotNull(dto);
+        assertEquals("ftest", dto.getFirstname());
+        assertEquals("ltest", dto.getLastname());
+        assertEquals("ctest", dto.getCity());
+        assertEquals("st", dto.getState());
+        assertEquals(11111, dto.getZipcode());
+        assertEquals("atest", dto.getStreetAddress());
+        assertEquals("etest", dto.getEmail());
+        assertEquals(1111111111L, dto.getPhone());
+        assertEquals(false, dto.isRemotelibrary());
+        assertEquals("ptest", dto.getPassword());
     }
 
     @Test
     public void getPatronByItemReturnOutput(){
-        PatronDaoImpl impl = new PatronDaoImpl(null, new ConnectionUtil());
-        BranchItemCheckoutDao.ItemReturnOutput itemReturnOutput= mock(BranchItemCheckoutDao.ItemReturnOutput.class);
-        when(itemReturnOutput.getConnection()).thenReturn(getConnection());
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
-        String insert = "INSERT INTO patron(firstname, lastname, city, state, zipcode, streetaddress, joindate, " +
-                "phone, password, remotelibrary, email) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
-        String query = "SELECT patronid FROM patron WHERE email = ?";
         Calendar calendar = Calendar.getInstance();
         java.sql.Timestamp joinDate = new java.sql.Timestamp(calendar.getTime().getTime());
-        int patronidAns = 0;
-        try {
-            connection.setAutoCommit(false);
-            preparedStatement = connection.prepareStatement(insert);
-            preparedStatement.setString(1, "testFirst2");
-            preparedStatement.setString(2, "testLast2");
-            preparedStatement.setString(3, "testCity2");
-            preparedStatement.setString(4, "TT");
-            preparedStatement.setInt(5, 88888);
-            preparedStatement.setString(6, "testStreetAddress2");
-            preparedStatement.setTimestamp(7, joinDate);
-            preparedStatement.setLong(8, 1111111111L);
-            preparedStatement.setString(9, "testPW2");
-            preparedStatement.setBoolean(10, true);
-            preparedStatement.setString(11, "test2@email.test");
-            preparedStatement.executeUpdate();
+        String insert = "INSERT INTO patron(firstname, lastname, city, state, zipcode, streetaddress, joindate, " +
+                "phone, password, remotelibrary, email) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+        jdbcOperations.update(insert,
+                "ftest",
+                "ltest",
+                "ctest",
+                "st",
+                11111,
+                "atest",
+                joinDate,
+                1111111111L,
+                "ptest",
+                false,
+                "etest");
 
-            preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1,"test2@email.test");
-            resultSet = preparedStatement.executeQuery();
-            if(resultSet.next()){
-                patronidAns = resultSet.getInt(1);
-            }
-            when(itemReturnOutput.getPatronid()).thenReturn(patronidAns);
-            PatronDto patronDto = impl.getPatron(itemReturnOutput);
-            assertFalse(connection.isClosed());
-            int pid = patronDto.getPatronid().get();
-            assertEquals(patronidAns, pid);
-            assertEquals("testFirst2", patronDto.getFirstname());
-            assertEquals("testLast2", patronDto.getLastname());
-            assertEquals("testCity2", patronDto.getCity());
-            assertEquals("TT", patronDto.getState());
-            assertEquals(88888, patronDto.getZipcode());
-            assertEquals("testStreetAddress2", patronDto.getStreetAddress());
-            assertEquals(joinDate, patronDto.getJoinDate());
-            assertEquals(1111111111L, patronDto.getPhone());
-            assertEquals("testPW2", patronDto.getPassword());
-            assertEquals("test2@email.test", patronDto.getEmail());
-            assertEquals(true, patronDto.isRemotelibrary());
-        } catch (SQLException e) {
-            e.printStackTrace();
-            assertTrue(false);
-        } finally {
-            ConnectionUtil util = new TestConnectionUtil2();
-            util.close(connection);
-            util.close(preparedStatement);
-            util.close(resultSet);
-        }
+        int id = jdbcOperations.queryForObject("SELECT patronid FROM patron WHERE email = ?",
+                                                new Object[]{"etest"},
+                                                Integer.class);
+        BranchItemCheckoutDao.ItemReturnOutput out = new BranchItemCheckoutDao.ItemReturnOutput(null, null, null, false);
+        out.setPatronid(id);
+        PatronDto dto  = patronDao.getPatron(out);
+        assertNotNull(dto);
+        assertEquals("ftest", dto.getFirstname());
+        assertEquals("ltest", dto.getLastname());
+        assertEquals("ctest", dto.getCity());
+        assertEquals("st", dto.getState());
+        assertEquals(11111, dto.getZipcode());
+        assertEquals("atest", dto.getStreetAddress());
+        assertEquals("etest", dto.getEmail());
+        assertEquals(1111111111L, dto.getPhone());
+        assertEquals(false, dto.isRemotelibrary());
+        assertEquals("ptest", dto.getPassword());
+    }
 
+    @Test
+    public void insertPatronTest(){
+        patronDao.insertPatron(getDto());
+        String query = "SELECT * FROM patron WHERE email = ?";
+        PatronDto dto = null;
+        dto = jdbcOperations.queryForObject(query, ((rs, rowNum) -> {
+            return new PatronDto(rs.getInt("patronid"),
+                    rs.getString("firstname"),
+                    rs.getString("lastname"),
+                    rs.getString("city"),
+                    rs.getString("state"),
+                    rs.getInt("zipcode"),
+                    rs.getString("streetaddress"),
+                    rs.getTimestamp("joindate"),
+                    rs.getString("email"),
+                    rs.getLong("phone"),
+                    rs.getShort("remotelibrary") == 1,
+                    rs.getString("password"));
+        }), "test@email.test");
 
+        assertEquals("testFirst", dto.getFirstname());
+        assertEquals("testLast", dto.getLastname());
+        assertEquals("testCity", dto.getCity());
+        assertEquals("ST", dto.getState());
+        assertEquals(99999, dto.getZipcode());
+        assertEquals("testStreetAddress", dto.getStreetAddress());
+        assertEquals("test@email.test", dto.getEmail());
+        assertEquals(9999999999L, dto.getPhone());
+        assertFalse(dto.isRemotelibrary());
+        assertEquals("testPW", dto.getPassword());
     }
 
     private PatronDto getDto(){
@@ -132,90 +143,5 @@ public class PatronDaoImplTest {
         java.sql.Timestamp joinDate = new java.sql.Timestamp(calendar.getTime().getTime());
         return new PatronDto("testFirst", "testLast", "testCity", "ST", 99999,
                 "testStreetAddress",joinDate, "test@email.test", 9999999999L,false, "testPW");
-    }
-
-    //Connection utility that verifies insert, then rolls back changes, and closes connection
-    private class TestConnectionUtil1 extends ConnectionUtil {
-        @Override
-        public void close(Connection connection){
-            if(connection != null){
-                try {
-                    PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM patron WHERE email = ?");
-                    preparedStatement.setString(1,"test@email.test");
-                    ResultSet resultSet =  preparedStatement.executeQuery();
-                    if(resultSet.next()){
-                        assertEquals("testFirst", resultSet.getString("FIRSTNAME"));
-                        assertEquals("testLast", resultSet.getString("LASTNAME"));
-                        assertEquals("testCity",resultSet.getString("city"));
-                        assertEquals("ST",resultSet.getString("state"));
-                        assertEquals(99999,resultSet.getInt("zipcode"));
-                        assertEquals("testStreetAddress",resultSet.getString("streetaddress"));
-                        assertEquals("test@email.test",resultSet.getString("email"));
-                        assertEquals(9999999999L,resultSet.getLong("phone"));
-                        assertEquals(true,resultSet.getShort("remotelibrary") == 0);
-                        assertEquals("testPW",resultSet.getString("password"));
-                    }
-                    connection.rollback();
-                    connection.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                    assertTrue(false);
-                }
-            }
-        }
-    }
-
-    // Utility that rolls back changes before closing connection
-    private class TestConnectionUtil2 extends ConnectionUtil{
-        @Override
-        public void close(Connection connection){
-            if(connection != null){
-                try {
-                    connection.rollback();
-                    connection.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                    assertTrue(false);
-                }
-            }
-        }
-    }
-
-    //Connection facility that inserts before so that read test has consistent data
-    private class TestConnectionFactory implements ConnectionFactory {
-        @Override
-        public Connection getConnection() {
-            Connection connection = ConnectionManager.getConnectionFactory().getConnection();
-            String insertStmt = "INSERT INTO patron(firstname, lastname, city, state, zipcode, streetaddress, joindate, " +
-                    "phone, password, remotelibrary, email) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
-            Calendar calendar = Calendar.getInstance();
-            java.sql.Timestamp joinDate = new java.sql.Timestamp(calendar.getTime().getTime());
-            PreparedStatement preparedStatement = null;
-            try {
-                connection.setAutoCommit(false);
-                preparedStatement = connection.prepareStatement(insertStmt);
-                preparedStatement.setString(1, "testFirst2");
-                preparedStatement.setString(2, "testLast2");
-                preparedStatement.setString(3, "testCity2");
-                preparedStatement.setString(4, "TT");
-                preparedStatement.setInt(5, 88888);
-                preparedStatement.setString(6, "testStreetAddress2");
-                preparedStatement.setTimestamp(7, joinDate);
-                preparedStatement.setLong(8, 1111111111L);
-                preparedStatement.setString(9, "testPW2");
-                preparedStatement.setBoolean(10, true);
-                preparedStatement.setString(11, "test2@email.test");
-                preparedStatement.executeUpdate();
-                preparedStatement.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-                assertTrue(false);
-            } finally {
-                TestConnectionUtil2 util = new TestConnectionUtil2();
-                util.close(preparedStatement);
-            }
-            return connection;
-        }
-
     }
 }
