@@ -39,4 +39,25 @@ public class DaoDummy {
                                  "pword");
         });
     }
+
+    @Transactional
+    public List<PatronDto> getAllPatronsByFirstName(String fname){
+        String query = "SELECT * FROM patron where firstname = ?";
+        return jdbcOperations.query(query, (rs, rowNum) -> {
+            return new PatronDto(rs.getInt("patronid"),
+                    rs.getString("firstname"),
+                    rs.getString("lastname"),
+                    "city",
+                    "state",
+                    55555,
+                    "address",
+                    null,
+                    rs.getString("email"),
+                    1111111111,
+                    false,
+                    "pword");
+        }, fname);
+    }
+
+
 }
