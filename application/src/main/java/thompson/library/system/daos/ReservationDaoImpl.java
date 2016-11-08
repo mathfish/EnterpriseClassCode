@@ -22,21 +22,14 @@ import java.util.List;
 
 @Repository
 public class ReservationDaoImpl implements ReservationDao {
+
     private static final Logger logger = LoggerFactory.getLogger(ReservationDaoImpl.class);
-    private ConnectionFactory connectionFactory;
-    private ConnectionUtil connectionUtil;
     private JdbcOperations jdbcOperations;
 
     @Autowired
     ReservationDaoImpl(JdbcOperations jdbcOperations){
         this.jdbcOperations = jdbcOperations;
     }
-//    ReservationDaoImpl(@Value("#{T(thompson.library.system.utilities.ConnectionManager).getConnectionFactory()}")
-//                               ConnectionFactory connectionFactory,
-//                       ConnectionUtil connectionUtil){
-//        this.connectionFactory = connectionFactory;
-//        this.connectionUtil = connectionUtil;
-//    }
 
     /**
      *
@@ -50,7 +43,6 @@ public class ReservationDaoImpl implements ReservationDao {
 
         String query = "SELECT * FROM reservation WHERE branchitemid = ? AND fulfilled = false ORDER BY reservdate";
         String update = "UPDATE reservation SET fulfilled = ? WHERE reservationid = ?";
-
 
         List<ReservationDto> dtos = jdbcOperations.query(query, (rs, rowNum) -> {
             return new ReservationDto(rs.getInt("reservationid"),
@@ -70,34 +62,6 @@ public class ReservationDaoImpl implements ReservationDao {
             return null;
         }
 
-
-//        PreparedStatement preparedStatement = null;
-//        ResultSet resultSet = null;
-//        ReservationDto reservationDto = null;
-//        try{
-//            Connection connection = itemReturnOutput.getConnection();
-//            preparedStatement = connection.prepareStatement(query);
-//            preparedStatement.setInt(1,itemReturnOutput.getBranchitemid());
-//            resultSet = preparedStatement.executeQuery();
-//            if(resultSet.next()){
-//                preparedStatement = connection.prepareStatement(update);
-//                preparedStatement.setBoolean(1,true);
-//                preparedStatement.setInt(2,resultSet.getInt("reservationid"));
-//                preparedStatement.executeUpdate();
-//
-//                reservationDto = new ReservationDto(resultSet.getInt("reservationid"),
-//                        resultSet.getInt("patronid"), resultSet.getInt("branchitemid"),
-//                        resultSet.getDate("reservdate"), true,
-//                        resultSet.getInt("forbranchid"));
-//            }
-//        } catch (SQLException e) {
-//            logger.error("SQL error checking reservation for branchitemid {}", itemReturnOutput.getBranchitemid(), e);
-//            throw new IllegalStateException("SQL error in checking reservation. See log for details");
-//        } finally {
-//            connectionUtil.close(preparedStatement);
-//            connectionUtil.close(resultSet);
-//        }
-//        return reservationDto;
     }
 
 }

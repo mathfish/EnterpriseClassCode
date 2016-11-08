@@ -1,16 +1,15 @@
 package thompson.library.system.daos;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcOperations;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.transaction.annotation.Transactional;
 import thompson.library.system.dtos.CheckoutDto;
-import thompson.library.system.utilities.ConnectionFactory;
-import thompson.library.system.utilities.ConnectionManager;
-import thompson.library.system.utilities.ConnectionUtil;
-import thompson.library.system.utilities.DerbyConnectionFactory;
+import thompson.library.system.utilities.LibraryConfig;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.Calendar;
 
 import static junit.framework.TestCase.assertEquals;
@@ -19,116 +18,63 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(classes = LibraryConfig.class)
+@Transactional
 public class CheckoutDaoImplTest {
 
-    private Connection connection;
-    private java.sql.Timestamp date;
-    private int checkoutid;
+    @Autowired
+    CheckoutDao checkoutDao;
 
-    private Connection getLocalConnection(){
-        ConnectionFactory connectionFactory = ConnectionManager.getConnectionFactory();
-        connection = connectionFactory.getConnection();
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
+    @Autowired
+    JdbcOperations jdbcOperations;
+
+    private java.sql.Timestamp date;
+
+    private CheckoutDto insertCheckout(){
         Calendar calendar = Calendar.getInstance();
         date = new java.sql.Timestamp(calendar.getTime().getTime());
         String insert = "INSERT INTO checkout(patronid, checkoutdate, numberofitems, overdue, itemsreturned)" +
                 " VALUES(1, ?, ?, false, false)";
-
-        String query = "SELECT checkoutid FROM checkout WHERE patronid = 1 AND checkoutdate = ? AND numberofitems = ? " +
+        String query = "SELECT * FROM checkout WHERE patronid = 1 AND checkoutdate = ? AND numberofitems = ? " +
                 "AND overdue = false AND itemsreturned = false";
-        try {
-            connection.setAutoCommit(false);
-            preparedStatement = connection.prepareStatement(insert);
-            preparedStatement.setTimestamp(1,date);
-            preparedStatement.setInt(2,1);
-            preparedStatement.executeUpdate();
 
-            preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setTimestamp(1,date);
-            preparedStatement.setInt(2,1);
-            resultSet = preparedStatement.executeQuery();
-            if(resultSet.next()){
-                checkoutid =resultSet.getInt(1);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-            assertTrue(false);
-        } finally {
-            TestConnectionUtil util = new TestConnectionUtil();
-            util.close(preparedStatement);
-            util.close(resultSet);
-        }
-        return connection;
+        jdbcOperations.update(insert, date, 1);
+
+        return jdbcOperations.queryForObject(query, (rs, rowNum) ->{
+            return new CheckoutDto(rs.getInt("checkoutid"), rs.getInt("patronid"), rs.getTimestamp("checkoutdate"),
+                    rs.getInt("numberofitems"), rs.getBoolean("overdue"), rs.getBoolean("itemsreturned"));
+        }, date, 1);
     }
 
 
     @Test
     public void updateCheckoutTest(){
-//        TestConnectionUtil util = new TestConnectionUtil();
-//        BranchItemCheckoutDao.ItemReturnOutput itemReturnOutput = mock(BranchItemCheckoutDao.ItemReturnOutput.class);
-//        when(itemReturnOutput.getConnection()).thenReturn(getLocalConnection());
-//        when(itemReturnOutput.isReturned()).thenReturn(true);
-//        when(itemReturnOutput.getCheckoutid()).thenReturn(checkoutid);
-//        CheckoutDaoImpl impl = new CheckoutDaoImpl(null, util);
-//        impl.updateCheckout(itemReturnOutput);
-//        PreparedStatement preparedStatement = null;
-//        ResultSet resultSet = null;
-//        try{
-//            String query = "SELECT itemsreturned FROM checkout WHERE checkoutid = ?";
-//            preparedStatement = connection.prepareStatement(query);
-//            preparedStatement.setInt(1,checkoutid);
-//            resultSet = preparedStatement.executeQuery();
-//            if(resultSet.next()){
-//                assertTrue(resultSet.getBoolean(1));
-//            }
-//            assertFalse(connection.isClosed());
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//            assertTrue(false);
-//        } finally {
-//            util.close(connection);
-//            util.close(preparedStatement);
-//            util.close(resultSet);
-//        }
+        CheckoutDto dto = insertCheckout();
+        BranchItemCheckoutDao.ItemReturnOutput itemReturnOutput = mock(BranchItemCheckoutDao.ItemReturnOutput.class);
+        when(itemReturnOutput.isReturned()).thenReturn(true);
+        when(itemReturnOutput.getCheckoutid()).thenReturn(dto.getCheckoutID());
+        checkoutDao.updateCheckout(itemReturnOutput);
+
+        dto = jdbcOperations.queryForObject("SELECT * FROM checkout WHERE checkoutid = ?", (rs, rowNum) ->{
+            return new CheckoutDto(rs.getInt("checkoutid"), rs.getInt("patronid"), rs.getTimestamp("checkoutdate"),
+                    rs.getInt("numberofitems"), rs.getBoolean("overdue"), rs.getBoolean("itemsreturned"));
+        }, dto.getCheckoutID());
+
+        assertTrue(dto.isItemsreturned());
     }
 
     @Test
     public void getCheckoutTest(){
-//        TestConnectionUtil util = new TestConnectionUtil();
-//        BranchItemCheckoutDao.ItemReturnOutput itemReturnOutput = mock(BranchItemCheckoutDao.ItemReturnOutput.class);
-//        when(itemReturnOutput.getConnection()).thenReturn(getLocalConnection());
-//        when(itemReturnOutput.getCheckoutid()).thenReturn(checkoutid);
-//        CheckoutDaoImpl impl = new CheckoutDaoImpl(null, util);
-//        CheckoutDto dto = impl.getCheckout(itemReturnOutput);
-//        assertEquals(date.toString(),dto.getCheckoutdate().toString());
-//        assertEquals(1,dto.getPatronid());
-//        assertEquals(1,dto.getNumberofitems());
-//        assertFalse(dto.isOverdue());
-//        assertFalse(dto.isItemsreturned());
-//        try {
-//            assertFalse(connection.isClosed());
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//            assertTrue(false);
-//        } finally {
-//            util.close(connection);
-//        }
+        CheckoutDto dto = insertCheckout();
+        BranchItemCheckoutDao.ItemReturnOutput itemReturnOutput = mock(BranchItemCheckoutDao.ItemReturnOutput.class);
+        when(itemReturnOutput.getCheckoutid()).thenReturn(dto.getCheckoutID());
 
-    }
-
-    private class TestConnectionUtil extends ConnectionUtil {
-        @Override
-        public void close(Connection connection){
-            if(connection != null){
-                try {
-                    connection.rollback();
-                    connection.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                    assertTrue(false);
-                }
-            }
-        }
+        CheckoutDto returnDto = checkoutDao.getCheckout(itemReturnOutput);
+        assertEquals(date.toString(), returnDto.getCheckoutdate().toString());
+        assertEquals(dto.getPatronid(), returnDto.getPatronid());
+        assertEquals(dto.getNumberofitems(), returnDto.getNumberofitems());
+        assertFalse(returnDto.isItemsreturned());
+        assertFalse(returnDto.isOverdue());
     }
 }

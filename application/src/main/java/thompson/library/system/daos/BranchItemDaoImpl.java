@@ -16,23 +16,14 @@ import java.sql.*;
 
 @Repository
 public class BranchItemDaoImpl implements BranchItemDao {
+
     private static final Logger logger = LoggerFactory.getLogger(BranchItemDaoImpl.class);
     private JdbcOperations jdbcOperations;
-    private ConnectionFactory connectionFactory;
-    private ConnectionUtil connectionUtil;
 
     @Autowired
     BranchItemDaoImpl(JdbcOperations jdbcOperations){
         this.jdbcOperations = jdbcOperations;
     }
-//    BranchItemDaoImpl(
-//            @Value("#{T(thompson.library.system.utilities.ConnectionManager).getConnectionFactory()}")
-//                    ConnectionFactory connectionFactory,
-//            ConnectionUtil connectionUtil){
-//        this.connectionFactory = connectionFactory;
-//        this.connectionUtil = connectionUtil;
-//    }
-
     /**
      *
      * Updates the state of the branch item using the itemReturnOutput. Part of multiple steps of the return process
@@ -42,20 +33,5 @@ public class BranchItemDaoImpl implements BranchItemDao {
     public void updateBranchItem(BranchItemCheckoutDao.ItemReturnOutput itemReturnOutput) {
         String update = "UPDATE branchitem SET reserved = ?, checkedout = false WHERE branchitemid = ?";
         jdbcOperations.update(update, itemReturnOutput.isReserved(), itemReturnOutput.getBranchitemid());
-
-//        PreparedStatement preparedStatement = null;
-//        try{
-//            //Optionals exist from prior query
-//            Connection connection = itemReturnOutput.getConnection();
-//            preparedStatement = connection.prepareStatement(update);
-//            preparedStatement.setBoolean(1,itemReturnOutput.isReserved());
-//            preparedStatement.setInt(2,itemReturnOutput.getBranchitemid());
-//            preparedStatement.executeUpdate();
-//        } catch (SQLException e) {
-//            logger.error("SQL error in updating branch item {}", itemReturnOutput.getBranchitemid(), e);
-//            throw new IllegalStateException("SQL error in updating branch item. See log for details");
-//        } finally {
-//            connectionUtil.close(preparedStatement);
-//        }
     }
 }

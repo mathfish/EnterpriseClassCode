@@ -71,8 +71,8 @@
       <file leaf-file-name="PatronDaoImplTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/thompson/library/system/daos/PatronDaoImplTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+            <state relative-caret-position="-140">
+              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="18" selection-end-column="14" />
               <folding>
                 <marker date="1478225297000" expanded="true" signature="1038:1214" ph="INSERT INTO patron... " />
                 <marker date="1478225297000" expanded="true" signature="2339:2515" ph="INSERT INTO patron... " />
@@ -84,49 +84,42 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BranchItemCheckoutDaoImplTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/thompson/library/system/daos/BranchItemCheckoutDaoImplTest.java">
+      <file leaf-file-name="BranchItemDaoImplTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/thompson/library/system/daos/BranchItemDaoImplTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="40" column="64" selection-start-line="40" selection-start-column="64" selection-end-line="40" selection-end-column="64" />
+            <state relative-caret-position="240">
+              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="18" selection-end-column="14" />
               <folding>
-                <marker date="1478567932000" expanded="true" signature="2010:2147" ph="INSERT INTO branchitemcheckout... " />
-                <marker date="1478567932000" expanded="true" signature="3149:3224" ph="SELECT * FRO... branchitemcheckout" />
+                <element signature="imports" expanded="true" />
+                <marker date="1478572189000" expanded="true" signature="973:1095" ph="INSERT INTO branchitem... " />
+                <marker date="1478572189000" expanded="true" signature="1122:1287" ph="SELECT branc... branchitem" />
+                <marker date="1478572189000" expanded="true" signature="1790:1837" ph="SELECT reser... branchitem" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BranchItemCheckoutDto.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/dtos/BranchItemCheckoutDto.java">
+      <file leaf-file-name="ReservationDaoImplTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/thompson/library/system/daos/ReservationDaoImplTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BranchItemCheckoutDao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/daos/BranchItemCheckoutDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="37" selection-start-line="0" selection-start-column="37" selection-end-line="0" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BranchItemCheckoutDaoImpl.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/daos/BranchItemCheckoutDaoImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="885">
-              <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+            <state relative-caret-position="255">
+              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <marker date="1478568015000" expanded="true" signature="1162:1259" ph="SELECT * FRO... branchitemcheckout" />
-                <marker date="1478568015000" expanded="true" signature="2016:2150" ph="UPDATE branc... " />
-                <marker date="1478568015000" expanded="true" signature="3125:3205" ph="SELECT COUNT... branchitemcheckout" />
+                <marker date="1478576680000" expanded="true" signature="1638:1768" ph="INSERT INTO reservation... " />
+                <marker date="1478576680000" expanded="true" signature="1795:1959" ph="SELECT reser... reservation" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ReservationDaoImpl.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/daos/ReservationDaoImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="25" column="91" selection-start-line="25" selection-start-column="91" selection-end-line="25" selection-end-column="91" />
+              <folding>
+                <marker date="1478576680000" expanded="true" signature="1543:1633" ph="SELECT * FRO... reservation" />
+                <marker date="1478576680000" expanded="true" signature="1661:1721" ph="UPDATE reser... " />
               </folding>
             </state>
           </provider>
@@ -191,16 +184,16 @@
         <option value="$PROJECT_DIR$/src/main/java/thompson/library/system/utilities/LoggingInterceptor.java" />
         <option value="$PROJECT_DIR$/src/test/java/thompson/library/system/services/LibraryServicesImplTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/thompson/library/system/daos/PatronDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/thompson/library/system/daos/CheckoutDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/thompson/library/system/daos/DaoDummy.java" />
-        <option value="$PROJECT_DIR$/src/test/java/thompson/library/system/daos/ReservationDaoImplTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/thompson/library/system/daos/CheckoutDaoImplTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/Driver.java" />
-        <option value="$PROJECT_DIR$/src/main/java/thompson/library/system/daos/ReservationDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/thompson/library/system/daos/BranchItemDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/test/java/thompson/library/system/daos/BranchItemDaoImplTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/thompson/library/system/daos/BranchItemCheckoutDaoImplTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/thompson/library/system/daos/BranchItemCheckoutDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/test/java/thompson/library/system/daos/BranchItemDaoImplTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/thompson/library/system/daos/BranchItemDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/test/java/thompson/library/system/daos/CheckoutDaoImplTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/thompson/library/system/daos/CheckoutDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/test/java/thompson/library/system/daos/ReservationDaoImplTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/thompson/library/system/daos/ReservationDaoImpl.java" />
       </list>
     </option>
   </component>
@@ -591,23 +584,8 @@
       <recent name="$PROJECT_DIR$/" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.BranchItemCheckoutDaoImplTest">
-    <configuration default="false" name="Driver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="Driver" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="application" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="BranchItemCheckoutDaoImplTest.testGetBranchItemCheckout" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.ReservationDaoImplTest.fullfillReservationTestNotAllFulfilled">
+    <configuration default="false" name="CheckoutDaoImplTest.updateCheckoutTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" runner="idea">
         <pattern>
           <option name="PATTERN" value="thompson.library.system.daos.*" />
@@ -618,8 +596,8 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="thompson.library.system.daos" />
-      <option name="MAIN_CLASS_NAME" value="thompson.library.system.daos.BranchItemCheckoutDaoImplTest" />
-      <option name="METHOD_NAME" value="testGetBranchItemCheckout" />
+      <option name="MAIN_CLASS_NAME" value="thompson.library.system.daos.CheckoutDaoImplTest" />
+      <option name="METHOD_NAME" value="updateCheckoutTest" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" />
       <option name="PARAMETERS" />
@@ -633,7 +611,7 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="BranchItemCheckoutDaoImplTest.testUpdateBranchItemCheckout" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="CheckoutDaoImplTest.getCheckoutTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" runner="idea">
         <pattern>
           <option name="PATTERN" value="thompson.library.system.daos.*" />
@@ -644,8 +622,8 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="thompson.library.system.daos" />
-      <option name="MAIN_CLASS_NAME" value="thompson.library.system.daos.BranchItemCheckoutDaoImplTest" />
-      <option name="METHOD_NAME" value="testUpdateBranchItemCheckout" />
+      <option name="MAIN_CLASS_NAME" value="thompson.library.system.daos.CheckoutDaoImplTest" />
+      <option name="METHOD_NAME" value="getCheckoutTest" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" />
       <option name="PARAMETERS" />
@@ -659,7 +637,7 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="BranchItemCheckoutDaoImplTest.testGetNumberOfItemsReturnedFromCheckout" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="CheckoutDaoImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" runner="idea">
         <pattern>
           <option name="PATTERN" value="thompson.library.system.daos.*" />
@@ -670,35 +648,61 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="thompson.library.system.daos" />
-      <option name="MAIN_CLASS_NAME" value="thompson.library.system.daos.BranchItemCheckoutDaoImplTest" />
-      <option name="METHOD_NAME" value="testGetNumberOfItemsReturnedFromCheckout" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="BranchItemCheckoutDaoImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="thompson.library.system.daos.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="application" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="thompson.library.system.daos" />
-      <option name="MAIN_CLASS_NAME" value="thompson.library.system.daos.BranchItemCheckoutDaoImplTest" />
+      <option name="MAIN_CLASS_NAME" value="thompson.library.system.daos.CheckoutDaoImplTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="ReservationDaoImplTest.fulfillReservationTestAllFulfilled" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="thompson.library.system.daos.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="application" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="thompson.library.system.daos" />
+      <option name="MAIN_CLASS_NAME" value="thompson.library.system.daos.ReservationDaoImplTest" />
+      <option name="METHOD_NAME" value="fulfillReservationTestAllFulfilled" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="ReservationDaoImplTest.fullfillReservationTestNotAllFulfilled" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="thompson.library.system.daos.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="application" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="thompson.library.system.daos" />
+      <option name="MAIN_CLASS_NAME" value="thompson.library.system.daos.ReservationDaoImplTest" />
+      <option name="METHOD_NAME" value="fullfillReservationTestNotAllFulfilled" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -1124,19 +1128,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Application.Driver" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.BranchItemCheckoutDaoImplTest.testGetBranchItemCheckout" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.BranchItemCheckoutDaoImplTest.testUpdateBranchItemCheckout" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.BranchItemCheckoutDaoImplTest.testGetNumberOfItemsReturnedFromCheckout" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.BranchItemCheckoutDaoImplTest" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.CheckoutDaoImplTest.updateCheckoutTest" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.CheckoutDaoImplTest.getCheckoutTest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.CheckoutDaoImplTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.ReservationDaoImplTest.fulfillReservationTestAllFulfilled" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.ReservationDaoImplTest.fullfillReservationTestNotAllFulfilled" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.BranchItemCheckoutDaoImplTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.BranchItemCheckoutDaoImplTest.testGetNumberOfItemsReturnedFromCheckout" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.BranchItemCheckoutDaoImplTest.testUpdateBranchItemCheckout" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.BranchItemCheckoutDaoImplTest.testGetBranchItemCheckout" />
-        <item index="4" class="java.lang.String" itemvalue="Application.Driver" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.ReservationDaoImplTest.fullfillReservationTestNotAllFulfilled" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.ReservationDaoImplTest.fulfillReservationTestAllFulfilled" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.CheckoutDaoImplTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.CheckoutDaoImplTest.getCheckoutTest" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.CheckoutDaoImplTest.updateCheckoutTest" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -1174,44 +1178,44 @@
       <workItem from="1478124012997" duration="1026000" />
       <workItem from="1478126885435" duration="1685000" />
       <workItem from="1478131322077" duration="19433000" />
-      <workItem from="1478464227761" duration="13753000" />
+      <workItem from="1478464227761" duration="21169000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="BranchItemCheckoutDaoImplTest - 2016.11.07 at 20h 17m 58s.xml">
-      <configuration name="BranchItemCheckoutDaoImplTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="BranchItemCheckoutDaoImplTest - 2016.11.07 at 20h 18m 59s.xml">
       <configuration name="BranchItemCheckoutDaoImplTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BranchItemCheckoutDaoImplTest_testGetBranchItemCheckout - 2016.11.07 at 18h 02m 52s.xml">
-      <configuration name="BranchItemCheckoutDaoImplTest.testGetBranchItemCheckout" configurationId="JUnit" />
+    <history-entry file="BranchItemDaoImplTest_testUpdateBranchItem - 2016.11.07 at 21h 17m 42s.xml">
+      <configuration name="BranchItemDaoImplTest.testUpdateBranchItem" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BranchItemCheckoutDaoImplTest_testGetBranchItemCheckout - 2016.11.07 at 18h 03m 14s.xml">
-      <configuration name="BranchItemCheckoutDaoImplTest.testGetBranchItemCheckout" configurationId="JUnit" />
+    <history-entry file="CheckoutDaoImplTest - 2016.11.07 at 22h 05m 26s.xml">
+      <configuration name="CheckoutDaoImplTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BranchItemCheckoutDaoImplTest_testGetNumberOfItemsReturnedFromCheckout - 2016.11.07 at 20h 11m 25s.xml">
-      <configuration name="BranchItemCheckoutDaoImplTest.testGetNumberOfItemsReturnedFromCheckout" configurationId="JUnit" />
+    <history-entry file="CheckoutDaoImplTest_getCheckoutTest - 2016.11.07 at 22h 04m 09s.xml">
+      <configuration name="CheckoutDaoImplTest.getCheckoutTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BranchItemCheckoutDaoImplTest_testGetNumberOfItemsReturnedFromCheckout - 2016.11.07 at 20h 16m 16s.xml">
-      <configuration name="BranchItemCheckoutDaoImplTest.testGetNumberOfItemsReturnedFromCheckout" configurationId="JUnit" />
+    <history-entry file="CheckoutDaoImplTest_updateCheckoutTest - 2016.11.07 at 21h 49m 37s.xml">
+      <configuration name="CheckoutDaoImplTest.updateCheckoutTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BranchItemCheckoutDaoImplTest_testGetNumberOfItemsReturnedFromCheckout - 2016.11.07 at 20h 16m 52s.xml">
-      <configuration name="BranchItemCheckoutDaoImplTest.testGetNumberOfItemsReturnedFromCheckout" configurationId="JUnit" />
+    <history-entry file="CheckoutDaoImplTest_updateCheckoutTest - 2016.11.07 at 21h 50m 56s.xml">
+      <configuration name="CheckoutDaoImplTest.updateCheckoutTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BranchItemCheckoutDaoImplTest_testUpdateBranchItemCheckout - 2016.11.07 at 20h 02m 31s.xml">
-      <configuration name="BranchItemCheckoutDaoImplTest.testUpdateBranchItemCheckout" configurationId="JUnit" />
+    <history-entry file="ReservationDaoImplTest_fulfillReservationTestAllFulfilled - 2016.11.07 at 22h 17m 40s.xml">
+      <configuration name="ReservationDaoImplTest.fulfillReservationTestAllFulfilled" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BranchItemCheckoutDaoImplTest_testUpdateBranchItemCheckout - 2016.11.07 at 20h 02m 48s.xml">
-      <configuration name="BranchItemCheckoutDaoImplTest.testUpdateBranchItemCheckout" configurationId="JUnit" />
+    <history-entry file="ReservationDaoImplTest_fullfillReservationTestNotAllFulfilled - 2016.11.07 at 22h 30m 22s.xml">
+      <configuration name="ReservationDaoImplTest.fullfillReservationTestNotAllFulfilled" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LibraryServicesImplTest_testEmailExists - 2016.11.03 at 22h 36m 23s.xml">
-      <configuration name="LibraryServicesImplTest.testEmailExists" configurationId="JUnit" />
+    <history-entry file="ReservationDaoImplTest_fullfillReservationTestNotAllFulfilled - 2016.11.07 at 22h 34m 33s.xml">
+      <configuration name="ReservationDaoImplTest.fullfillReservationTestNotAllFulfilled" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ReservationDaoImplTest_fullfillReservationTestNotAllFulfilled - 2016.11.07 at 22h 36m 21s.xml">
+      <configuration name="ReservationDaoImplTest.fullfillReservationTestNotAllFulfilled" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="181370000" />
+    <option name="totallyTimeSpent" value="188786000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="81" y="23" width="1704" height="1053" extended-state="0" />
@@ -1293,7 +1297,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="26" />
+      <option name="time" value="29" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1340,20 +1344,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/logDebug-Test-20161030.txt" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/dtos/BranchItemDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="12" column="46" selection-start-line="12" selection-start-column="46" selection-end-line="12" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/dtos/CheckoutDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/dtos/ReservationDto.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -1470,46 +1460,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/daos/CheckoutDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1125">
-          <caret line="91" column="59" selection-start-line="91" selection-start-column="59" selection-end-line="91" selection-end-column="59" />
-          <folding>
-            <element signature="e#1142#1143#0" expanded="true" />
-            <element signature="e#1194#1195#0" expanded="true" />
-            <marker date="1478468870000" expanded="true" signature="1861:1919" ph="UPDATE check... " />
-            <marker date="1478468870000" expanded="true" signature="3136:3179" ph="SELECT * FRO... checkout" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-jdbc/4.3.3.RELEASE/5043c854ad38b2932370a3a15a3d9e6faaeaf53a/spring-jdbc-4.3.3.RELEASE-sources.jar!/org/springframework/jdbc/core/JdbcOperations.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="295">
           <caret line="504" column="16" selection-start-line="504" selection-start-column="16" selection-end-line="504" selection-end-column="16" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/daos/DaoDummy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="812">
-          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1478479181000" expanded="true" signature="626:646" ph="SELECT * FRO... patron" />
-            <marker date="1478479181000" expanded="true" signature="1590:1630" ph="SELECT * FRO... patron" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Driver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1526,60 +1481,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/daos/ReservationDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="855">
-          <caret line="75" column="47" selection-start-line="75" selection-start-column="47" selection-end-line="75" selection-end-column="47" />
-          <folding>
-            <element signature="e#1243#1244#0" expanded="true" />
-            <element signature="e#1295#1296#0" expanded="true" />
-            <marker date="1478480504000" expanded="true" signature="1987:2077" ph="SELECT * FRO... reservation" />
-            <marker date="1478480504000" expanded="true" signature="2105:2165" ph="UPDATE reser... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/daos/BranchItemDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="35" column="7" selection-start-line="35" selection-start-column="7" selection-end-line="35" selection-end-column="7" />
-          <folding>
-            <element signature="e#1000#1001#0" expanded="true" />
-            <element signature="e#1052#1053#0" expanded="true" />
-            <marker date="1478480826000" expanded="true" signature="1727:1804" ph="UPDATE branc... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/services/BranchServicesImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
           <caret line="38" column="56" selection-start-line="38" selection-start-column="56" selection-end-line="38" selection-end-column="56" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/thompson/library/system/daos/BranchItemDaoImplTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding>
-            <marker date="1478480826000" expanded="true" signature="1471:1595" ph="INSERT INTO branchitem... " />
-            <marker date="1478480826000" expanded="true" signature="2287:2454" ph="SELECT branc... branchitem" />
-            <marker date="1478480826000" expanded="true" signature="2873:2920" ph="SELECT * FRO... branchitem" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/thompson/library/system/daos/CheckoutDaoImplTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="91" column="36" selection-start-line="91" selection-start-column="36" selection-end-line="91" selection-end-column="36" />
-          <folding>
-            <marker date="1478479284000" expanded="true" signature="1291:1425" ph="INSERT INTO checkout... " />
-            <marker date="1478479284000" expanded="true" signature="1453:1613" ph="SELECT check... checkout" />
-            <marker date="1478479284000" expanded="true" signature="3213:3268" ph="SELECT items... checkout" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1596,17 +1502,6 @@
         <state relative-caret-position="90">
           <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/thompson/library/system/daos/ReservationDaoImplTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="31" column="55" selection-start-line="31" selection-start-column="55" selection-end-line="31" selection-end-column="55" />
-          <folding>
-            <marker date="1478479284000" expanded="true" signature="1428:1558" ph="INSERT INTO reservation... " />
-            <marker date="1478479284000" expanded="true" signature="1589:1753" ph="SELECT reser... reservation" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1654,7 +1549,7 @@
         <state relative-caret-position="295">
           <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1686,20 +1581,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/thompson/library/system/daos/PatronDaoImplTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding>
-            <marker date="1478225297000" expanded="true" signature="1038:1214" ph="INSERT INTO patron... " />
-            <marker date="1478225297000" expanded="true" signature="2339:2515" ph="INSERT INTO patron... " />
-            <marker date="1478225297000" expanded="true" signature="2879:2921" ph="SELECT patro... patron" />
-            <marker date="1478225297000" expanded="true" signature="2879:2922" ph="SELECT patro... patron" />
-            <marker date="1478225297000" expanded="true" signature="3902:3938" ph="SELECT * FRO... patron" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/dtos/BranchItemCheckoutDto.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -1727,15 +1608,136 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/dtos/BranchItemDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/daos/BranchItemCheckoutDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="885">
+        <state relative-caret-position="880">
           <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <marker date="1478568015000" expanded="true" signature="1162:1259" ph="SELECT * FRO... branchitemcheckout" />
             <marker date="1478568015000" expanded="true" signature="2016:2150" ph="UPDATE branc... " />
             <marker date="1478568015000" expanded="true" signature="3125:3205" ph="SELECT COUNT... branchitemcheckout" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/daos/BranchItemDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding>
+            <marker date="1478572189000" expanded="true" signature="1290:1367" ph="UPDATE branc... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/dtos/CheckoutDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Driver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/daos/DaoDummy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1478479181000" expanded="true" signature="626:646" ph="SELECT * FRO... patron" />
+            <marker date="1478479181000" expanded="true" signature="1590:1630" ph="SELECT * FRO... patron" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/daos/CheckoutDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="33" column="7" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="7" />
+          <folding>
+            <marker date="1478574318000" expanded="true" signature="1424:1482" ph="UPDATE check... " />
+            <marker date="1478574318000" expanded="true" signature="1949:1992" ph="SELECT * FRO... checkout" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/thompson/library/system/daos/CheckoutDaoImplTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="34" column="51" selection-start-line="34" selection-start-column="51" selection-end-line="34" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1478574318000" expanded="true" signature="1239:1373" ph="INSERT INTO checkout... " />
+            <marker date="1478574318000" expanded="true" signature="1400:1551" ph="SELECT * FRO... checkout" />
+            <marker date="1478574318000" expanded="true" signature="2377:2420" ph="SELECT * FRO... checkout" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/thompson/library/system/daos/BranchItemDaoImplTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="18" selection-end-column="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1478572189000" expanded="true" signature="973:1095" ph="INSERT INTO branchitem... " />
+            <marker date="1478572189000" expanded="true" signature="1122:1287" ph="SELECT branc... branchitem" />
+            <marker date="1478572189000" expanded="true" signature="1790:1837" ph="SELECT reser... branchitem" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/thompson/library/system/daos/PatronDaoImplTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-140">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="18" selection-end-column="14" />
+          <folding>
+            <marker date="1478225297000" expanded="true" signature="1038:1214" ph="INSERT INTO patron... " />
+            <marker date="1478225297000" expanded="true" signature="2339:2515" ph="INSERT INTO patron... " />
+            <marker date="1478225297000" expanded="true" signature="2879:2921" ph="SELECT patro... patron" />
+            <marker date="1478225297000" expanded="true" signature="2879:2922" ph="SELECT patro... patron" />
+            <marker date="1478225297000" expanded="true" signature="3902:3938" ph="SELECT * FRO... patron" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/thompson/library/system/daos/ReservationDaoImplTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding>
+            <marker date="1478576680000" expanded="true" signature="1638:1768" ph="INSERT INTO reservation... " />
+            <marker date="1478576680000" expanded="true" signature="1795:1959" ph="SELECT reser... reservation" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/thompson/library/system/daos/ReservationDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="25" column="91" selection-start-line="25" selection-start-column="91" selection-end-line="25" selection-end-column="91" />
+          <folding>
+            <marker date="1478576680000" expanded="true" signature="1543:1633" ph="SELECT * FRO... reservation" />
+            <marker date="1478576680000" expanded="true" signature="1661:1721" ph="UPDATE reser... " />
           </folding>
         </state>
       </provider>

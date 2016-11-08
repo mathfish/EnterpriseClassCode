@@ -21,21 +21,12 @@ import java.sql.SQLException;
 @Repository
 public class CheckoutDaoImpl implements CheckoutDao {
     private static final Logger logger = LoggerFactory.getLogger(CheckoutDaoImpl.class);
-    private ConnectionFactory connectionFactory;
-    private ConnectionUtil connectionUtil;
     private JdbcOperations jdbcOperations;
 
     @Autowired
     CheckoutDaoImpl(JdbcOperations jdbcOperations){
         this.jdbcOperations = jdbcOperations;
     }
-
-//    CheckoutDaoImpl(@Value("#{T(thompson.library.system.utilities.ConnectionManager).getConnectionFactory()}")
-//                            ConnectionFactory connectionFactory,
-//                    ConnectionUtil connectionUtil){
-//        this.connectionFactory = connectionFactory;
-//        this.connectionUtil = connectionUtil;
-//    }
 
     /**
      *
@@ -46,20 +37,6 @@ public class CheckoutDaoImpl implements CheckoutDao {
     public void updateCheckout(BranchItemCheckoutDao.ItemReturnOutput itemReturnOutput) {
         String update = "UPDATE checkout SET itemsreturned = ? WHERE checkoutid = ?";
         jdbcOperations.update(update, itemReturnOutput.isReturned(), itemReturnOutput.getCheckoutid());
-//        PreparedStatement preparedStatement = null;
-//        try{
-//            Connection connection = itemReturnOutput.getConnection();
-//            preparedStatement = connection.prepareStatement(update);
-//            preparedStatement.setBoolean(1,itemReturnOutput.isReturned());
-//            preparedStatement.setInt(2,itemReturnOutput.getCheckoutid());
-//            preparedStatement.executeUpdate();
-//        } catch (SQLException e) {
-//            logger.error("SQL error updating checkout with id {}", itemReturnOutput.getCheckoutid(), e);
-//            throw new IllegalStateException("SQL error in updating checkout. See log for details");
-//        } finally {
-//            connectionUtil.close(preparedStatement);
-//        }
-
     }
 
     /**
@@ -79,30 +56,5 @@ public class CheckoutDaoImpl implements CheckoutDao {
                                     rs.getBoolean("overdue"),
                                     rs.getBoolean("itemsreturned"));
         }, itemReturnOutput.getCheckoutid());
-
-
-
-//        PreparedStatement preparedStatement = null;
-//        ResultSet resultSet = null;
-//        CheckoutDto checkoutDto = null;
-//        try{
-//            Connection connection = itemReturnOutput.getConnection();
-//            preparedStatement = connection.prepareStatement(query);
-//            preparedStatement.setInt(1,itemReturnOutput.getCheckoutid());
-//            resultSet = preparedStatement.executeQuery();
-//            if(resultSet.next()){
-//                checkoutDto = new CheckoutDto(resultSet.getInt("checkoutid"),
-//                        resultSet.getInt("patronid"), resultSet.getTimestamp("checkoutdate"),
-//                        resultSet.getInt("numberofitems"),resultSet.getBoolean("overdue"),
-//                        resultSet.getBoolean("itemsreturned"));
-//            }
-//        } catch (SQLException e) {
-//           logger.error("SQL error getting checkout with id {}", itemReturnOutput.getCheckoutid(), e);
-//            throw new IllegalStateException("SQL error in getting checkout. See log for details");
-//        } finally {
-//            connectionUtil.close(preparedStatement);
-//            connectionUtil.close(resultSet);
-//        }
-//        return checkoutDto;
     }
 }
