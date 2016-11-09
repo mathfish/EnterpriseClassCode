@@ -66,9 +66,6 @@ public class BranchServicesImpl implements BranchServices {
         } else{
             branchItemDao.updateBranchItem(itemReturnOutput);
         }
-
-        itemReturnOutput.completeReturn();
-
         // transaction end.
     }
 

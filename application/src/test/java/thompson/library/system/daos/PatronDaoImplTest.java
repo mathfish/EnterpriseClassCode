@@ -80,7 +80,7 @@ public class PatronDaoImplTest {
         int id = jdbcOperations.queryForObject("SELECT patronid FROM patron WHERE email = ?",
                                                 new Object[]{"etest"},
                                                 Integer.class);
-        BranchItemCheckoutDao.ItemReturnOutput out = new BranchItemCheckoutDao.ItemReturnOutput(null, null, null, false);
+        BranchItemCheckoutDao.ItemReturnOutput out = new BranchItemCheckoutDao.ItemReturnOutput(null, null, false);
         out.setPatronid(id);
         PatronDto dto  = patronDao.getPatron(out);
         assertNotNull(dto);

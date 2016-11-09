@@ -60,7 +60,7 @@ public class BranchItemCheckoutDaoImpl implements BranchItemCheckoutDao {
                                      branchItemCheckoutDto.getBranchItemID(),
                                      branchItemCheckoutDto.getCheckoutID());
 
-        return new ItemReturnOutput(null, branchItemCheckoutDto.getCheckoutID(),
+        return new ItemReturnOutput(branchItemCheckoutDto.getCheckoutID(),
                 branchItemCheckoutDto.getBranchItemID(), false);
     }
 

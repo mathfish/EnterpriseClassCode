@@ -56,8 +56,7 @@ public class LoggingAOPTest {
         PatronDto patronDto = patronDao.getPatron("jd@email.com");
         assertEquals("doe", patronDto.getLastname());
 
-        //4 times since 3 close methods called in connection util
-        verify(mockAppender, times(4)).doAppend(captor.capture());
+        verify(mockAppender, times(1)).doAppend(captor.capture());
         LoggingEvent loggingEvent = captor.getValue();
         assertThat(loggingEvent.getLevel(), is(Level.DEBUG));
         String[] msg = loggingEvent.getFormattedMessage().split(":");

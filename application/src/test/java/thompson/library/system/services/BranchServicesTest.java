@@ -1,105 +1,95 @@
 package thompson.library.system.services;
 
+import ch.qos.logback.classic.Level;
+import ch.qos.logback.classic.Logger;
+import ch.qos.logback.classic.spi.LoggingEvent;
+import ch.qos.logback.core.Appender;
+import org.junit.Before;
 import org.junit.Test;
-import thompson.library.system.daos.*;
-import thompson.library.system.dtos.*;
+import org.junit.runner.RunWith;
+import org.mockito.ArgumentCaptor;
+import org.mockito.Mockito;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcOperations;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.transaction.annotation.Transactional;
+import thompson.library.system.dtos.BranchItemCheckoutDto;
+import thompson.library.system.dtos.BranchItemDto;
+import thompson.library.system.dtos.CheckoutDto;
+import thompson.library.system.utilities.LibraryConfig;
 
-import java.util.Calendar;
+import static junit.framework.TestCase.assertFalse;
+import static junit.framework.TestCase.assertTrue;
+import static org.mockito.Mockito.*;
 
-import static org.mockito.Matchers.any;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-import static org.mockito.internal.verification.VerificationModeFactory.times;
-
-
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(classes = LibraryConfig.class)
+@Transactional
 public class BranchServicesTest {
-    private DaoManager daoManager;
-    private BranchItemDao branchItemDao;
-    private BranchItemDto branchItemDto;
-    private BranchItemCheckoutDto branchItemCheckoutDto;
-    private CheckoutDto checkoutDto;
-    private BranchItemCheckoutDao branchItemCheckoutDao;
-    private BranchItemCheckoutDao.ItemReturnOutput itemReturnOutput;
-    private CheckoutDao checkoutDao;
-    private ReservationDao reservationDao;
-    private ReservationDto reservationDto;
-    private PatronDao patronDao;
-    private PatronDto patronDto;
+    Appender mockAppender;
+    ArgumentCaptor<LoggingEvent> captor;
 
-    public BranchServicesTest(){
-        daoManager = mock(DaoManager.class);
-        patronDao = mock(PatronDao.class);
-        patronDto = mock(PatronDto.class);
-        branchItemDao = mock(BranchItemDao.class);
-        branchItemDto = mock(BranchItemDto.class);
-        branchItemCheckoutDto = mock(BranchItemCheckoutDto.class);
-        branchItemCheckoutDao = mock(BranchItemCheckoutDao.class);
-        itemReturnOutput = mock(BranchItemCheckoutDao.ItemReturnOutput.class);
-        checkoutDao = mock(CheckoutDao.class);
-        checkoutDto = mock(CheckoutDto.class);
-        reservationDao = mock(ReservationDao.class);
-        reservationDto = mock(ReservationDto.class);
+    @Autowired
+    JdbcOperations jdbcOperations;
 
+    @Autowired
+    BranchServices branchServices;
 
+    private BranchItemDto branchItemDto = mock(BranchItemDto.class);
 
-        when(daoManager.getBranchItemCheckoutDao()).thenReturn(branchItemCheckoutDao);
-        when(daoManager.getCheckoutDao()).thenReturn(checkoutDao);
-        when(daoManager.getReservationDao()).thenReturn(reservationDao);
-        when(daoManager.getBranchItemDao()).thenReturn(branchItemDao);
-        when(daoManager.getPatronDao()).thenReturn(patronDao);
-
-        when(branchItemCheckoutDao.getBranchItemCheckout(any())).thenReturn(branchItemCheckoutDto);
-        when(branchItemCheckoutDao.updateBranchItemCheckout(any())).thenReturn(itemReturnOutput);
-        when(checkoutDao.getCheckout(any())).thenReturn(checkoutDto);
-        when(patronDao.getPatron(itemReturnOutput)).thenReturn(patronDto);
-
+    @Before
+    public void setup(){
+        mockAppender = mock(Appender.class);
+        captor = ArgumentCaptor.forClass(LoggingEvent.class);
     }
 
+    //Test covers all functionality of service
     @Test
-    public void testReturnItemNoReservationNotOverdueNotAllReturned(){
-        Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.DAY_OF_MONTH, 1);
-        when(branchItemCheckoutDto.getDueDate()).thenReturn(new java.sql.Date(calendar.getTime().getTime()));
-        when(branchItemCheckoutDao.getNumberOfItemsReturnedFromCheckout(any())).thenReturn(1);
-        when(checkoutDto.getNumberofitems()).thenReturn(2);
-        when(reservationDao.fulfillReservation(any())).thenReturn(null);
+    public void testReturnItemIsReservedOverdueNotAllReturned(){
+        final Logger logger = (Logger) LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
+        logger.addAppender(mockAppender);
 
-        BranchServicesImpl impl = new BranchServicesImpl(daoManager);
-        impl.returnItem(branchItemDto);
+        //database already populated with branchitem id 2 and checkoutid 1 for intersection entity
+        when(branchItemDto.getBranchitemid()).thenReturn(2);
+        branchServices.returnItem(branchItemDto);
 
-        verify(branchItemCheckoutDto, times(0)).setOverdue(true);
-        verify(itemReturnOutput, times(0)).setReturned(true);
-        verify(itemReturnOutput, times(0)).setReserved(true);
-        verify(branchItemDao,times(1)).updateBranchItem(itemReturnOutput);
-        verify(itemReturnOutput, times(1)).completeReturn();
+        BranchItemCheckoutDto branchItemCheckoutDto =
+        jdbcOperations.queryForObject("SELECT * FROM branchitemcheckout WHERE branchitemid = ? AND checkoutid = ?",
+                (rs, rowNum) -> {
+                    return new BranchItemCheckoutDto(rs.getInt("checkoutid"), rs.getInt("branchitemid"), rs.getBoolean("overdue"),
+                            rs.getDate("duedate"), rs.getBoolean("renew"), rs.getDate("renewdate"), rs.getBoolean("returned"), rs.getDate("returndate"));
+                }, 2, 1);
+
+        assertTrue(branchItemCheckoutDto.isReturned());
+        assertTrue(branchItemCheckoutDto.isOverdue());
+
+        CheckoutDto checkoutDto =
+        jdbcOperations.queryForObject("SELECT * FROM checkout WHERE checkoutid = ?",
+                (rs, rowNum) -> {
+                    return new CheckoutDto(rs.getInt("checkoutid"), rs.getInt("patronid"), rs.getTimestamp("checkoutdate"),
+                            rs.getInt("numberofitems"), rs.getBoolean("overdue"), rs.getBoolean("itemsreturned"));
+                }, 1);
+
+        assertFalse(checkoutDto.isItemsreturned());
+
+        BranchItemDto branchItemDto =
+        jdbcOperations.queryForObject("SELECT * FROM branchitem WHERE branchitemid = ?",
+                (rs, rowNum) -> {
+                    return new BranchItemDto(rs.getInt("branchitemid"), rs.getBoolean("checkedout"), rs.getBoolean("reserved"),
+                            rs.getBoolean("inTransit"), rs.getInt("currentlocation"), rs.getInt("branchid"));
+                }, 2);
+
+        assertFalse(branchItemDto.isCheckedout());
+        assertTrue(branchItemDto.isReserved());
+
+        verify(mockAppender, Mockito.atLeastOnce()).doAppend(captor.capture());
+        LoggingEvent loggingEvent = captor.getValue();
+        if(loggingEvent.getLevel().equals(Level.INFO)){
+            assertTrue(loggingEvent.getFormattedMessage().startsWith("Send email to"));
+        }
 
     }
-
-    @Test
-    public void testReturnItemReservationOverdueAllReturned(){
-        Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.DAY_OF_MONTH, -1);
-        when(branchItemCheckoutDto.getDueDate()).thenReturn(new java.sql.Date(calendar.getTime().getTime()));
-        when(branchItemCheckoutDto.isRenew()).thenReturn(false);
-        when(branchItemCheckoutDao.getNumberOfItemsReturnedFromCheckout(any())).thenReturn(2);
-        when(checkoutDto.getNumberofitems()).thenReturn(2);
-        when(reservationDao.fulfillReservation(any())).thenReturn(reservationDto);
-        when(patronDto.getFirstname()).thenReturn("test1");
-        when(patronDto.getLastname()).thenReturn("test2");
-        when(patronDto.getEmail()).thenReturn("test4");
-        when(reservationDto.getReservationid()).thenReturn(3333);
-
-        BranchServicesImpl impl = new BranchServicesImpl(daoManager);
-        impl.returnItem(branchItemDto);
-
-        verify(branchItemCheckoutDto, times(1)).setOverdue(true);
-        verify(itemReturnOutput, times(1)).setReturned(true);
-        verify(checkoutDao, times(1)).updateCheckout(itemReturnOutput);
-        verify(itemReturnOutput, times(1)).setReserved(true);
-        verify(itemReturnOutput, times(1)).completeReturn();
-    }
-
-
 
 }

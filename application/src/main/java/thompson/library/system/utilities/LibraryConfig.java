@@ -20,7 +20,7 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan(basePackageClasses = {BranchItemCheckoutDao.class, BranchServices.class, ConnectionFactory.class,
+@ComponentScan(basePackageClasses = {BranchItemCheckoutDao.class, BranchServices.class, LoggingInterceptor.class,
         PatronDto.class})
 @EnableAspectJAutoProxy
 public class LibraryConfig {

@@ -4,18 +4,15 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.aop.framework.Advised;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcOperations;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import thompson.library.system.daos.*;
-import thompson.library.system.utilities.ConnectionFactory;
-import thompson.library.system.utilities.ConnectionUtil;
+import thompson.library.system.dtos.PatronDto;
 import thompson.library.system.utilities.LibraryConfig;
 
 import java.lang.reflect.Field;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.List;
 
 import static junit.framework.TestCase.assertFalse;
 import static junit.framework.TestCase.assertNotNull;
@@ -27,6 +24,9 @@ public class BranchServicesInjectTest {
 
     @Autowired
     BranchServices branchServicesProxy;
+
+    @Autowired
+    JdbcOperations jdbcOperations;
 
     @Test
     public void branchDITest(){
@@ -57,90 +57,22 @@ public class BranchServicesInjectTest {
             PatronDao patronDao = daoManager.getPatronDao();
             assertNotNull(patronDao);
 
-            //Verify each Dao has ConnectionFactory and connection util injected
-            Field connectionFactoryField = BranchItemCheckoutDaoImpl.class.getDeclaredField("connectionFactory");
-            Field connectionUtilField = BranchItemCheckoutDaoImpl.class.getDeclaredField("connectionUtil");
-            connectionFactoryField.setAccessible(true);
-            connectionUtilField.setAccessible(true);
-            ConnectionFactory connectionFactory = (ConnectionFactory) connectionFactoryField.get(branchItemCheckoutDao);
-            ConnectionUtil connectionUtil = (ConnectionUtil) connectionUtilField.get(branchItemCheckoutDao);
-            assertNotNull(connectionFactory);
-            assertNotNull(connectionUtil);
-            testConnectionAndConnectionUtil(connectionFactory, connectionUtil);
+            //Verify jdbcOperations object not null and active
+            assertNotNull(jdbcOperations);
 
-            connectionFactoryField = CheckoutDaoImpl.class.getDeclaredField("connectionFactory");
-            connectionUtilField = CheckoutDaoImpl.class.getDeclaredField("connectionUtil");
-            connectionFactoryField.setAccessible(true);
-            connectionUtilField.setAccessible(true);
-            connectionFactory = (ConnectionFactory) connectionFactoryField.get(checkoutDao);
-            connectionUtil = (ConnectionUtil) connectionUtilField.get(checkoutDao);
-            assertNotNull(connectionFactory);
-            assertNotNull(connectionUtil);
-            testConnectionAndConnectionUtil(connectionFactory, connectionUtil);
+            List<PatronDto> dtos =
+                    jdbcOperations.query("SELECT * FROM patron", (rs, rowNum) -> {
+                        return  new PatronDto(rs.getString("firstname"), rs.getString("lastname"), rs.getString("city"),
+                                rs.getString("state"), rs.getInt("zipcode"), rs.getString("streetaddress"), rs.getTimestamp("joindate"),
+                                rs.getString("email"), rs.getLong("phone"), rs.getBoolean("remotelibrary"), rs.getString("password"));
+                    });
 
-            connectionFactoryField = ReservationDaoImpl.class.getDeclaredField("connectionFactory");
-            connectionUtilField = ReservationDaoImpl.class.getDeclaredField("connectionUtil");
-            connectionFactoryField.setAccessible(true);
-            connectionUtilField.setAccessible(true);
-            connectionFactory = (ConnectionFactory) connectionFactoryField.get(reservationDao);
-            connectionUtil = (ConnectionUtil) connectionUtilField.get(reservationDao);
-            assertNotNull(connectionFactory);
-            assertNotNull(connectionUtil);
-            testConnectionAndConnectionUtil(connectionFactory, connectionUtil);
-
-            connectionFactoryField = BranchItemDaoImpl.class.getDeclaredField("connectionFactory");
-            connectionUtilField = BranchItemDaoImpl.class.getDeclaredField("connectionUtil");
-            connectionFactoryField.setAccessible(true);
-            connectionUtilField.setAccessible(true);
-            connectionFactory = (ConnectionFactory) connectionFactoryField.get(branchItemDao);
-            connectionUtil = (ConnectionUtil) connectionUtilField.get(branchItemDao);
-            assertNotNull(connectionFactory);
-            assertNotNull(connectionUtil);
-            testConnectionAndConnectionUtil(connectionFactory, connectionUtil);
-
-            connectionFactoryField = PatronDaoImpl.class.getDeclaredField("connectionFactory");
-            connectionUtilField = PatronDaoImpl.class.getDeclaredField("connectionUtil");
-            connectionFactoryField.setAccessible(true);
-            connectionUtilField.setAccessible(true);
-            connectionFactory = (ConnectionFactory) connectionFactoryField.get(patronDao);
-            connectionUtil = (ConnectionUtil) connectionUtilField.get(patronDao);
-            assertNotNull(connectionFactory);
-            assertNotNull(connectionUtil);
-            testConnectionAndConnectionUtil(connectionFactory, connectionUtil);
-
+            assertFalse(dtos.isEmpty());
         } catch (NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();
             assertFalse(true);
         } catch (Exception e) {
             e.printStackTrace();
-        }
-    }
-
-    private void testConnectionAndConnectionUtil(ConnectionFactory connectionFactory, ConnectionUtil connectionUtil) {
-        //Verify SQL connection is valid and connectionUtil works
-        Connection connection = connectionFactory.getConnection();
-        PreparedStatement query = null;
-        ResultSet resultSet = null;
-        String selectAll = "SELECT * FROM patron";
-        try {
-            connection.setAutoCommit(false);
-            query = connection.prepareStatement(selectAll);
-            resultSet = query.executeQuery();
-            assertTrue(resultSet.next());
-        } catch (SQLException e) {
-            e.printStackTrace();
-            assertFalse(true);
-        } finally {
-            connectionUtil.close(connection);
-            connectionUtil.close(query);
-            connectionUtil.close(resultSet);
-            try {
-                assertTrue(connection.isClosed());
-                assertTrue(query.isClosed());
-                assertTrue(resultSet.isClosed());
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
         }
     }
 }

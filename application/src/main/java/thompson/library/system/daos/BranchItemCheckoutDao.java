@@ -22,7 +22,6 @@ public interface BranchItemCheckoutDao {
      * a single transaction among the steps.
      */
     class ItemReturnOutput{
-        private Connection connection;
         private boolean reserved;
         private boolean returned;
         private Integer checkoutid;
@@ -31,28 +30,10 @@ public interface BranchItemCheckoutDao {
 
         private static final Logger logger = LoggerFactory.getLogger(BranchItemCheckoutDao.ItemReturnOutput.class);
 
-        public ItemReturnOutput(Connection connection, Integer checkoutid, Integer branchitemid, boolean reserved) {
-            this.connection = connection;
+        public ItemReturnOutput(Integer checkoutid, Integer branchitemid, boolean reserved) {
             this.reserved = reserved;
             this.checkoutid = checkoutid;
             this.branchitemid = branchitemid;
-        }
-
-        public void completeReturn(){
-            if(connection != null){
-                try {
-                    connection.commit();
-                    connection.close();
-                } catch (SQLException e) {
-                    logger.error("SQL exception during commit and rollback for patronid {} and branchitemid {}",
-                            checkoutid, branchitemid, e);
-                    throw new IllegalStateException("SQL error during commit and rollback. See log for more details");
-                }
-            }
-        }
-
-        public Connection getConnection() {
-            return connection;
         }
 
         public boolean isReserved() {
