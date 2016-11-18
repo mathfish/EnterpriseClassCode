@@ -11,11 +11,13 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import thompson.library.system.daos.BranchItemCheckoutDao;
 import thompson.library.system.dtos.PatronDto;
+import thompson.library.system.remote.Application;
 import thompson.library.system.services.BranchServices;
 
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 
 @Configuration
@@ -27,10 +29,13 @@ public class LibraryConfig {
 
     @Bean
     public BasicDataSource dataSource(){
-        File propfile = new File("database.properties");
+        //File propfile = new File("/Users/jonathanthompson/EnterpriseDesign/Code/2016FA-jthomp97/application/database.properties");
+        InputStream in = this.getClass().getClassLoader().getResourceAsStream("database.properties");
+        //File propfile = new File("database.properties");
         Properties properties = new Properties();
         try {
-            properties.load(new FileReader(propfile));
+            //properties.load(new FileReader(propfile));
+            properties.load(in);
         } catch (IOException e) {
             e.printStackTrace();
         }

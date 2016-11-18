@@ -1,10 +1,28 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.2.RELEASE")
+    }
+}
+
 
 apply plugin: 'java'
 apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'war'
 
 repositories {
     mavenCentral()
 }
+
+//war {
+//    from('src/resources'){
+//        include 'database.properties'
+//    }
+//
+//}
 
 dependencies {
     compile 'org.apache.derby:derby:10.11.1.1'
@@ -12,14 +30,19 @@ dependencies {
     compile 'ch.qos.logback:logback-classic:1.1.7'
     compile 'ch.qos.logback:logback-core:1.1.7'
     compile 'org.hsqldb:hsqldb:2.3.4'
-    compile 'org.springframework:spring-context:4.3.3.RELEASE'
+//    compile 'org.springframework:spring-context:4.3.3.RELEASE'
     compile 'org.aspectj:aspectjweaver:1.8.9'
     compile 'org.aspectj:aspectjrt:1.8.9'
     compile 'org.apache.commons:commons-dbcp2:2.1.1'
     compile 'org.springframework:spring-jdbc:4.3.3.RELEASE'
+    compile("org.springframework.boot:spring-boot-starter-web")
+
 
     testCompile 'junit:junit:4.12'
     testCompile 'org.apache.derby:derby:10.11.1.1'
     testCompile 'org.mockito:mockito-all:1.9.5'
-    testCompile 'org.springframework:spring-test:4.3.3.RELEASE'
+    //testCompile 'org.springframework:spring-test:4.3.3.RELEASE'
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+
+    providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
 }

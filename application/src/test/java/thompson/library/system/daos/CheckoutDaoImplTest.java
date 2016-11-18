@@ -8,6 +8,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 import thompson.library.system.dtos.CheckoutDto;
+import thompson.library.system.remote.Application;
 import thompson.library.system.utilities.LibraryConfig;
 
 import java.util.Calendar;
