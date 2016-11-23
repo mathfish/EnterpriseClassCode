@@ -1,0 +1,17 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+				  xmlns:gs="http://spring.io/guides/gs-producing-web-service">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <gs:getPatronCreateRequest>
+         <gs:firstname>Bob</gs:firstname>
+         <gs:lastname></gs:lastname>
+         <gs:city></gs:city>
+         <gs:state></gs:state>
+         <gs:zip></gs:zip>
+         <gs:address></gs:address>
+         <gs:email>emailforreal</gs:email>
+         <gs:phone></gs:phone>
+         <gs:password></gs:password>
+      </gs:getPatronCreateRequest>
+   </soapenv:Body>
+</soapenv:Envelope>
