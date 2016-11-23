@@ -157,11 +157,22 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-web/1.4.2.RELEASE/7145c258f8fba4067f9e3880fad23586c9b8ff10/spring-boot-starter-web-1.4.2.RELEASE.jar!/"/>
+          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-ws/1.4.2.RELEASE/e02a1039dd8eb2d3f71950ccb3ce908a7b68ab2f/spring-boot-starter-ws-1.4.2.RELEASE.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-web/1.4.2.RELEASE/a18cc78388170712a581d2d645f7871aff2adae8/spring-boot-starter-web-1.4.2.RELEASE-sources.jar!/"/>
+          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-ws/1.4.2.RELEASE/6481f6ce4dce0cd00e2cb8dcdc6362a234cc6dd4/spring-boot-starter-ws-1.4.2.RELEASE-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/wsdl4j/wsdl4j/1.6.1/9e9cee064ec2c9c01e0cd6b8bffd1a7013d81f65/wsdl4j-1.6.1.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/wsdl4j/wsdl4j/1.6.1/a1b6a37d5c513582edfd7c7e4378411950440396/wsdl4j-1.6.1-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -234,44 +245,33 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.hibernate/hibernate-validator/5.2.4.Final/fb18766b576aa6632bcfe9a20a023cbd52bf9769/hibernate-validator-5.2.4.Final.jar!/"/>
+          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-web/1.4.2.RELEASE/7145c258f8fba4067f9e3880fad23586c9b8ff10/spring-boot-starter-web-1.4.2.RELEASE.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.hibernate/hibernate-validator/5.2.4.Final/b02d7b80cdadbfc51106252238fc1a667c8287eb/hibernate-validator-5.2.4.Final-sources.jar!/"/>
+          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-web/1.4.2.RELEASE/a18cc78388170712a581d2d645f7871aff2adae8/spring-boot-starter-web-1.4.2.RELEASE-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.8.4/1c36c81e79cacdf48116afba8495e3393d267ba1/jackson-databind-2.8.4.jar!/"/>
+          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.springframework/spring-oxm/4.3.4.RELEASE/d8ad912a13f1b23def6ad87e336a5fcd8692ab9c/spring-oxm-4.3.4.RELEASE.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.8.4/2b4edfb6d6bad1710951837b4911eddd1415228f/jackson-databind-2.8.4-sources.jar!/"/>
+          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.springframework/spring-oxm/4.3.4.RELEASE/3da350dca2601d978c025c59ce07aca44e03b639/spring-oxm-4.3.4.RELEASE-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/4.3.4.RELEASE/719f05404ba8a9de1516398d31d9622042584f0d/spring-web-4.3.4.RELEASE.jar!/"/>
+          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.springframework.ws/spring-ws-core/2.3.1.RELEASE/6c3607f29ac171c93024c387c524a83298314773/spring-ws-core-2.3.1.RELEASE.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/4.3.4.RELEASE/ad08cd52a54c665d820e58f75a7147af13c407f/spring-web-4.3.4.RELEASE-sources.jar!/"/>
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/4.3.4.RELEASE/79529d7ea72045e92e3dbeb0f4f6919093f47137/spring-webmvc-4.3.4.RELEASE.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES>
-          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/4.3.4.RELEASE/f817c5a05ef052584a707442f956645fd7c1af77/spring-webmvc-4.3.4.RELEASE-sources.jar!/"/>
+          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.springframework.ws/spring-ws-core/2.3.1.RELEASE/53ec03badcf9a66dbe2b9a701fdd62085793facf/spring-ws-core-2.3.1.RELEASE-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -316,6 +316,116 @@
         <JAVADOC/>
         <SOURCES>
           <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.yaml/snakeyaml/1.17/63577e87886c76228db9f8a2c50ea43cde5072eb/snakeyaml-1.17-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.hibernate/hibernate-validator/5.2.4.Final/fb18766b576aa6632bcfe9a20a023cbd52bf9769/hibernate-validator-5.2.4.Final.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.hibernate/hibernate-validator/5.2.4.Final/b02d7b80cdadbfc51106252238fc1a667c8287eb/hibernate-validator-5.2.4.Final-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.8.4/1c36c81e79cacdf48116afba8495e3393d267ba1/jackson-databind-2.8.4.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.8.4/2b4edfb6d6bad1710951837b4911eddd1415228f/jackson-databind-2.8.4-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/4.3.4.RELEASE/719f05404ba8a9de1516398d31d9622042584f0d/spring-web-4.3.4.RELEASE.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/4.3.4.RELEASE/ad08cd52a54c665d820e58f75a7147af13c407f/spring-web-4.3.4.RELEASE-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/4.3.4.RELEASE/79529d7ea72045e92e3dbeb0f4f6919093f47137/spring-webmvc-4.3.4.RELEASE.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/4.3.4.RELEASE/f817c5a05ef052584a707442f956645fd7c1af77/spring-webmvc-4.3.4.RELEASE-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.springframework.ws/spring-xml/2.3.1.RELEASE/6dbd6f848e28b32ed4c939b4d3bda218cb207a5b/spring-xml-2.3.1.RELEASE.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.springframework.ws/spring-xml/2.3.1.RELEASE/702e6a048640d9108e45a59523ad63836fc8fe7/spring-xml-2.3.1.RELEASE-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/4.3.4.RELEASE/43f3d4a43a8dcc91137e092b981101332a645e4b/spring-aop-4.3.4.RELEASE.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/4.3.4.RELEASE/32449a7c2d19a8f471b97a1e279ca19059016a0a/spring-aop-4.3.4.RELEASE-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context/4.3.4.RELEASE/c8086505715fba4927fed3d7e3314692817413b6/spring-context-4.3.4.RELEASE.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context/4.3.4.RELEASE/4ed48ee8ab4a97ae76c33e95da351a47f5958bad/spring-context-4.3.4.RELEASE-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.slf4j/jcl-over-slf4j/1.7.21/331b564a3a42f002a0004b039c1c430da89062cd/jcl-over-slf4j-1.7.21.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.slf4j/jcl-over-slf4j/1.7.21/c565ca9c1239b38fe4a70e4101086c4e880f6358/jcl-over-slf4j-1.7.21-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.slf4j/jul-to-slf4j/1.7.21/2f22c882ffa479d1e9ff4eb0e8e2c29f2a0871ed/jul-to-slf4j-1.7.21.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.slf4j/jul-to-slf4j/1.7.21/5f537a1ecb32fe3173a95f3c2c233f35f250faef/jul-to-slf4j-1.7.21-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.slf4j/log4j-over-slf4j/1.7.21/b3700d97464d99bdcd42c0177d6e7951c94d75ff/log4j-over-slf4j-1.7.21.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.slf4j/log4j-over-slf4j/1.7.21/7d7494c4241d0dee8bf0680187282d3dc19844e/log4j-over-slf4j-1.7.21-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -377,28 +487,6 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/4.3.4.RELEASE/43f3d4a43a8dcc91137e092b981101332a645e4b/spring-aop-4.3.4.RELEASE.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES>
-          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/4.3.4.RELEASE/32449a7c2d19a8f471b97a1e279ca19059016a0a/spring-aop-4.3.4.RELEASE-sources.jar!/"/>
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context/4.3.4.RELEASE/c8086505715fba4927fed3d7e3314692817413b6/spring-context-4.3.4.RELEASE.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES>
-          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context/4.3.4.RELEASE/4ed48ee8ab4a97ae76c33e95da351a47f5958bad/spring-context-4.3.4.RELEASE-sources.jar!/"/>
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
           <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.springframework/spring-expression/4.3.4.RELEASE/5573955b5373669be0e352a1eb5dc9c87b069cb6/spring-expression-4.3.4.RELEASE.jar!/"/>
         </CLASSES>
         <JAVADOC/>
@@ -410,34 +498,10 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.slf4j/jcl-over-slf4j/1.7.21/331b564a3a42f002a0004b039c1c430da89062cd/jcl-over-slf4j-1.7.21.jar!/"/>
+          <root url="file://$MODULE_DIR$/build/classes/jaxb"/>
         </CLASSES>
         <JAVADOC/>
-        <SOURCES>
-          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.slf4j/jcl-over-slf4j/1.7.21/c565ca9c1239b38fe4a70e4101086c4e880f6358/jcl-over-slf4j-1.7.21-sources.jar!/"/>
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.slf4j/jul-to-slf4j/1.7.21/2f22c882ffa479d1e9ff4eb0e8e2c29f2a0871ed/jul-to-slf4j-1.7.21.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES>
-          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.slf4j/jul-to-slf4j/1.7.21/5f537a1ecb32fe3173a95f3c2c233f35f250faef/jul-to-slf4j-1.7.21-sources.jar!/"/>
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.slf4j/log4j-over-slf4j/1.7.21/b3700d97464d99bdcd42c0177d6e7951c94d75ff/log4j-over-slf4j-1.7.21.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES>
-          <root url="jar:///Users/jonathanthompson/.gradle/caches/modules-2/files-2.1/org.slf4j/log4j-over-slf4j/1.7.21/7d7494c4241d0dee8bf0680187282d3dc19844e/log4j-over-slf4j-1.7.21-sources.jar!/"/>
-        </SOURCES>
+        <SOURCES/>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="TEST">

@@ -17,12 +17,55 @@ repositories {
     mavenCentral()
 }
 
-//war {
-//    from('src/resources'){
-//        include 'database.properties'
-//    }
-//
-//}
+task genJaxb {
+    ext.sourcesDir = "${buildDir}/generated-sources/jaxb"
+    ext.classesDir = "${buildDir}/classes/jaxb"
+    ext.schema = "src/main/resources/patron.xsd"
+
+    outputs.dir classesDir
+
+    doLast() {
+        project.ant {
+            taskdef name: "xjc", classname: "com.sun.tools.xjc.XJCTask",
+                    classpath: configurations.jaxb.asPath
+            mkdir(dir: sourcesDir)
+            mkdir(dir: classesDir)
+
+            xjc(destdir: sourcesDir, schema: schema) {
+                arg(value: "-wsdl")
+                produces(dir: sourcesDir, includes: "**/*.java")
+            }
+
+            javac(destdir: classesDir, source: 1.6, target: 1.6, debug: true,
+                    debugLevel: "lines,vars,source",
+                    classpath: configurations.jaxb.asPath) {
+                src(path: sourcesDir)
+                include(name: "**/*.java")
+                include(name: "*.java")
+            }
+
+            copy(todir: classesDir) {
+                fileset(dir: sourcesDir, erroronmissingdir: false) {
+                    exclude(name: "**/*.java")
+                }
+            }
+        }
+    }
+}
+
+compileJava{
+    dependsOn "genJaxb"
+}
+
+configurations {
+    jaxb
+}
+
+jar {
+    baseName = 'gs-producing-web-service'
+    version =  '0.1.0'
+    from genJaxb.classesDir
+}
 
 dependencies {
     compile 'org.apache.derby:derby:10.11.1.1'
@@ -35,14 +78,19 @@ dependencies {
     compile 'org.aspectj:aspectjrt:1.8.9'
     compile 'org.apache.commons:commons-dbcp2:2.1.1'
     compile 'org.springframework:spring-jdbc:4.3.3.RELEASE'
-    compile("org.springframework.boot:spring-boot-starter-web")
+//    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-ws")
 
+    compile("wsdl4j:wsdl4j:1.6.1")
+    jaxb("com.sun.xml.bind:jaxb-xjc:2.2.4-1")
+    compile(files(genJaxb.classesDir).builtBy(genJaxb))
 
     testCompile 'junit:junit:4.12'
     testCompile 'org.apache.derby:derby:10.11.1.1'
     testCompile 'org.mockito:mockito-all:1.9.5'
     //testCompile 'org.springframework:spring-test:4.3.3.RELEASE'
     testCompile('org.springframework.boot:spring-boot-starter-test')
+
 
     providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
 }
