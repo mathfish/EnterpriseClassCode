@@ -24,7 +24,7 @@ public class Application implements CommandLineRunner{
 
     @Override
     public void run(String[] args) throws Exception {
-        String email = "testemail@email.com";
+        String email = "testemail@soap";
         if (arguments.length > 0) {
             email = arguments[0];
         }

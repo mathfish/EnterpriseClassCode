@@ -20,6 +20,11 @@ repositories {
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
+jar {
+    baseName = 'restclient'
+    version = '0.1.0'
+}
+
 dependencies {
     compile("org.springframework.boot:spring-boot-starter")
     compile("org.springframework:spring-web")

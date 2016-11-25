@@ -22,7 +22,7 @@ public class RemoteController {
                               @RequestParam(value = "state", defaultValue = "AA") String state,
                               @RequestParam(value = "zip", defaultValue = "11111") String zip,
                               @RequestParam(value = "address", defaultValue = "testaddress") String address,
-                              @RequestParam(value="email", defaultValue="testemail") String email,
+                              @RequestParam(value="email", defaultValue="testemail@rest") String email,
                               @RequestParam(value = "phone", defaultValue = "1111111111") String phone,
                               @RequestParam(value = "password", defaultValue = "pword") String password
                               ) {

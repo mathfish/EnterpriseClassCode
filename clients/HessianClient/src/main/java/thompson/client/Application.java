@@ -13,8 +13,9 @@ public class Application {
     public static void main(String[] args) {
         ApplicationContext ctx = SpringApplication.run(Application.class, args);
         PatronService service = (PatronService)ctx.getBean("patronclient");
-        String email = "testemail@email.com";
-        if(args.length > 0){
+        String email = "testemail@hessian";
+        if(args.length > 1){
+            //first argument is server port for hessian client
             email = args[0];
         }
         String response = service.createPatron("testfirst", "testlast", "testcity", "AA", 11111, "test address", email,

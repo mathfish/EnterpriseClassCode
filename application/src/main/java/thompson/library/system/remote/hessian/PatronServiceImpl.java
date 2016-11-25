@@ -22,10 +22,8 @@ public class PatronServiceImpl implements PatronService{
             libraryServices.createPatron(firstname, lastname, city, state, zip, address, joinDate, email, phone, false,
                     password);
             return "Response Code[1]: Patron successfully created!";
-            //return  new HessianResponse(1, "Patron successfully created!");
         } catch (EntryExistsException e) {
             return "Response Code[0]: Patron already exists with email " + email;
-            //return new HessianResponse(0, "ERROR: Patron already exists with email " + email);
         }
     }
 }
