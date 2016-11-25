@@ -1,0 +1,28 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://spring.io/guides/gs-producing-web-service"
+           targetNamespace="http://spring.io/guides/gs-producing-web-service" elementFormDefault="qualified">
+
+    <xs:element name="getPatronCreateRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="firstname" type="xs:string" default="testfirst"/>
+                <xs:element name="lastname" type="xs:string" default="testlast"/>
+                <xs:element name="city" type="xs:string" default="testcity"/>
+                <xs:element name="state" type="xs:string" default="AA"/>
+                <xs:element name="zip" type="xs:int" default="11111"/>
+                <xs:element name="address" type="xs:string" default="test address"/>
+                <xs:element name="email" type="xs:string" default="testemail"/>
+                <xs:element name="phone" type="xs:long" default="2222222222"/>
+                <xs:element name="password" type="xs:string" default="testpwd"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getPatronCreateResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="code" type="xs:int"/>
+                <xs:element name="message" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
