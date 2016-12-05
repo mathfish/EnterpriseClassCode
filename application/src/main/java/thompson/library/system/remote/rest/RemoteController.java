@@ -16,7 +16,7 @@ public class RemoteController {
     LibraryServices service;
 
     @RequestMapping("/patron")
-    public Response greeting( @RequestParam(value="firstname", defaultValue = "testfirst") String firstname,
+    public Response createPatron( @RequestParam(value="firstname", defaultValue = "testfirst") String firstname,
                               @RequestParam(value = "lastname", defaultValue = "testlast") String lastname,
                               @RequestParam(value = "city", defaultValue = "testcity") String city,
                               @RequestParam(value = "state", defaultValue = "AA") String state,
@@ -35,7 +35,5 @@ public class RemoteController {
         } catch (EntryExistsException e) {
             return new Response(0,"ERROR: Patron already exists with email " + email);
         }
-
     }
-
 }
