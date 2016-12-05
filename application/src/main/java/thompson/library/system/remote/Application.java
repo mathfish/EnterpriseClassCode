@@ -17,6 +17,7 @@ import thompson.library.system.daos.BranchItemCheckoutDao;
 import thompson.library.system.dtos.PatronDto;
 import thompson.library.system.remote.hessian.PatronService;
 import thompson.library.system.services.BranchServices;
+import thompson.library.system.uicontroller.UIController;
 import thompson.library.system.utilities.LoggingInterceptor;
 
 import java.io.File;
@@ -26,7 +27,7 @@ import java.util.Properties;
 
 @SpringBootApplication
 @ComponentScan(basePackageClasses = {BranchItemCheckoutDao.class, BranchServices.class, LoggingInterceptor.class,
-        PatronDto.class, Application.class})
+        PatronDto.class, Application.class, UIController.class})
 public class Application extends SpringBootServletInitializer {
 
     @Autowired
