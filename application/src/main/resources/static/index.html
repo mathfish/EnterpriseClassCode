@@ -4,29 +4,52 @@
     <title>Create Patron Form</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
-<body>
+<body bgcolor="#e6e6fa">
+<div align="center">
+<h2>Create Patron</h2>
     <p>Enter Patron Information</p>
     <form action="/application/CreatePatron" method="get">
-        <label for="firstname"> First Name: </label>
-        <input type="text" id="firstname" name="firstname"><br>
-        <label for="lastname">Last Name: </label>
-        <input type="text" id="lastname" name="lastname"><br>
-        <label for="city">City: </label>
-        <input type="text" id="city" name="city"><br>
-        <label for="state">State Abbreviation(eg CA): </label>
-        <input type="text" id="state" name="state" pattern="[A-Za-z]{2}"><br>
-        <label for="zip">Zip(#####): </label>
-        <input type="text" id="zip" name="zip" pattern="\d{5}"><br>
-        <label for="address">Address: </label>
-        <input type="text" id="address" name="address"><br>
-        <label for="email">Email: </label>
-        <input type="text" id="email" name="email"><br>
-        <label for="phone">Phone(##########): </label>
-        <input type="text" id="phone" name="phone" pattern="\d{10}"><br>
-        <label for="password">Password: </label>
-        <input type="text" id="password" name="password"><br>
+        <table>
+            <tr>
+                <td><label for="firstname"> First Name: </label></td>
+                <td><input type="text" id="firstname" name="firstname"></td>
+            </tr>
+            <tr>
+                <td><label for="lastname">Last Name: </label></td>
+                <td><input type="text" id="lastname" name="lastname"></td>
+            </tr>
+            <tr>
+                <td><label for="city">City: </label></td>
+                <td><input type="text" id="city" name="city"></td>
+            </tr>
+            <tr>
+                <td><label for="state">State: </label></td>
+                <td><input type="text" id="state" name="state" pattern="[A-Za-z]{2}" title="State must be two letters"></td>
+            </tr>
+            <tr>
+                <td><label for="zip">Zip(#####): </label></td>
+                <td><input type="text" id="zip" name="zip" pattern="\d{5}" title="Zip must be 5 digits"></td>
+            </tr>
+            <tr>
+                <td><label for="address">Address: </label></td>
+                <td><input type="text" id="address" name="address"></td>
+            </tr>
+            <tr>
+                <td><label for="email">Email: </label></td>
+                <td><input type="text" id="email" name="email"></td>
+            </tr>
+            <tr>
+                <td><label for="phone">Phone(##########): </label></td>
+                <td><input type="text" id="phone" name="phone" pattern="\d{10}" title="Phone must be 10 digits"></td>
+            </tr>
+            <tr>
+                <td><label for="password">Password: </label></td>
+                <td><input type="text" id="password" name="password"></td>
+            </tr>
+        </table>
 
         <input type="submit" value="Submit">
     </form>
+</div>
 </body>
 </html>
