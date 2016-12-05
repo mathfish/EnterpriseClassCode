@@ -30,6 +30,6 @@ public class UIController {
         Response response = restTemplate.getForObject("http://localhost:8080/application/patron?"+args, Response.class);
         String message = "Response Code["+response.getId()+"]: "+response.getContent();
         model.addAttribute("message", message);
-        return "greeting";
+        return "result";
     }
 }
