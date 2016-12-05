@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 import thompson.library.system.daos.*;
 
 import thompson.library.system.dtos.*;
@@ -28,6 +29,7 @@ public class BranchServicesImpl implements BranchServices {
      * checkout row if all items are returned. Tallying fines and determining when the total checkout is overdue would
      * be done in other processing
      */
+    @Transactional
     @Override
     public void returnItem(BranchItemDto branchItemDto) {
 

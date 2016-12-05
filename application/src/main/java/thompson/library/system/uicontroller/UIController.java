@@ -40,9 +40,9 @@ public class UIController {
         return "patron";
     }
 
-    @RequestMapping("/ItemReturn")
-    public String returnItem(@RequestParam(value="branchItemId", defaultValue = "2") int branchItemId, Model model){
-        BranchItemDto dto = new BranchItemDto(branchItemId, true, false, false, 1);
+    @RequestMapping("/ReturnItem")
+    public String returnItem(@RequestParam(value="branchItemId", defaultValue = "2") String branchItemId, Model model){
+        BranchItemDto dto = new BranchItemDto(Integer.parseInt(branchItemId), true, false, false, 1);
         try {
             branchServices.returnItem(dto);
             model.addAttribute("message","Item Returned Successfully");
