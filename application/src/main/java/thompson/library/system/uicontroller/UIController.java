@@ -47,7 +47,7 @@ public class UIController {
             branchServices.returnItem(dto);
             model.addAttribute("message","Item Returned Successfully");
         } catch(Exception ex){
-            model.addAttribute("message","Item Not Return Successfully");
+            model.addAttribute("message","Item Not Returned Successfully. Verify this is the correct id.");
             log.info("Not returned due to {}", ex);
         }
         return "item";
