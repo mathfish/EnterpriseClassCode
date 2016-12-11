@@ -1,6 +1,6 @@
 ----------------------------------------------------------------
-Sun Dec 04 23:52:15 EST 2016:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.2 - (1629631): instance a816c00e-0158-cd53-4139-0000033f4ad0 
+Sat Dec 10 19:24:32 EST 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.2 - (1629631): instance a816c00e-0158-eb44-4f29-0000033bc3f0 
 on database directory /Users/jonathanthompson/EnterpriseDesign/Code/2016FA-jthomp97/database/javadb/librarydb with class loader sun.misc.Launcher$AppClassLoader@6f94fa3e 
 Loaded from file:/Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/db/lib/derby.jar
 java.vendor=Oracle Corporation
@@ -12,8 +12,8 @@ os.version=10.11.6
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
 ----------------------------------------------------------------
-Sun Dec 04 23:52:27 EST 2016: Shutting down Derby engine
+Sat Dec 10 19:24:39 EST 2016: Shutting down Derby engine
 ----------------------------------------------------------------
-Sun Dec 04 23:52:27 EST 2016:
-Shutting down instance a816c00e-0158-cd53-4139-0000033f4ad0 on database directory /Users/jonathanthompson/EnterpriseDesign/Code/2016FA-jthomp97/database/javadb/librarydb with class loader sun.misc.Launcher$AppClassLoader@6f94fa3e 
+Sat Dec 10 19:24:39 EST 2016:
+Shutting down instance a816c00e-0158-eb44-4f29-0000033bc3f0 on database directory /Users/jonathanthompson/EnterpriseDesign/Code/2016FA-jthomp97/database/javadb/librarydb with class loader sun.misc.Launcher$AppClassLoader@6f94fa3e 
 ----------------------------------------------------------------
